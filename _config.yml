@@ -1,0 +1,7 @@
+
+name: dev.relink.io
+
+exclude: [README.md, LICENSE]
+
+include: [api/.htaccess, sdk/.htaccess]
+
