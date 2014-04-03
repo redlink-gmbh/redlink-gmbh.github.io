@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <title>Redlink Developers - Redlink GmbH</title>
+
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="description" content="Redlink Developers site" />
+      <meta name="author" content="RedLink GmbH" />
+
+      <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,700" rel="stylesheet" type="text/css">
+      <link href="resources/css/bootplus.css" rel="stylesheet" />
+      <link href="resources/css/bootplus-responsive.css" rel="stylesheet" />
+      <link href="resources/css/font-awesome.css" rel="stylesheet" />
+      <!--[if IE 7]>
+      <link rel="stylesheet" href="resources/css/font-awesome-ie7.min.css" />
+      <![endif]-->
+      <link href="resources/css/prettify.css" rel="stylesheet" />
+      <link href="resources/css/redlink.css" rel="stylesheet" />
+
+      <link rel="apple-touch-icon-precomposed" sizes="144x144" href="resources/ico/redlink-apple-touch-icon-144.png" />
+      <link rel="apple-touch-icon-precomposed" sizes="114x114" href="resources/redlink-ico/apple-touch-icon-114.png" />
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="resources/redlink-ico/apple-touch-icon-72.png" />
+      <link rel="apple-touch-icon-precomposed" href="resources/ico/redlink-apple-touch-icon-57.png" />
+      <link rel="shortcut icon" href="resources/ico/favicon.png" />
+   </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="http://dev.redlink.io"><img src="resources/img/redlink-developers.png" alt="Redlink Developers" /></a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="http://dev.redlink.io">Home</a></li>
+              <li><a href="api">API</a></li>
+              <li><a href="sdk">SDK</a></li>
+              <li><a href="plugins">Plugins</a></li>
+              <li><a href="demos">Demos</a></li>
+              <li><a href="faq">FAQ</a></li>
+              <li><a href="contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <h1>Redlink Developers</h1>
+
+      <p>
+        <a href="#getting-started">Getting Started</a> with the Redlink Platform is easy. 
+        Jump right into the <a href="api">API documentation</a>, download the 
+        <a href="sdk">SDK</a>, or <a href="http://my.redlink.io">manage your apps</a>. 
+      </p>
+
+    </div>
+
+    <div class="container">
+
+      <div class="row">
+        <div class="span12 card">
+          <h2 id="getting-started" class="card-heading simple">Welcome</h2>
+          <div class="card-body">
+            <p>
+              The <strong>Redlink Platform</strong> consists of a number of services that are offered to users through a REST
+              <a href="api">API</a>. The Platform provides three main services: Redlink Content Analysis, Redlink Linked Data 
+              Publishing and Redlink Semantic Search. 
+            </p>
+            <p>
+              The Redlink Platform is implemented as "<em>software as a service</em>" (SaaS) running on a distributed cloud infrastructure. Users 
+              can access the system here through a uniform web service <a href="api">API</a> using a private key to identify themselves. For the most 
+              common web frameworks, we will provide <a href="plugins">plugins</a> providing out-of-the-box services. All requests to the API are handled 
+              by a single gateway which takes care of accounting and forwards the requests to backend clusters providing 
+              the necessary functionality. 
+            </p>
+            <p>
+              We are currently in <strong>private beta</strong> testing, so if you would like an invitation please 
+              <a href="http://dev.redlink.io/contact">contact us</a>. 
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="container">
+
+      <div class="row">
+        <div class="span12 card">
+          <h2 id="getting-started" class="card-heading simple">Getting Started</h2>
+          <div class="card-body">
+            <p>
+              The Redlink API provides a set of RESTful web services, grouped according
+              their purpose: content analysis, semantic search and linked data publishing.
+              It provides full support for implementing semantic enrichment and content
+              discovery workflow.
+            </p>
+            <ul>
+              <li>
+                Give the <a href="demos/annotation/generic">annotation tool</a> a try.
+                You can enhance your content against a standard setup of the Redlink 
+                enhancement engine, which can be improved by customizing the vocabularies used.
+              </li>
+              <li>
+                <a href="http://redlink.co/get-started/">Sign-up</a> to access a more advanced experience
+                and <a href="http://my.redlink.io">manage your application</a>.
+              </li>
+              <li>
+                Read the <a href="api">API documentation</a> and
+                play with our <a href="console">API console</a>.
+              </li>
+              <li>
+                Code with the <a href="sdk">SDK</a>s.
+              </li>
+              <li>
+                Use one of our available <a href="plugins">plugins</a> or add yours.
+              </li>
+            </ul>
+            <p>
+              It covers the entire workflow
+              enterprises may need with a seamless platform and technology by providing APIs to 
+              access the platform SDKs for major programming languages, where plugins could be 
+              developed for leading content management platforms. For further details, please 
+              refer to the normative <a href="api">API documentation</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="container">
+
+      <div class="row">
+        <div class="span12">
+          <h2 id="api">What can I do?</h2>
+          <p>
+            The Redlink API provides a set of RESTful web services, grouped according
+            their purpose: content analysis, semantic search and linked data publishing.
+            It provides full support for implementing semantic enrichment and content
+            discovery workflow.
+          </p>
+          <div class="row">
+            <div class="span3 offset1">
+              <div class="card workflow">
+                <div class="card-body">
+                  <span class="bubble"><a href="api">1</a></span>
+                  <p>upload your background knowledge</p>
+                  <p class="sub">represented by dataset, vocabularies and data schemas</p>
+                </div>
+              </div>
+            </div>
+            <div class="span3">
+              <div class="card workflow">
+                <div class="card-body">
+                  <span class="bubble"><a href="api">2</a></span>
+                  <p>select your content analysis needs</p>
+                  <p class="sub">entity extraction, NLP analysis, classification, content segmentation</p>
+                </div>
+              </div>
+            </div>
+            <div class="span3">
+              <div class="card workflow">
+                <div class="card-body">
+                  <span class="bubble"><a href="api">3</a></span>
+                  <p>push enhanced/linked data to your business processes</p>
+                  <p class="sub">defined by partners, semantic search for example</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <p>
+            When the API will be fully functionall, such <a href="http://redlink.co/products/develop/">workflow</a> would allow you to:
+          </p>
+          <dl>
+            <dt>Entity extraction</dt><dd>identify the proper nouns, i.e. people, organizations, locations, custom concepts, other things, etc.</dd>
+            <dt>Entity reconciliation</dt><dd>identify ranked list of potential entities matching a criteria</dd>
+            <dt>Topic classification</dt><dd>classify content in a knowledge schema</dd>
+            <dt>Content segmentation</dt><dd>divide content into meaningful units, such as words, sentences or topics</dd>
+            <dt>Content summatization</dt><dd>authomatic generation of summaries</dd>
+            <dt>Sentiment analysis</dt><dd>determine the overall sentiment</dd>
+            <dt>Language detection</dt><dd>detect 100+ languages</dd>
+            <dt>Dataset management</dt><dd>upload and edit RDF datasets</dd>
+            <dt>Dataset publication</dt><dd>publish your datasets as Linked Data</dd>
+            <dt>Semantic Search</dt><dd>perform meaningful search over your data</dd>
+            <dt></dt><dd>and much more to come...</dd>
+          </dl>
+          <p>
+            Beyond another NLP engine, Redlink gets the best of all available NLP tools
+            for providing  a more advanced experience based on both generic and custom 
+            datasets.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="container">
+
+      <div class="row">
+        <div class="span12">
+          <h2 id="sdk">SDK</h2>
+          <p>
+            The <a href="sdk">Redlink SDK</a> gives you a group of APIs along with client libraries, 
+            language-specific examples, and documentation to help you develop awesome 
+            appications that integrate with Redlink.
+          </p> 
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="span3">
+            <div class="card sdk">
+               <h3 class="card-heading simple">Java SDK</h3>
+               <div class="card-body">
+                  <p class="centered">
+                    Use the Redlink API from Java
+                  </p>
+                  <p class="centered">
+                    <img src="resources/img/java.png" alt="java" class="img-circle" />
+                  </p>
+               </div>
+               <div class="card-actions">
+                  <a class="btn btn-block" href="sdk/#java">View Details</a>
+               </div>
+            </div>
+        </div>
+        <div class="span3">
+            <div class="card sdk">
+               <h3 class="card-heading simple">PHP SDK</h3>
+               <div class="card-body">
+                  <p class="centered">
+                    Use the Redlink API from PHP
+                  </p>
+                  <p class="centered">
+                    <img src="resources/img/php.png" alt="php" class="img-circle" />
+                  </p>
+               </div>
+               <div class="card-actions">
+                  <a class="btn btn-block" href="sdk/#php">View Details</a>
+               </div>
+            </div>
+        </div>
+        <div class="span3">
+            <div class="card sdk">
+               <h3 class="card-heading simple">Javascript SDK</h3>
+               <div class="card-body">
+                  <p class="centered">
+                    Use the Redlink API from Javascript
+                  </p>
+                  <p class="centered">
+                    <img src="resources/img/js.png" alt="javascript" class="img-circle" />
+                  </p>
+               </div>
+               <div class="card-actions">
+                  <a class="btn btn-block" href="sdk/#javascript">View Details</a>
+               </div>
+            </div>
+        </div>
+        <div class="span3">
+            <div class="card sdk">
+               <h3 class="card-heading simple">Python SDK</h3>
+               <div class="card-body">
+                  <p class="centered">
+                    Use the Redlink API from Python
+                  </p>
+                  <p class="centered">
+                    <img src="resources/img/python.png" alt="python" class="img-circle" />
+                  </p>
+               </div>
+               <div class="card-actions">
+                  <a class="btn btn-block" href="sdk/#python">View Details</a>
+               </div>
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span12">
+          <p>
+            If you're a new Redlink developer, we recommend you download the SDK
+            bundle to quickly start developing against our API. The SDK is provided
+            for a limited set of languages; so if it does not covers yours, contact
+            us for further information.
+          </p>  
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="span6">
+            <p>
+              Redlink Developers (<a href="terms">terms of service</a>)
+            </p>
+            <p>
+              <a href="http://redlink.co">Redlink GmbH © 2013-2014</a> <br/>
+            </p>
+          </div>
+          <div class="span6">
+            <span>
+              <a href="http://twitter.com/RedLinkGmbH" title="twitter"><img src="resources/img/twitter.png" alt="twitter" /></a>
+            </span>
+            <span>
+              <a href="http://www.facebook.com/pages/Redlink-Gmbh/369489779832374" title="facebook"><img src="resources/img/facebook.png" alt="facebook" /></a>
+            </span>
+            <span>
+              <a href="http://plus.google.com/109194362221512515603" title="google+"><img src="resources/img/google.png" alt="google+" /></a>
+            </span>
+            <span>
+              <a href="http://www.linkedin.com/company/3011979" title="linkedin"><img src="resources/img/linkedin.png" alt="linkedin" /></a>
+            </span>
+            <span>
+              <a href="https://vimeo.com/redlinkgmbh" title="vimeo"><img src="resources/img/vimeo.png" alt="vimeo" /></a>
+            </span>
+            <span>
+              <a href="http://www.flickr.com/photos/98964289@N03/" title="flickr"><img src="resources/img/flickr.png" alt="flickr" /></a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="resources/js/jquery.js"></script>
+    <script src="resources/js/bootstrap-transition.js"></script>
+    <script src="resources/js/bootstrap-alert.js"></script>
+    <script src="resources/js/bootstrap-modal.js"></script>
+    <script src="resources/js/bootstrap-dropdown.js"></script>
+    <script src="resources/js/bootstrap-scrollspy.js"></script>
+    <script src="resources/js/bootstrap-tab.js"></script>
+    <script src="resources/js/bootstrap-tooltip.js"></script>
+    <script src="resources/js/bootstrap-popover.js"></script>
+    <script src="resources/js/bootstrap-button.js"></script>
+    <script src="resources/js/bootstrap-collapse.js"></script>
+    <script src="resources/js/bootstrap-carousel.js"></script>
+    <script src="resources/js/bootstrap-typeahead.js"></script>
+
+    <!-- Piwik -->
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://analytics.redlink.co/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "4"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Piwik Code -->
+
+  </body>
+
+</html>

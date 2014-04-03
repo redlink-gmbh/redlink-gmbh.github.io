@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <title>API Console - Redlink Developers</title>
+
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="description" content="Redlink Developers site" />
+      <meta name="author" content="RedLink GmbH" />
+
+      <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,700" rel="stylesheet" type="text/css">
+      <link href="resources/css/bootplus.css" rel="stylesheet" />
+      <link href="resources/css/bootplus-responsive.css" rel="stylesheet" />
+      <link href="resources/css/font-awesome.css" rel="stylesheet" />
+      <!--[if IE 7]>
+      <link rel="stylesheet" href="resources/css/font-awesome-ie7.min.css" />
+      <![endif]-->
+      <link href="resources/css/prettify.css" rel="stylesheet" />
+      <link href="resources/css/redlink.css" rel="stylesheet" />
+
+      <link rel="apple-touch-icon-precomposed" sizes="144x144" href="resources/ico/redlink-apple-touch-icon-144.png" />
+      <link rel="apple-touch-icon-precomposed" sizes="114x114" href="resources/ico/redlink-apple-touch-icon-114.png" />
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="resources/ico/redlink-apple-touch-icon-72.png" />
+      <link rel="apple-touch-icon-precomposed" href="resources/ico/redlink-apple-touch-icon-57.png" />
+      <link rel="shortcut icon" href="resources/ico/favicon.png" />
+   </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="http://dev.redlink.io"><img src="resources/img/redlink-developers.png" alt="Redlink Developers" /></a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="/">Home</a></li>
+              <li><a href="api">API</a></li>
+              <li><a href="sdk">SDK</a></li>
+              <li><a href="plugins">Plugins</a></li>
+              <li class="active"><a href="demos">Demos</a></li>
+              <li><a href="faq">FAQ</a></li>
+              <li><a href="contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="span12">
+
+          <div class="container">
+            <h1>Redlink API Console</h1>
+            <p>
+              Simple console to play with the <a href="api">Redlink API</a>.
+            </p>
+          </div>
+
+          <div class="card">
+              
+            <div class="card-body">
+
+              <p style="display: inline; vertical-align: middle;">
+                <strong>API Key: </strong>
+                <input type="password" id="api_key" style="border-radius: 5px; background-color: #eeeeee; width: 400px; margin: 0 0 0.3em 0.5em;" />
+                <a href="faq#get-key" title="where can I get an api key?">
+                  <img src="resources/img/help.png" alt="help" width="32" height="32" />
+                </a>
+                <input type="checkbox" id="hide_key" checked /> Hide key
+                <span id="api_key_message" class="alert">API Key is required!</span>
+              </p>
+                           
+              <p id="console_uri_builder">
+                <select id="api_method"><option value="GET" style="background-color:#0f6ab4;color:#ffffff;font-weight:bold;">GET</option><option value="POST" style="background-color:#10a54a;color:#ffffff;font-weight:bold;" selected>POST</option><option value="PUT" style="background-color:#c5862b;color:#ffffff;font-weight:bold;">PUT</option><option value="DELETE" style="background-color:#a41e22;color:#ffffff;font-weight:bold;">DELETE</option></select>
+                https://api.redlink.io/<select id="api_version"><option value="1.0-BETA">1.0-BETA</option></select>/<select id="api_service"><option value="analysis">analysis</option><option value="data">data</option></select>/<select id="api_instance"></select><select id="api_endpoint"></select>
+                <a class="btn btn-block" id="api_submit" href="#" style="width: 200px; display: inline-block; margin: auto auto 0.5em 3em;">send</a>
+              </p>
+
+              <div class="row">
+
+                 <div class="span4">
+                   <label for="api_request">request body</label>
+                   <textarea id="api_request"></textarea>
+                 </div>
+
+                  <div class="span7">
+                      <label>raw response</label>
+                      <pre id="api_response" class="prettyprint"></pre>
+                  </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="span6">
+            <p>
+              Redlink Developers (<a href="terms">terms of service</a>)
+            </p>
+            <p>
+              <a href="http://redlink.co">Redlink GmbH © 2013-2014</a> <br/>
+            </p>
+          </div>
+          <div class="span6">
+            <span>
+              <a href="http://twitter.com/RedLinkGmbH" title="twitter"><img src="resources/img/twitter.png" alt="twitter" /></a>
+            </span>
+            <span>
+              <a href="http://www.facebook.com/pages/Redlink-Gmbh/369489779832374" title="facebook"><img src="resources/img/facebook.png" alt="facebook" /></a>
+            </span>
+            <span>
+              <a href="http://plus.google.com/109194362221512515603" title="google+"><img src="resources/img/google.png" alt="google+" /></a>
+            </span>
+            <span>
+              <a href="http://www.linkedin.com/company/3011979" title="linkedin"><img src="resources/img/linkedin.png" alt="linkedin" /></a>
+            </span>
+            <span>
+              <a href="https://vimeo.com/redlinkgmbh" title="vimeo"><img src="resources/img/vimeo.png" alt="vimeo" /></a>
+            </span>
+            <span>
+              <a href="http://www.flickr.com/photos/98964289@N03/" title="flickr"><img src="resources/img/flickr.png" alt="flickr" /></a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="resources/js/jquery.js"></script>
+    <script src="resources/js/bootstrap-transition.js"></script>
+    <script src="resources/js/bootstrap-alert.js"></script>
+    <script src="resources/js/bootstrap-modal.js"></script>
+    <script src="resources/js/bootstrap-dropdown.js"></script>
+    <script src="resources/js/bootstrap-scrollspy.js"></script>
+    <script src="resources/js/bootstrap-tab.js"></script>
+    <script src="resources/js/bootstrap-tooltip.js"></script>
+    <script src="resources/js/bootstrap-popover.js"></script>
+    <script src="resources/js/bootstrap-button.js"></script>
+    <script src="resources/js/bootstrap-collapse.js"></script>
+    <script src="resources/js/bootstrap-carousel.js"></script>
+    <script src="resources/js/bootstrap-typeahead.js"></script>
+    <script src="resources/js/prettify.js"></script>
+
+    <script type="text/javascript">
+
+        prettyPrint();
+
+        var key = undefined;
+        var analyses = [];
+        var datasets = [];
+        var endpoints = { "analysis" : ["/enhance"],
+                          "data": ["/resource", "/sparql/select", "/ldpath"],
+                          "data-with-dataset": ["", "/resource", "/sparql/select", "/sparql/update", "/ldpath"]
+                        };
+
+        function populateSelect(target, values) {
+            target.empty();
+            values.forEach(function(value) {
+                target.append($("<option/>", {
+                    value: value,
+                    text: value
+                }));
+            });
+        }
+
+        function checkStatus(key, version) {
+            var TO,
+                display = $("#api_key_message").hide().empty()
+                .removeClass("alert-info alert-success alert-danger alert-error");
+            if (TO) clearTimeout(TO);
+            $.ajax({
+                dataType: "json",
+                url: "https://api.redlink.io/"+version+"?key="+key,
+                success: function(data) {
+                    if (data.accessible) {
+                        var msg = "Key VALID, " + data.requests + " of " + data.limit + " requests used.";
+                        display.text(msg).addClass("alert-success")
+                            .fadeIn(function() { TO=setTimeout(function() {display.fadeOut();}, 7500); });
+
+                        analyses = data.analyses;
+                        datasets = data.datasets;
+                        datasets.unshift("");
+                        var service = $("select#api_service").find(":selected").val();
+                        if (service == "analysis") {
+                            populateSelect($("select#api_instance"), analyses);
+                        } else if (service == "data") {
+                            populateSelect($("select#api_instance"), datasets);
+                        } else {
+                            log.error("unknown service " + service);
+                        }
+                        populateSelect($("select#api_endpoint"), endpoints[service]);
+                    } else {
+                      display.text("invalid key!").addClass("alert-error")
+                          .fadeIn(function() { TO=setTimeout(function() {display.fadeOut();}, 10000); });
+                    }
+                },
+                error: function(data) {
+                    display.text("invalid key!").addClass("alert-error")
+                        .fadeIn(function() { TO=setTimeout(function() {display.fadeOut();}, 10000); });
+                }
+            });
+        }
+
+        (function(jQuery){
+          jQuery( document ).ready( function() {
+
+            $("input#hide_key").click(function() {
+                if($(this).is(':checked')) {
+                    $("input#api_key").attr("type", "password");
+                } else {
+                    $("input#api_key").attr("type", "text");
+                }
+            });
+
+            $("input#api_key").keyup(function() {
+                var new_key = $(this).val();
+                if (new_key.length == 40 && new_key != key) {
+                    key = new_key;
+                    console.log("new key: " + key);
+                    var version = $("select#api_version").find(":selected").val();
+                    checkStatus(key, version);
+                }
+            });
+
+            $("select#api_service").change(function() {
+                var service = $(this).find(":selected").val();
+                populateSelect($("select#api_instance"), (service == "analysis" ? analyses : datasets));
+                populateSelect($("select#api_endpoint"), endpoints[service]);
+            });
+
+            $("select#api_instance").change(function() {
+              var service = $("select#api_service").find(":selected").val();
+              var instance = $(this).find(":selected").val();
+              if (service == "data"  && instance != "") {
+                populateSelect($("select#api_endpoint"), endpoints["data-with-dataset"]);
+              } else {
+                populateSelect($("select#api_endpoint"), endpoints[service]);
+              }
+            });
+
+            $("a#api_submit").mousedown(function () {
+              var api_key = $("input#api_key").val();
+              if (api_key.length == 40) {
+                var api_method = $("select#api_method").find(":selected").val();
+                var api_version = $("select#api_version").find(":selected").val();
+                var api_service = $("select#api_service").find(":selected").val();
+                var api_instance = $("select#api_instance").find(":selected").val() || "";
+                if (api_instance.length > 0) api_instance = "/" + api_instance;
+                var api_endpoint = $("select#api_endpoint").find(":selected").val();
+                var api_call = "https://api.redlink.io/" + api_version + "/" + api_service + api_instance + api_endpoint + "?key=" + api_key + "&out=json";
+                console.info("submit to " + api_call);
+                var text = $("textarea#api_request").val().trim();
+                //console.log("text: " + text);
+                var parent = $("pre#api_response").parent();
+                parent.empty();
+                parent.html('<label>response</label><pre id="api_response" class="prettyprint"></pre>');
+                $.ajax({
+                      type: api_method,
+                      url: api_call,
+                      data: text,
+                      contentType: "text/plain",
+                      headers: { Accept : "application/json; charset=utf-8" },
+                      processData: false
+                }).success(function(data) {
+                      //console.log("raw response: " + data.responseText);
+                      try {
+                          var json = JSON.stringify(data, undefined, 2);
+                          $("pre#api_response").text(json);
+                      } catch (e) {
+                          log.error(e);
+                          $("pre#api_response").text(data.responseText);
+                      }
+                      prettyPrint();
+                }).error(function(){
+                      alert("could not load data");
+                }).complete(function() {
+                      // Every test on the API is as good as a reload ;-)
+                      _paq.push(["trackPageView"]);
+                });
+              } else {
+                alert("invalid key");
+              }
+              return false;
+            });
+
+            location.queryString = {};
+            location.search.substr(1).split("&").forEach(function (pair) {
+              if (pair === "") return;
+                var parts = pair.split("=");
+                //TODO: pass also the concrete endpoint
+                if (parts[0] == "key" && parts[1] && parts[1].length == 40) {
+                    key = parts[1];
+                    console.log("key from query parameter: " + key);
+                    $("input#api_key").val(key);
+                    var version = $("select#api_version").find(":selected").val();
+                    checkStatus(key, version);
+                    return false;
+                }
+            });
+
+          });
+        }(jQuery))
+	
+    </script>
+
+    <!-- Piwik -->
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://analytics.redlink.co/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "4"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Piwik Code -->
+
+  </body>
+
+</html>

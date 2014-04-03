@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <title>API Documentation - Redlink Developers</title>
+
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="description" content="Redlink Developers site" />
+      <meta name="author" content="RedLink GmbH" />
+./
+      <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,700" rel="stylesheet" type="text/css" />
+      <link href="../resources/css/bootplus.css" rel="stylesheet" />
+      <link href="../resources/css/bootplus-responsive.css" rel="stylesheet" />
+      <link href="../resources/css/font-awesome.css" rel="stylesheet" />
+      <!--[if IE 7]>
+      <link rel="stylesheet" href="../resources/css/font-awesome-ie7.min.css" />
+      <![endif]-->
+      <link href="../resources/css/prettify.css" rel="stylesheet" />
+      <link href="../resources/css/redlink.css" rel="stylesheet" />
+
+      <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../resources/ico/redlink-apple-touch-icon-144.png" />
+      <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../resources/ico/redlink-apple-touch-icon-114.png" />
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../resources/ico/redlink-apple-touch-icon-72.png" />
+      <link rel="apple-touch-icon-precomposed" href="../resources/ico/redlink-apple-touch-icon-57.png" />
+      <link rel="shortcut icon" href="../resources/ico/favicon.png" />
+   </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="http://dev.redlink.io"><img src="../resources/img/redlink-developers.png" alt="Redlink Developers" /></a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="../">Home</a></li>
+              <li class="active"><a href="#">API</a></li>
+              <li><a href="../sdk">SDK</a></li>
+              <li><a href="../plugins">Plugins</a></li>
+              <li><a href="../demos">Demos</a></li>
+              <li><a href="../faq">FAQ</a></li>
+              <li><a href="../contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="row">
+        <div class="span3 visible-desktop">
+          <div class="sidebar-nav bs-docs-sidebar">
+            <ul class="nav nav-list bs-docs-sidenav affix" id="api-doc-menu">
+              <li class="nav-header">General</li>
+              <li class="active"><a href="#introduction">Introduction</a></li>
+              <li><a href="#components">Components</a></li>
+              <li><a href="#endpoints">Endpoints</a></li>
+              <li><a href="#security">Security</a></li>
+              <li><a href="#issues">Issues</a></li>
+              <li class="nav-header">Content Analysis</li>
+              <li><a href="#content-analysis">Introduction</a></li>
+              <li><a href="#content-analysis-endpoints">Endpoints</a></li>
+              <li class="nav-header">Linked Data</li>
+              <li><a href="#linked-data">Introduction</a></li>
+              <li><a href="#linked-data-endpoints">Endpoints</a></li>
+              <li class="nav-header">Semantic Search</li>
+              <li><a href="#semantic-search">Introduction</a></li>
+              <!--
+              <li><a href="#semantic-search-endpoints">Endpoints</a></li>
+              -->
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="span9">
+
+            <div class="container">
+              <h1>Redlink API Documentation</h1>
+              <p>
+                The Redlink API provides a set of RESTful web services, grouped according
+                their purpose: content analysis, semantic search and linked data publishing.
+              </p>
+              <p>
+                This documentation prodives the official documentation for the
+                <a href="1.0-BETA.html"><strong>version 1.0-BETA</strong></a> of the API;
+                please, check the <a href="latest">latest version</a>.
+              </p>
+            </div>
+
+            <div class="card">
+
+              <h2 class="card-heading simple anchor">General</h2>
+
+              <div class="card-body">
+
+                <h3 id="introduction" class="anchor">Introduction</h3>
+                <p>
+                  The <strong>Redlink Platform</strong> consists of a number of services that are offered to users through a REST
+                  <a href="./">API</a>. The Platform provides three main services: Redlink Content Analysis, Redlink Linked Data
+                  Publishing and Redlink Semantic Search.
+                </p>
+                <p>
+                  The Redlink Platform is implemented as "<em>software as a service</em>" (SaaS) running on a distributed cloud infrastructure. Users
+                  can access the system here through a uniform web service <a href="./">API</a> using a private key to identify themselves. For the most
+                  common web frameworks, we will provide <a href="plugins">plugins</a> providing out-of-the-box services. All requests to the API are handled
+                  by a single gateway which takes care of accounting and forwards the requests to backend clusters providing
+                  the necessary functionality.
+                </p>
+                <p>
+                  We are currently in <strong>private beta</strong> testing, so if you would like an invitation please
+                  <a href="http://dev.redlink.io/contact">contact us</a>.
+                </p>
+
+                <h3 id="components" class="anchor">Components</h3>
+                <p>
+                  The Redlink API is organized in three major components:
+                </p>
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>component</th>
+                      <th>description</th>
+                      <th>available</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>
+                        <a href="#content-analysis">Content Analysis</a>
+                      </th>
+                      <td>
+                        Semantic Content Analysis, Interlinking and Enrichement
+                      </td>
+                      <td class="yes">
+                        since 1.0-ALPHA
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>
+                        <a href="#linked-data">Linked Data</a>
+                      </th>
+                      <td>
+                        Publish and query Linked Data, huge public datasets (DBPedia, Freebase, and many more) as
+                        well as your personal.
+                      </td>
+                      <td class="yes">
+                        since 1.0-ALPHA
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>
+                        <a href="#semantic-search">Semantic Search</a>
+                      </th>
+                      <td>
+                        Combine the two above to turn search into <strong>find</strong>!
+                      </td>
+                      <td class="no">
+                        planned (version 1.0)
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <h3 id="endpoints" class="anchor">Endpoints</h3>
+                <p>
+                  All endpoints are available under the following schema:
+                </p>
+                <pre style="font-size:1.3em;">https://api.redlink.io/1.0-BETA/{ENDPOINT}?key={KEY}&amp;...</pre>
+                <p>
+                  where:
+                </p>
+                <dl>
+                  <!--<dt><span class="tt">{VERSION}</span></dt><dd>is the API version (in this case <span class="tt">1.0-BETA</span>)</dd>-->
+                  <dt><span class="tt">{ENDPOINT}</span></dt><dd>is the concrete REST endpoint to call</dd>
+                  <dt><span class="tt">{KEY}</span></dt><dd>is your key for using the API</dd>
+                </dl>
+                <p class="note">
+                  <strong>Note:</strong><span> Take into account that <strong>all requests</strong>
+                  to all endpoints to the API require the <span class="tt">key</span> parameter. Therefore it'll be 
+                  not mentioned further on their concrete documentations.</span>
+                </p>
+                <p>
+                  You can play around with our <a href="../console">API console</a>.
+                </p>
+                <p>
+                  The API provides a special endpoint at the root:
+                </p>
+                <pre>https://api.redlink.io/1.0-BETA?key={KEY}</pre>
+                <p>
+                  which returns some information about the usage of a concrete key.
+                </p>
+                <pre class="prettyprint">{
+  "accessible": true,   //provided key is valid and enabled
+  "limit": 10000,       //request limit/credit (within the current reporting period)
+  "requests": 521,      //requests sent/credit used so far
+  "bytes": 345657,      //bytes sent so far
+  "seconds": 42         //total processing time
+  "owner": "007",       //user-id the key belongs to
+  "analyses": [         //analysis services enabled for this key
+    "product-analysis"
+  ],
+  "datasets": [         //datasets enabled for this key
+    "my-dataset1",
+    "my-dataset2"
+  ]
+}</pre>
+
+                <h3 id="security" class="anchor">Security</h3>
+                <p>
+                  Keeping your data safe is important for us here at redlink, that's why the redlink API is only
+                  available using the <span class="tt">https</span> protocol. Therefore clients need to deal
+                  with <abbr title="Transport Layer Security">TLS</abbr>/<abbr title="Secure Socket Layer">SSL</abbr>.
+                </p>
+                <p>
+                  All <a href="../sdk">SDK</a>s for this API provided by us come with TLS/SSL support enabled. You
+                  should not trust clients that do not use the certificate to access the API.
+                </p>
+<!-- this is not true any more...
+                <p>
+                  The SSL certificate is signed with our <a href="../resources/certs/redlink-CA.crt">own redlink CA</a>;
+                  so to avoid SSL errors you may need to install it.
+                </p>
+                <p>
+                  For example, accessing the API from Java using
+                  <a href="http://docs.jboss.org/resteasy/docs/3.0.4.Final/userguide/html/RESTEasy_Client_Framework.html">RESTEasy Client</a>,
+                  you would need to code something like:
+                </p>
+                <pre class="prettyprint">
+// load the certificate
+InputStream fis = this.getClass().getResourceAsStream("/path/to/redlink-CA.crt");
+CertificateFactory cf = CertificateFactory.getInstance("X.509");
+Certificate cert = cf.generateCertificate(fis);
+
+// load the keystore that includes self-signed cert as a "trusted" entry
+KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
+keyStore.load(null, null);
+TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+keyStore.setCertificateEntry("redlink-CA", cert);
+tmf.init(keyStore);
+SSLContext ctx = SSLContext.getInstance("TLS");
+ctx.init(null, tmf.getTrustManagers(), null);
+
+// build the rest client
+ResteasyClientBuilder clientBuilder = new ResteasyClientBuilder();
+clientBuilder.sslContext(ctx);</pre>
+-->
+
+                <h3 id="issues" class="anchor">Issues</h3>
+                <p>
+                  Do you have any issue or question about the API? Please,
+                  <a href="../contact">contact us</a>.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="card">
+
+              <h2 id="content-analysis" class="card-heading simple anchor">Content Analysis</h2>
+
+              <div class="card-body">
+
+                <h3 id="content-analysis-introduction" class="anchor">Introduction</h3>
+                <p>
+                  <strong>Redlink Content Analysis</strong> offers fact extraction, topic classification, and fact
+                  linking from textual and media documents in different languages. Users will be able to send text
+                  (and in the future media content) and get back facts and entities that have been identified automatically.
+                  In addition, the service will provide references to existing datasets (public datasets like Dbpedia
+                  and Freebase, as well as custom user-created vocabularies like a product database) about the entities
+                  identified in the content. Users will be able to create their own custom configurations with some simple
+                  steps, e.g. for adding advanced natural language processing features or commercial datasets.
+                </p>
+
+                <h3 id="content-analysis-endpoints" class="anchor">Endpoints</h3>
+                <p>
+                  Before using an analysis endpoint, the service must be configured in
+                  <a href="https://my.redlink.io/dashboard/analyses#/analyses">my.redlink.io</a> and assigned to an
+                  application.
+                </p>
+                <div class="http resource post" id="analysis-post">
+                  <p class="http">
+                    <span class="http method">post</span>
+                    <span class="http path">/analysis/{analysis}/enhance</span>
+                  </p>
+                  <div class="http resource description" id="analysis-post-description">
+                    <p>
+                      Performs an analysis of the content posted in the request body, getting
+                      enhancements results in the requested format. The <span class="tt">{analysis}</span> in the
+                      path bounds to the analysis to a concrete service previously configured.
+                    </p>
+                    <p>
+                      <strong>Parameters</strong>
+                    </p>
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>name</th>
+                          <th>description</th>
+                          <th>required</th>
+                          <th>restricted value/s</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><span class="tt">in</span></td>
+                          <td>
+                            Format used for encode the content to analyze
+                          </td>
+                          <td>
+                            optional (when missing, different heuristics are applied)
+                          </td>
+                          <td>
+                            <span class="tt">text</span>,
+                            <span class="tt">pdf</span>,
+                            <span class="tt">html</span>,
+                            <span class="tt">office</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="tt">out</span></td>
+                          <td>
+                            Format preferred to get the enhacement results
+                          </td>
+                          <td>
+                            optional (when missing, HTTP content negotiation is applied)
+                          </td>
+                          <td>
+                            <span class="tt">json</span>,
+                            <span class="tt">xml</span>,
+                            <span class="tt">jsonld</span>,
+                            <span class="tt">rdfxml</span>,
+                            <span class="tt">rdfjson</span>
+                            <span class="tt">turtle</span>
+                            <span class="tt">nt</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="tt">summary</span></td>
+                          <td>
+                            Request content summary
+                          </td>
+                          <td>
+                            optional
+                          </td>
+                          <td>
+                            <span class="tt">true</span>/<span class="tt">false</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="tt">thumbnail</span></td>
+                          <td>
+                            Request Thumbnail URLs
+                          </td>
+                          <td>
+                            optional
+                          </td>
+                          <td>
+                            <span class="tt">true</span>/<span class="tt">false</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <p>
+                      The response could come in RDF (for <span class="tt">jsonld</span>, <span class="tt">rdfxml</span>
+                      and <span class="tt">turtle</span> formats) using
+                      <a href="http://stanbol.apache.org/docs/trunk/components/enhancer/enhancementstructure">this structure</a>;
+                      or using a simplied version (for <span class="tt">json</span> and <span class="tt">xml</span> formats)
+                      which follows the following schema:
+                    </p>
+
+                    <pre class="prettyprint">
+{
+  'language' : [... , ...],
+  
+  'sentiment' : { (summarized sentiment value in case the sentiment engine is present)
+    positive: ...,
+    negative: ....
+  },
+
+  'annotations' : [
+    {
+      'label': (preferred label of entity if available, or one of the labels occurring in the text otherwise)
+		{
+			language:....,
+			text:....,
+		}
+      'types':  [... , ...], (labels of the type if available; otherwise skip)
+      'reference': '...', (URI of the linked entity if available; otherwise skip)
+      'thumbnails': [... , ...], (URIs of thumbnails that can be used to depict the entity, if available)
+      'summaries': (summary text of the referenced entity if requested)
+		[
+			{
+				language:....,
+				text:....,   
+			},
+			{
+				language:....,
+				text:....,
+			}
+		]
+      'positions' : [   (occurrences of this reference/label in the text)
+        {
+          start: ...,
+          end: ...,
+          confidence: ...,
+          text: ...  (the label as it is occurring in the text)
+	  context: ... (mention context) 
+        },
+        ...
+      ]
+    }  
+  ],
+  'categories' : [
+    {
+      'label': '...', (preferred label of the category)
+      'reference': '...', (URI of the category if available)
+      'summary' : ..., (if summary query parameter is given)
+      'confidence': ...
+  ]
+}</pre>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+           <div class="card">
+
+              <h2 id="linked-data" class="card-heading simple anchor">Linked Data</h2>
+
+              <div class="card-body">
+
+                <h3 id="linked-data-introduction" class="anchor">Introduction</h3>
+
+                <p>
+                  <strong>Redlink Linked Data Publishing</strong> offers data management, data publication,
+                  and data integration for enterprise data using open standards and technologies (RDF and
+                  Linked Data); legacy proprietary data can be transformed into a standardized data model
+                  and integrated with data from other sources. The service will allow users to create their
+                  own Linked Data servers for managing vocabularies or publishing their own datasets (e.g.
+                  in Open Data projects). Datasets managed in this way can also be made available for content
+                  analysis and linking, and they can be either private (Linked Enterprise Data) or public
+                  (Linked Open Data).
+                </p>
+
+                <h3 id="linked-data-endpoints" class="anchor">Endpoints</h3>
+                <p>
+                  Remember to enable your favourite datasets for the application (key) you are using!
+                </p>
+                <p>
+                  Endpoints which have the <span class="tt">dataset</span> as part of the address restrict the operation
+                  to that dataset. Endpoints <em>without</em> a dataset in the path operate on <em>all datasets
+                  configured for this application</em>.
+                </p>
+
+                <div class="http resource get" id="dataset-get">
+                  <p class="http">
+                    <span class="http method">get</span>
+                    <span class="http path">/data/{dataset}</span>
+                  </p>
+                  <div class="http resource description" id="dataset-get-description">
+                    <p>
+                      Export the dataset to the RDF serialization requested
+                      (using http content negotiation).
+                    </p>
+                  </div>
+                </div>
+
+                <div class="http resource post" id="dataset-post">
+                  <p class="http">
+                    <span class="http method">post</span>
+                    <span class="http path">/data/{dataset}</span>
+                  </p>
+                  <div class="http resource description" id="dataset-post-description">
+                    <p>
+                      Import the raw RDF sent in the request body into the current dataset.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="http resource put" id="dataset-put">
+                  <p class="http">
+                    <span class="http method">put</span>
+                    <span class="http path">/data/{dataset}</span>
+                  </p>
+                  <div class="http resource description" id="dataset-put-description">
+                    <p>
+                      Import the raw RDF sent in the request body <strong>replacing</strong>
+                      the current dataset (i.e., removing all data before importing).
+                    </p>
+                  </div>
+                </div>
+
+                <div class="http resource delete" id="dataset-delete">
+                  <p class="http">
+                    <span class="http method">delete</span>
+                    <span class="http path">/data/{dataset}</span>
+                  </p>
+                  <div class="http resource description" id="dataset-delete-description">
+                    <p>
+                      Remove all data from the dataset (but it does not remove the dataset itself).
+                    </p>
+                  </div>
+                </div>
+
+                <div class="http resource get" id="dataset-resource-get">
+                  <p class="http">
+                    <span class="http method">get</span>
+                    <span class="http path">/data/{dataset}/resource</span>
+                  </p>
+                  <div class="http resource description" id="dataset-resource-get-description">
+                    <p>
+                      Get a concrete resource in the RDF serialization requested
+                      (http content negotiation).
+                    </p>
+                    <p>
+                      <strong>Parameters</strong>
+                    </p>
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>name</th>
+                          <th>description</th>
+                          <th>required</th>
+                          <th>restricted value/s</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><span class="tt">uri</span></td>
+                          <td>
+                            Resource URI
+                          </td>
+                          <td>
+                            mandatory
+                          </td>
+                          <td>
+                            valid <abbr title="Uniform Resource Identifier">URI</abbr>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="http resource post" id="dataset-resource-post">
+                  <p class="http">
+                    <span class="http method">post</span>
+                    <span class="http path">/data/{dataset}/resource</span>
+                  </p>
+                  <div class="http resource description" id="dataset-resource-post-description">
+                    <p>
+                      Add the raw data if the request body to this concrete resource.
+                      All triples with different subject will be ignored.
+                      Format is detected using content negotiation.
+                    </p>
+                    <p>
+                      <strong>Parameters</strong>
+                    </p>
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>name</th>
+                          <th>description</th>
+                          <th>required</th>
+                          <th>restricted value/s</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><span class="tt">uri</span></td>
+                          <td>
+                            Resource URI
+                          </td>
+                          <td>
+                            mandatory
+                          </td>
+                          <td>
+                            valid <abbr title="Uniform Resource Identifier">URI</abbr>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="http resource put" id="dataset-resource-put">
+                  <p class="http">
+                    <span class="http method">put</span>
+                    <span class="http path">/data/{dataset}/resource</span>
+                  </p>
+                  <div class="http resource description" id="dataset-resource-put-description">
+                    <p>
+                      Replace the current resource with the raw data in the request body.
+                      All triples with different subject will be ignored.
+                      Format is detected using content negotiation.
+                    </p>
+                    <p>
+                      <strong>Parameters</strong>
+                    </p>
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>name</th>
+                          <th>description</th>
+                          <th>required</th>
+                          <th>restricted value/s</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><span class="tt">uri</span></td>
+                          <td>
+                            Resource URI
+                          </td>
+                          <td>
+                            mandatory
+                          </td>
+                          <td>
+                            valid <abbr title="Uniform Resource Identifier">URI</abbr>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="http resource delete" id="dataset-resource-delete">
+                  <p class="http">
+                    <span class="http method">delete</span>
+                    <span class="http path">/data/{dataset}/resource</span>
+                  </p>
+                  <div class="http resource description" id="dataset-resource-delete-description">
+                    <p>
+                      Remove a concrete resource from the dataset.
+                    </p>
+                    <p>
+                      <strong>Parameters</strong>
+                    </p>
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>name</th>
+                          <th>description</th>
+                          <th>required</th>
+                          <th>restricted value/s</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><span class="tt">uri</span></td>
+                          <td>
+                            Resource URI
+                          </td>
+                          <td>
+                            mandatory
+                          </td>
+                          <td>
+                            valid <abbr title="Uniform Resource Identifier">URI</abbr>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="http resource get" id="dataset-resource-all-get">
+                  <p class="http">
+                    <span class="http method">get</span>
+                    <span class="http path">/data/resource</span>
+                  </p>
+                  <div class="http resource description" id="dataset-resource-all-get-description">
+                    <p>
+                      Get a concrete resource from all datasets in the RDF
+                      serialization requested (http content negotiation).
+                    </p>
+                    <p>
+                      <strong>Parameters</strong>
+                    </p>
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>name</th>
+                          <th>description</th>
+                          <th>required</th>
+                          <th>restricted value/s</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><span class="tt">uri</span></td>
+                          <td>
+                            Resource URI
+                          </td>
+                          <td>
+                            mandatory
+                          </td>
+                          <td>
+                            valid <abbr title="Uniform Resource Identifier">URI</abbr>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="http resource get" id="dataset-sparql-selectget">
+                  <p class="http">
+                    <span class="http method">get</span>
+                    <span class="http path">/data/{dataset}/sparql/select</span>
+                  </p>
+                  <div class="http resource description" id="dataset-sparql-selectget-description">
+                    <p>
+                      Evaluates a SPARQL SELECT or ASK query over a dataset.
+                    </p>
+                    <p>
+                      <strong>Parameters</strong>
+                    </p>
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>name</th>
+                          <th>description</th>
+                          <th>required</th>
+                          <th>restricted value/s</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><span class="tt">query</span></td>
+                          <td>
+                            Query string
+                          </td>
+                          <td>
+                            mandatory
+                          </td>
+                          <td>
+                            <abbr title="not applicable">n/a</abbr>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="tt">in</span></td>
+                          <td>
+                            Format used to send data in the request
+                          </td>
+                          <td>
+                            optional (when missing, regular HTTP mechanisms are applied)
+                          </td>
+                          <td>
+
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="tt">out</span></td>
+                          <td>
+                            Format preferred to get the results
+                          </td>
+                          <td>
+                            optional (when missing, HTTP content negotiation is applied)
+                          </td>
+                          <td>
+                            <span class="tt">json</span>,
+                            <span class="tt">xml</span>,
+                            <span class="tt">tabs</span>,
+                            <span class="tt">csv</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="http resource post" id="dataset-sparql-selectpost">
+                  <p class="http">
+                    <span class="http method">post</span>
+                    <span class="http path">/data/{dataset}/sparql/select</span>
+                  </p>
+                  <div class="http resource description" id="dataset-sparql-selectpost-description">
+                    <p>
+                      Evaluates a SPARQL SELECT or ASK query over a dataset.
+                    </p>
+                    <p>
+                      <strong>Parameters</strong>
+                    </p>
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>name</th>
+                          <th>description</th>
+                          <th>required</th>
+                          <th>restricted value/s</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><span class="tt">query</span></td>
+                          <td>
+                            Query string
+                          </td>
+                          <td>
+                            optional (if missing, a <span class="tt">application/x-www-form-urlencoded</span>
+                            should be sent and query will be read from the request body)
+                          </td>
+                          <td>
+                            <abbr title="not applicable">n/a</abbr>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="tt">in</span></td>
+                          <td>
+                            Format used to send data in the request
+                          </td>
+                          <td>
+                            optional (when missing, regular HTTP mechanisms are applied)
+                          </td>
+                          <td>
+
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="tt">out</span></td>
+                          <td>
+                            Format preferred to get the results
+                          </td>
+                          <td>
+                            optional (when missing, HTTP content negotiation is applied)
+                          </td>
+                          <td>
+                            <span class="tt">json</span>,
+                            <span class="tt">xml</span>,
+                            <span class="tt">tabs</span>,
+                            <span class="tt">csv</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="http resource get" id="dataset-sparql-updateget">
+                  <p class="http">
+                    <span class="http method">get</span>
+                    <span class="http path">/data/{dataset}/sparql/update</span>
+                  </p>
+                  <div class="http resource description" id="dataset-sparql-updateget-description">
+                    <p>
+                      Evaluates a SPARQL UPDATE query over a dataset.
+                    </p>
+                    <p>
+                      <strong>Parameters</strong>
+                    </p>
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>name</th>
+                          <th>description</th>
+                          <th>required</th>
+                          <th>restricted value/s</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><span class="tt">update</span></td>
+                          <td>
+                            Query string.
+                          </td>
+                          <td>
+                            mandatory
+                          </td>
+                          <td>
+                            <abbr title="not applicable">n/a</abbr>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="tt">in</span></td>
+                          <td>
+                            Format used to send data in the request
+                          </td>
+                          <td>
+                            optional (when missing, regular HTTP mechanisms are applied)
+                          </td>
+                          <td>
+
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="tt">out</span></td>
+                          <td>
+                            Format preferred to get the results
+                          </td>
+                          <td>
+                            optional (when missing, HTTP content negotiation is applied)
+                          </td>
+                          <td>
+                            <span class="tt">json</span>,
+                            <span class="tt">xml</span>,
+                            <span class="tt">tabs</span>,
+                            <span class="tt">csv</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="http resource post" id="dataset-sparql-updatepost">
+                  <p class="http">
+                    <span class="http method">post</span>
+                    <span class="http path">/data/{dataset}/sparql/update</span>
+                  </p>
+                  <div class="http resource description" id="dataset-sparql-updatepost-description">
+                    <p>
+                      Evaluates a SPARQL UPDATE query on the data.
+                    </p>
+                    <p>
+                      <strong>Parameters</strong>
+                    </p>
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>name</th>
+                          <th>description</th>
+                          <th>required</th>
+                          <th>restricted value/s</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><span class="tt">update</span></td>
+                          <td>
+                            Query string. When missing a <span class="tt">application/x-www-form-urlencoded</span>
+                            should be sent and query qould be ready from the request body.
+                          </td>
+                          <td>
+                            optional
+                          </td>
+                          <td>
+                            <abbr title="not applicable">n/a</abbr>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="tt">in</span></td>
+                          <td>
+                            Format used to send data in the request
+                          </td>
+                          <td>
+                            optional (when missing, regular HTTP mechanisms are applied)
+                          </td>
+                          <td>
+
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="tt">out</span></td>
+                          <td>
+                            Format preferred to get the results
+                          </td>
+                          <td>
+                            optional (when missing, HTTP content negotiation is applied)
+                          </td>
+                          <td>
+                            <span class="tt">json</span>,
+                            <span class="tt">xml</span>,
+                            <span class="tt">tabs</span>,
+                            <span class="tt">csv</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="http resource get" id="sparql-selectget">
+                  <p class="http">
+                    <span class="http method">get</span>
+                    <span class="http path">/data/sparql</span>
+                  </p>
+                  <div class="http resource description" id="sparql-selectget-description">
+                    <p>
+                      Evaluates a SPARQL SELECT or ASK query over <strong>all</strong> datasets.
+                    </p>
+                    <p>
+                      <strong>Parameters</strong>
+                    </p>
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>name</th>
+                          <th>description</th>
+                          <th>required</th>
+                          <th>restricted value/s</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><span class="tt">query</span></td>
+                          <td>
+                            Query string
+                          </td>
+                          <td>
+                            mandatory
+                          </td>
+                          <td>
+                            <abbr title="not applicable">n/a</abbr>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="tt">in</span></td>
+                          <td>
+                            Format used to send data in the request
+                          </td>
+                          <td>
+                            optional (when missing, regular HTTP mechanisms are applied)
+                          </td>
+                          <td>
+
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="tt">out</span></td>
+                          <td>
+                            Format preferred to get the results
+                          </td>
+                          <td>
+                            optional (when missing, HTTP content negotiation is applied)
+                          </td>
+                          <td>
+                            <span class="tt">json</span>,
+                            <span class="tt">xml</span>,
+                            <span class="tt">tabs</span>,
+                            <span class="tt">csv</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="http resource post" id="sparql-selectpost">
+                  <p class="http">
+                    <span class="http method">post</span>
+                    <span class="http path">/data/sparql</span>
+                  </p>
+                  <div class="http resource description" id="sparql-selectpost-description">
+                    <p>
+                      Evaluates a SPARQL SELECT or ASK query over <strong>all</strong> datasets.
+                    </p>
+                    <p>
+                      <strong>Parameters</strong>
+                    </p>
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>name</th>
+                          <th>description</th>
+                          <th>required</th>
+                          <th>restricted value/s</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><span class="tt">query</span></td>
+                          <td>
+                            Query string
+                          </td>
+                          <td>
+                            optional (hen missing, a <span class="tt">application/x-www-form-urlencoded</span>
+                            should be sent and query will be read from the request body)
+                          </td>
+                          <td>
+                            <abbr title="not applicable">n/a</abbr>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="tt">in</span></td>
+                          <td>
+                            Format used to send data in the request
+                          </td>
+                          <td>
+                            optional (when missing, regular HTTP mechanisms are applied)
+                          </td>
+                          <td>
+
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="tt">out</span></td>
+                          <td>
+                            Format preferred to get the results
+                          </td>
+                          <td>
+                            optional (when missing, HTTP content negotiation is applied)
+                          </td>
+                          <td>
+                            <span class="tt">json</span>,
+                            <span class="tt">xml</span>,
+                            <span class="tt">tabs</span>,
+                            <span class="tt">csv</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="http resource get" id="dataset-ldpath-get">
+                  <p class="http">
+                    <span class="http method">get</span>
+                    <span class="http path">/data/{dataset}/ldpath</span>
+                  </p>
+                  <div class="http resource description" id="dataset-ldpath-get-description">
+                    <p>
+                      Evaluates a LDPath program over a dataset.
+                    </p>
+                    <p>
+                      <strong>Parameters</strong>
+                    </p>
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>name</th>
+                          <th>description</th>
+                          <th>required</th>
+                          <th>restricted value/s</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><span class="tt">program</span></td>
+                          <td>
+                            Program string
+                          </td>
+                          <td>
+                            mandatory
+                          </td>
+                          <td>
+                            <abbr title="not applicable">n/a</abbr>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="tt">uri</span></td>
+                          <td>
+                            Resource where to start to evaluate the program
+                          </td>
+                          <td>
+                            mandatory
+                          </td>
+                          <td>
+                            valid <abbr title="Uniform Resource Identifier">URI</abbr>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="http resource post" id="dataset-ldpath-post">
+                  <p class="http">
+                    <span class="http method">post</span>
+                    <span class="http path">/data/{dataset}/ldpath</span>
+                  </p>
+                  <div class="http resource description" id="dataset-ldpath-post-description">
+                    <p>
+                      Evaluates a LDPath program over a dataset.
+                    </p>
+                    <p>
+                      <strong>Parameters</strong>
+                    </p>
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>name</th>
+                          <th>description</th>
+                          <th>required</th>
+                          <th>restricted value/s</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><span class="tt">program</span></td>
+                          <td>
+                            Program string
+                          </td>
+                          <td>
+                            mandatory
+                          </td>
+                          <td>
+                            <abbr title="not applicable">n/a</abbr>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="tt">uri</span></td>
+                          <td>
+                            Resource where to start to evaluate the program
+                          </td>
+                          <td>
+                            mandatory
+                          </td>
+                          <td>
+                            valid <abbr title="Uniform Resource Identifier">URI</abbr>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="http resource get" id="ldpath-get">
+                  <p class="http">
+                    <span class="http method">get</span>
+                    <span class="http path">/data/ldpath</span>
+                  </p>
+                  <div class="http resource description" id="ldpath-get-description">
+                    <p>
+                      Evaluates a LDPath program over <strong>all</strong> datasets.
+                    </p>
+                    <p>
+                      <strong>Parameters</strong>
+                    </p>
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>name</th>
+                          <th>description</th>
+                          <th>required</th>
+                          <th>restricted value/s</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><span class="tt">program</span></td>
+                          <td>
+                            Program string
+                          </td>
+                          <td>
+                            mandatory
+                          </td>
+                          <td>
+                            <abbr title="not applicable">n/a</abbr>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="tt">uri</span></td>
+                          <td>
+                            Resource where to start to evaluate the program
+                          </td>
+                          <td>
+                            mandatory
+                          </td>
+                          <td>
+                            valid <abbr title="Uniform Resource Identifier">URI</abbr>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="http resource post" id="ldpath-post">
+                  <p class="http">
+                    <span class="http method">post</span>
+                    <span class="http path">/data/ldpath</span>
+                  </p>
+                  <div class="http resource description" id="ldpath-post-description">
+                    <p>
+                      Evaluates a LDPath program over <strong>all</strong> datasets.
+                    </p>
+                    <p>
+                      <strong>Parameters</strong>
+                    </p>
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>name</th>
+                          <th>description</th>
+                          <th>required</th>
+                          <th>restricted value/s</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><span class="tt">program</span></td>
+                          <td>
+                            Program string
+                          </td>
+                          <td>
+                            mandatory
+                          </td>
+                          <td>
+                            <abbr title="not applicable">n/a</abbr>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="tt">uri</span></td>
+                          <td>
+                            Resource where to start to evaluate the program
+                          </td>
+                          <td>
+                            mandatory
+                          </td>
+                          <td>
+                            valid <abbr title="Uniform Resource Identifier">URI</abbr>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <p style="margin-top: 4em;">
+                  In addition, all resources in a dataset <a href="../faq#release-publish-datasets">explicitly published</a> by the user will be
+                  publicly available according the <a href="http://www.w3.org/DesignIssues/LinkedData.html">Linked Data principles</a>
+                  through our data hub (<a href="http://data.redlink.io">data.redlink.io</a>) under the following schema:
+                </p>
+                <pre>http://data.redlink.io/{USER}/{DATASET}/...</pre>
+
+              </div>
+            </div>
+
+              <div class="card">
+
+                <h2 id="semantic-search" class="card-heading simple anchor">Semantic Search</h2>
+
+                <div class="card-body">
+
+                  <h3 id="semantic-search-introduction" class="anchor">Introduction</h3>
+
+                  <p>
+                    <strong>Redlink Semantic Search</strong> offers high performance faceted and semantic search
+                    over enterprise content, different ranking algorithms, auto completion, thesaurus/vocabulary
+                    integration, etc.; the service will provide advanced search functionalities based on Content
+                    Analysis and Linked Data. Users will be able to create their own search configurations, upload
+                    documents, analyse and link them with datasets and vocabularies, and provide powerful search
+                    functionalities, e.g. browsing documents by (automatically detected) categories, persons occurring
+                    in the text, etc.
+                  </p>
+                  <p>
+                    Semantic Search is not yet part of the public API, only available for premium customers; but
+                    it will be included in the next versions, so stay tuned... In the meantime, you can use the
+                    <a href="http://dev.redlink.io/plugins/solr">Redlink Solr plugin</a>
+                    to semantically enrich your current search.
+                  </p>
+
+                  <!--
+                  <h3 id="semantic-search-endpoints" class="anchor">Endpoints</h3>
+                   -->
+               </div>
+
+             </div>
+
+           </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="span6">
+            <p>
+              Redlink Developers (<a href="../terms">terms of service</a>)
+            </p>
+            <p>
+              <a href="http://redlink.co">Redlink GmbH © 2013-2014</a> <br/>
+            </p>
+          </div>
+          <div class="span6">
+            <span>
+              <a href="http://twitter.com/RedLinkGmbH" title="twitter"><img src="../resources/img/twitter.png" alt="twitter" /></a>
+            </span>
+            <span>
+              <a href="http://www.facebook.com/pages/Redlink-Gmbh/369489779832374" title="facebook"><img src="../resources/img/facebook.png" alt="facebook" /></a>
+            </span>
+            <span>
+              <a href="http://plus.google.com/109194362221512515603" title="google+"><img src="../resources/img/google.png" alt="google+" /></a>
+            </span>
+            <span>
+              <a href="http://www.linkedin.com/company/3011979" title="linkedin"><img src="../resources/img/linkedin.png" alt="linkedin" /></a>
+            </span>
+            <span>
+              <a href="https://vimeo.com/redlinkgmbh" title="vimeo"><img src="../resources/img/vimeo.png" alt="vimeo" /></a>
+            </span>
+            <span>
+              <a href="http://www.flickr.com/photos/98964289@N03/" title="flickr"><img src="../resources/img/flickr.png" alt="flickr" /></a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../resources/js/jquery.js"></script>
+    <script src="../resources/js/bootstrap-transition.js"></script>
+    <script src="../resources/js/bootstrap-alert.js"></script>
+    <script src="../resources/js/bootstrap-modal.js"></script>
+    <script src="../resources/js/bootstrap-dropdown.js"></script>
+    <script src="../resources/js/bootstrap-scrollspy.js"></script>
+    <script src="../resources/js/bootstrap-tab.js"></script>
+    <script src="../resources/js/bootstrap-tooltip.js"></script>
+    <script src="../resources/js/bootstrap-popover.js"></script>
+    <script src="../resources/js/bootstrap-button.js"></script>
+    <script src="../resources/js/bootstrap-collapse.js"></script>
+    <script src="../resources/js/bootstrap-carousel.js"></script>
+    <script src="../resources/js/bootstrap-typeahead.js"></script>
+    <script src="../resources/js/prettify.js"></script>
+
+    <script type="text/javascript">
+        (function(jQuery){
+          jQuery( document ).ready( function() {
+
+            //prettify
+            prettyPrint();
+
+            $("pre.prettyprint").each(function() {
+                var self = $(this);
+                var a = $("<a>", {"href":"#", "text":"expand/collapse"}).click(function() {
+                    self.toggle();
+                });
+                $(this).before($("<p>", {"class":"expandcollapse"}).append(a));
+            });
+
+            //rest doc
+            $("div.http.resource.description").hide();
+            $("div.http.resource").click(function() {
+                $("#"+$(this).attr("id")+"-description").toggle();
+            });
+            $("ul#api-doc-menu li a").click(function() {
+                $("ul#api-doc-menu li.active").removeClass("active");
+                $(this).parent().addClass("active");
+            });
+
+          });
+        }(jQuery))
+
+    </script>
+
+    <!-- Piwik -->
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://analytics.redlink.co/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "4"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Piwik Code -->
+
+  </body>
+
+</html>

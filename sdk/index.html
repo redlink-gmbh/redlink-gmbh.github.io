@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <title>SDK - Redlink Developers</title>
+
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="description" content="Redlink Developers site" />
+      <meta name="author" content="RedLink GmbH" />
+
+      <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,700" rel="stylesheet" type="text/css">
+      <link href="../resources/css/bootplus.css" rel="stylesheet" />
+      <link href="../resources/css/bootplus-responsive.css" rel="stylesheet" />
+      <link href="../resources/css/font-awesome.css" rel="stylesheet" /s>
+      <!--[if IE 7]>
+      <link rel="stylesheet" href="../resources/css/font-awesome-ie7.min.css" />
+      <![endif]-->
+      <link href="../resources/css/prettify.css" rel="stylesheet" />
+      <link href="../resources/css/redlink.css" rel="stylesheet" />
+      <link href="../resources/css/thickbox.css" rel="stylesheet" />
+
+      <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../resources/ico/redlink-apple-touch-icon-144.png" />
+      <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../resources/redlink-ico/apple-touch-icon-114.png" />
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../resources/redlink-ico/apple-touch-icon-72.png" />
+      <link rel="apple-touch-icon-precomposed" href="../resources/ico/redlink-apple-touch-icon-57.png" />
+      <link rel="shortcut icon" href="../resources/ico/favicon.png" />
+   </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="http://dev.redlink.io"><img src="../resources/img/redlink-developers.png" alt="Redlink Developers" /></a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="/">Home</a></li>
+              <li><a href="../api">API</a></li>
+              <li class="active"><a href="#">SDK</a></li>
+              <li><a href="../plugins">Plugins</a></li>
+              <li><a href="../demos">Demos</a></li>
+              <li><a href="../faq">FAQ</a></li>
+              <li><a href="../contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="row">
+        <div class="span3 visible-desktop">
+          <div class="sidebar-nav bs-docs-sidebar">
+            <ul class="nav nav-list bs-docs-sidenav affix" id="sdk-doc-menu">
+              <li class="nav-header">General</li>
+              <li class="active"><a href="#introduction">Introduction</a></li>
+              <li><a href="#model">Model</a></li>
+              <li><a href="#license">License</a></li>
+              <li><a href="#issues">Issues</a></li>
+              <li class="nav-header">Java</li>
+              <li><a href="#java">Installation</a></li>
+              <li><a href="#java-usage">Usage</a></li>
+              <li class="nav-header">PHP</li>
+              <li><a href="#php">Installation</a></li>
+              <li><a href="#php-usage">Usage</a></li>
+              <li class="nav-header">Javascript</li>
+              <li><a href="#js">Installation</a></li>
+              <li><a href="#js-usage">Usage</a></li>
+              <li class="nav-header">Python</li>
+              <li><a href="#python">Installation</a></li>
+              <li><a href="#python-usage">Usage</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="span9">
+
+            <div class="container">
+              <h1>Redlink SDK Documentation</h1> 
+            </div>
+
+            <div class="card">
+
+              <h2 class="card-heading simple">General</h2>
+              
+              <div class="card-body">
+              
+                <h3 id="introduction" class="anchor">Introduction</h3>
+
+                <p>
+                  The Redlink SDK gives you a group of APIs along with client libraries, 
+                  language-specific examples, and documentation to help you develop awesome 
+                  applications that integrate with Redlink.
+                  If you're a new Redlink developer, we recommend you download the SDK
+                  bundle to quickly start developing against our API. The SDKs are provided
+                  for a limited set of languages; so if it does not covers your particular, 
+                  needs, please <a href="../contact">contact us</a> for further information.
+                </p> 
+
+                <p class="note">
+                  <strong>Note:</strong><span> With the SDK, you'll use the same key-based model
+                  to access the <a href="../api">API</a>. So you also need to register your API key 
+                  in advance.</span>
+                </p>
+
+                <p>
+                  Each artifact of the different official SDK keeps align the version with the API;
+                  i.e., SDK version <tt>x.y.z</tt> implements  <tt>x.y</tt> version of the API, 
+                  whatever programming language. The minor version (<tt>z</tt> is reversed for 
+                  minor updates or bug fixes in the SDK implementations, so may be different on
+                  each implementation.
+                </p>
+
+                <h3 id="model" class="anchor">Model</h3>
+
+                <p>
+                  The SDK tries to keep homogeneus the model across the different languages which is
+                  implemented, with of course the small style details are different for each one. So, 
+                  for instance, for content analysis the 
+                  <a href="../resources/img/sdk/redlink-enhance-data-model.png" title="Redlink enhancements' data model" class="thickbox">same data model</a> 
+                  is followed in all implementations. 
+                </p>
+
+                <h3 id="license" class="anchor">License</h3>
+
+                <p>
+                  All official Redlink SDK are avaiable under the business-friendly license
+                  <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.
+                  Therefore, you are completelly free to use the software for any purpose, to distribute it, 
+                  to modify it, and to distribute modified versions of the software, including closed-source,
+                  under the terms of the license, without concern for royalties.
+                </p>
+
+                <h3 id="issues" class="anchor">Issues</h3>
+                <p>
+                  Bug reports or features requests should go directly into the issue
+                  tracket of each implementation in <a href="http://code.redlink.co">bitbucket</a>.
+                  <a href="../contact">contact us</a>.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="card">
+
+              <h2 class="card-heading simple" id="java" class="anchor">Java SDK</h2>
+              
+              <div class="card-body">
+              
+                <h3 id="java-installation" class="anchor">Installation</h3>
+                <p>
+                  The Java SDK uses <a href="http://maven.apache.org">Maven</a> as build system. So
+                  if you also use it, you would just need to add this dependency to your project and
+                  the tools will automatically retrive it from <a href="http://repo.dev.redlink.io">our repository</a>:
+                </p>
+                <pre class="prettyprint">&lt;project&gt;
+  ...
+  &lt;repositories&gt;
+    &lt;repository&gt;
+      &lt;id&gt;redlink&lt;/id&gt;
+      &lt;url&gt;http://repo.dev.redlink.io/content/repositories/public-releases&lt;/url&gt;
+    &lt;/repository&gt;
+  &lt;/repositories&gt;
+  ...
+  &lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;groupId>io.redlink&lt;/groupId&gt;
+      &lt;artifactId>redlink-sdk-java&lt;/artifactId&gt;
+      &lt;version>1.0.0-BETA&lt;/version&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+  ...
+&lt;/project&gt;</pre>
+
+                <!--
+                <p>
+                  You can take a look to the <a href="java/doc">javadoc</a>. Or, if you want to know some more 
+                  implementations detail, the source code is available
+                  <a href="http://bitbucket.org/redlinkgmbh/sdk-java">at bitbucket</a>:
+                </p>
+                <pre class="prettyprint">git clone http://bitbucket.org/redlinkgmbh/sdk-java redlink-sdk-java</pre>
+                -->
+
+                <h3 id="java-usages" class="anchor">Usage</h3>
+
+                <p>
+                  The main entry point is provided by an abstract factory 
+                  (<a href="java/doc/io/redlink/sdk/RedLinkFactory.html">io.redlink.sdk.RedLinkFactory</a>)
+                  that allows you to create specific clients for each part of the <a href="../api">API</a>:
+                </p>
+
+                <pre class="prettyprint">String api_key = "...";
+RedLink.Analysis analysis = RedLinkFactory.createAnalysisClient(api_key);
+RedLink.Data data = RedLinkFactory.createDataClient(api_key);</pre>
+
+                <p>
+                  Basically the SDK provides a native version in Java of features provided by the <a href="../api">API</a>.
+                  So, for instance, for enhancing content, the SDK provides a simple 
+                  <abbr title="Domain-Specific Language">DSL</abbr> to build enhancement request:
+                </p>
+
+                <pre class="prettyprint">AnalysisRequest request = AnalysisRequest.builder()
+    .setAnalysis("example")
+    .setContent("David Alaba is an Austrian footballer who plays for Bayern Munich (...)")
+    .setOutputFormat(OutputFormat.TURTLE)
+    .build();
+for (Enhancement e : analysis.enhance(request)) {
+    // do something with each enhancement returned
+}</pre>
+
+                <p>
+                  You can find further details about the enhancements returned at
+                  <a href="java/doc/io/redlink/sdk/impl/analysis/model/Enhancements.html">its javadoc</a>.
+                </p>
+
+                <p>
+                  Moving to the data part, the SDK also provide native Java methods for each
+                  feature. For example, RDF data can be imported from different sources
+                  (<a href="http://docs.oracle.com/javase/7/docs/api/index.html?java/io/File.html">File</a>,
+                  <a href="http://docs.oracle.com/javase/7/docs/api/index.html?java/io/InputStream.html">InputStream</a> or
+                  <a href="http://openrdf.callimachus.net/sesame/2.7/apidocs/index.html?org/openrdf/model/Model.html">Model</a>)
+                  with this snippet of code:
+                </p>
+
+                <pre class="prettyprint">boolean imported = data.importDataset(source, "example");</pre>
+
+                <p>
+                  As well as performing <a href="http://www.w3.org/TR/sparql11-query/">SPARQL</a> queries
+                  over the dataset you just imported:
+                </p>
+
+                <pre class="prettyprint">SPARQLResult results = data.sparqlSelect("SELECT * WHERE { ?s ?p ?o }", "example");
+for (Map&lt;String, RDFNode&gt; result: results) {
+    System.out.println(" (" + result.get("s") + ","  + result.get("p") + "," + result.get("o") + ")");
+}</pre>
+
+                <p>
+                  Or update the dataset via <a href="http://www.w3.org/TR/sparql11-update/">SPARQL Update</a> queries:
+                </p>
+
+                <pre class="prettyprint">data.sparqlUpdate("INSERT DATA " + 
+  "{ &lt;http://example.org/test&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://schema.org/Thing&gt; }", 
+  "example");</pre>
+              
+                <p>
+                  Further details about the methods supported in the
+                  <a href="java/doc/io/redlink/sdk/RedLink.Data.html#method_summary">javadoc</a>.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="card">
+
+              <h2 class="card-heading simple" id="php" class="anchor">PHP SDK</h2>
+              
+              <div class="card-body">
+
+                <h3 id="java-installation" class="anchor">Installation</h3>
+                <p>
+                  The PHP SDK uses <a href="http://getcomposer.org">Composer</a> as management system. But these 
+                  initial versions are not being yet deployed in public repositories. So you would need to manually
+                  download the <a href="php/redlink-sdk-php-1.0.0-BETA.phar">redlink-sdk-php-1.0.0-BETA.phar</a>
+                  and put it the right location:
+                </p>
+                <pre class="prettyprint">wget http://dev.redlink.io/sdk/php/redlink-sdk-php-1.0.0-BETA.phar</pre>
+
+                <p>
+                  Then you can define the dependecy as normal:
+                </p>
+                <pre class="prettyprint">{
+    "require": {
+        "redlink/sdk-php": "1.0.0-BETA"
+    }
+}</pre>
+
+                <h3 id="java-usages" class="anchor">Usage</h3>
+
+                <p>
+                  The PHP SDK provide a Factory (<span class="tt">\RedLink\RedLinkFactory</span>) that provides
+                  how to create the different clients for each part of the <a href="../api">API</a>:
+                </p>
+
+                <pre class="prettyprint">String api_key = "...";
+$analysisClient = \RedLink\RedLinkFactory::getInstance()->createAnalysisClient($api_key);
+$request = \RedLink\Analysis\AnalysisRequestBuilder::builder()->setAnalysis("example")->setContent("David Alaba is an Austrian footballer who plays for Bayern Munich (...)")->setOutputFormat("json")->build();
+$enhancements = $analysisClient->enhance($request);</pre>
+
+
+                <p>
+                  Its usage is actually quite similar than the Java SDK. In the following days we will
+                  provide more technical details and usage examples.
+                </p>
+
+
+              </div>
+
+            </div>
+
+            <div class="card">
+
+              <h2 class="card-heading simple" id="javascript" class="anchor">Javascript SDK</h2>
+              
+              <div class="card-body">
+              
+                <p>
+                  Comming soon...
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="card">
+
+              <h2 class="card-heading simple" id="python" class="anchor">Python SDK</h2>
+              
+              <div class="card-body">
+              
+                <p>
+                  Comming soon...
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="span6">
+            <p>
+              Redlink Developers (<a href="terms">terms of service</a>)
+            </p>
+            <p>
+              <a href="http://redlink.co">Redlink GmbH © 2013-2014</a> <br/>
+            </p>
+          </div>
+          <div class="span6">
+            <span>
+              <a href="http://twitter.com/RedLinkGmbH" title="twitter"><img src="../resources/img/twitter.png" alt="twitter" /></a>
+            </span>
+            <span>
+              <a href="http://www.facebook.com/pages/Redlink-Gmbh/369489779832374" title="facebook"><img src="../resources/img/facebook.png" alt="facebook" /></a>
+            </span>
+            <span>
+              <a href="http://plus.google.com/109194362221512515603" title="google+"><img src="../resources/img/google.png" alt="google+" /></a>
+            </span>
+            <span>
+              <a href="http://www.linkedin.com/company/3011979" title="linkedin"><img src="../resources/img/linkedin.png" alt="linkedin" /></a>
+            </span>
+            <span>
+              <a href="https://vimeo.com/redlinkgmbh" title="vimeo"><img src="../resources/img/vimeo.png" alt="vimeo" /></a>
+            </span>
+            <span>
+              <a href="http://www.flickr.com/photos/98964289@N03/" title="flickr"><img src="../resources/img/flickr.png" alt="flickr" /></a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../resources/js/jquery.js"></script>
+    <script src="../resources/js/bootstrap-transition.js"></script>
+    <script src="../resources/js/bootstrap-alert.js"></script>
+    <script src="../resources/js/bootstrap-modal.js"></script>
+    <script src="../resources/js/bootstrap-dropdown.js"></script>
+    <script src="../resources/js/bootstrap-scrollspy.js"></script>
+    <script src="../resources/js/bootstrap-tab.js"></script>
+    <script src="../resources/js/bootstrap-tooltip.js"></script>
+    <script src="../resources/js/bootstrap-popover.js"></script>
+    <script src="../resources/js/bootstrap-button.js"></script>
+    <script src="../resources/js/bootstrap-collapse.js"></script>
+    <script src="../resources/js/bootstrap-carousel.js"></script>
+    <script src="../resources/js/bootstrap-typeahead.js"></script>
+    <script src="../resources/js/prettify.js"></script>
+    <script src="../resources/js/thickbox.js"></script>
+
+    <script type="text/javascript">
+        (function(jQuery){
+          jQuery( document ).ready( function() {
+
+            //prettify
+            prettyPrint();
+
+            //rest doc
+            $("div.http.resource.description").hide();
+            $("div.http.resource").click(function() {
+                $("#"+$(this).attr("id")+"-description").toggle();
+                return false;
+            });
+            $("ul#sdk-doc-menu li a").click(function() {
+                $("ul#sdk-doc-menu li.active").removeClass("active");
+                $(this).parent().addClass("active");
+            });
+
+          });
+        }(jQuery))
+	
+    </script>
+
+    <!-- Piwik -->
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://analytics.redlink.co/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "4"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Piwik Code -->
+
+  </body>
+
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <title>FAQ - Redlink Developers</title>
+
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="description" content="Redlink Developers site" />
+      <meta name="author" content="RedLink GmbH" />
+
+      <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,700" rel="stylesheet" type="text/css">
+      <link href="resources/css/bootplus.css" rel="stylesheet" />
+      <link href="resources/css/bootplus-responsive.css" rel="stylesheet" />
+      <link href="resources/css/font-awesome.css" rel="stylesheet" />
+      <!--[if IE 7]>
+      <link rel="stylesheet" href="resources/css/font-awesome-ie7.min.css" />
+      <![endif]-->
+      <link href="resources/css/prettify.css" rel="stylesheet" />
+      <link href="resources/css/redlink.css" rel="stylesheet" />
+
+      <link rel="apple-touch-icon-precomposed" sizes="144x144" href="resources/ico/redlink-apple-touch-icon-144.png" />
+      <link rel="apple-touch-icon-precomposed" sizes="114x114" href="resources/redlink-ico/apple-touch-icon-114.png" />
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="resources/redlink-ico/apple-touch-icon-72.png" />
+      <link rel="apple-touch-icon-precomposed" href="resources/ico/redlink-apple-touch-icon-57.png" />
+      <link rel="shortcut icon" href="resources/ico/favicon.png" />
+   </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="http://dev.redlink.io"><img src="resources/img/redlink-developers.png" alt="Redlink Developers" /></a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="/">Home</a></li>
+              <li><a href="api">API</a></li>
+              <li><a href="sdk">SDK</a></li>
+              <li><a href="plugins">Plugins</a></li>
+              <li><a href="demos">Demos</a></li>
+              <li class="active"><a href="#">FAQ</a></li>
+              <li><a href="contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="row">
+        <div class="span3 visible-desktop">
+          <div class="sidebar-nav bs-docs-sidebar">
+            <ul class="nav nav-list bs-docs-sidenav affix" id="faq-doc-menu">
+              <li class="nav-header">FAQ</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="span9">
+
+            <div class="container">
+              <h1>Frequently Asked Questions</h1>
+            </div>
+
+            <div class="card">
+
+              <h2 class="card-heading simple anchor" id="access-beta">How can I get access to the beta?</h2>
+              
+              <div class="card-body">
+                           
+                <p>
+                  For the moment the API is only available as <strong>private beta</strong>, so you would need an
+                  invitation code to access it. 
+                </p>
+                <p>
+                  Please, submit a request to <a href="mailto:support@redlink.io">support@redlink.io</a>
+                  describing your use case and how do you think your service can help you, so we can evaluate 
+                  you as potential user during this early phase.
+                </p>              
+
+              </div>
+
+            </div>
+
+            <div class="card">
+
+              <h2 class="card-heading simple anchor" id="get-key">How do I get a key for accessing the API?</h2>
+              
+              <div class="card-body">
+                           
+                <p>
+                  The API access is managed by the <a href="http://my.redlink.io">my.redlink.io dashboard</a>.
+                  There you can create applications and generate keys for accessing the API.
+                </p>              
+
+              </div>
+
+            </div>
+
+            <div class="card">
+
+              <h2 class="card-heading simple anchor" id="oauth2">Does the API support OAuth2?</h2>
+              
+              <div class="card-body">
+                           
+                <p>
+                  OAuth2 is not supported at the moment, but it's something we've thought about. We'll add it
+                  as soon we have enough uses cases that justify its addition.
+                </p>              
+
+              </div>
+
+            </div>
+
+            <div class="card">
+
+              <h2 class="card-heading simple anchor" id="release-publish-datasets">What do <em>"release"</em> and <em>"publish"</em> datasets mean?</h2>
+              
+              <div class="card-body">
+                           
+                <p>
+                  When you <strong>release a dataset</strong>, it will become available as component in your analysis
+                  chains. That means you can use your custom dataset to perform analysis operations (e.g., 
+                  <abbr title="Named-Entity Recognition">NER</abbr> over those entities). It requires the dataset
+                  uses one of the supported schemas 
+                  (<a href="http://www.w3.org/2004/02/skos/"><abbr title="SKOS Simple Knowledge Organization System">SKOS</abbr></a>,
+                  <a href="http://dublincore.org/documents/dc-rdf/"><abbr title="Dublic Core">DC</abbr></a>,
+                  <a href="http://xmlns.com/foaf/spec/"><abbr title="Friend-of-a-Friend">FOAF</abbr></a> or 
+                  <a href="http://www.w3.org/TR/rdf-schema/"><abbr title="RDF Schema">RDFS</abbr></a>).
+                  Datasets can be released for your private usage only, or for the public marketplace, so other 
+                  users can use it in their analysis chains.
+                </p>
+
+                <p>
+                  When you <strong>publish a dataset</strong>, it will become publicly available according the
+                  <a href="http://www.w3.org/DesignIssues/LinkedData.html">Linked Data principles</a>
+                  through our data hub (<a href="http://data.redlink.io">data.redlink.io</a>) under the following 
+                  schema:
+                </p>
+                <pre>http://data.redlink.io/{USER}/{DATASET}/...</pre>                                   
+
+              </div>
+
+            </div>
+
+            <div class="card">
+
+              <h2 class="card-heading simple anchor" id="analysis-configuration">How can I configure my analysis chain?</h2>
+              
+              <div class="card-body">
+                           
+                <p>
+                  Such kind of configurations are done from <a href="http://my.redlink.io">my.redlink.io dashboard</a>:
+                </p>   
+
+                <ol>
+                  <li>
+                    The first step is to create and upload <a href="https://my.redlink.io/dashboard/datasets">your custom dataset</a>.
+                    Please, take into account that the dataset needs to follow one of the supported schemas 
+                    (<a href="http://www.w3.org/2004/02/skos/"><abbr title="SKOS Simple Knowledge Organization System">SKOS</abbr></a>,
+                    <a href="http://dublincore.org/documents/dc-rdf/"><abbr title="Dublic Core">DC</abbr></a>,
+                    <a href="http://xmlns.com/foaf/spec/"><abbr title="Friend-of-a-Friend">FOAF</abbr></a> or 
+                    <a href="http://www.w3.org/TR/rdf-schema/"><abbr title="RDF Schema">RDFS</abbr></a>)
+                    for being used later.
+                    If you just want to use any of the generic datasets available (DBpedia or Freebase, for example) for analysis, just ignore this step.
+                  </li>
+                  <li>
+                    Once you have your dataset in the cloud platform, you would need to release it for making it available as
+                    knowledge base for analysis. 
+                  </li>
+                  <li>
+                    Then, creating a new analysis, you should be able to add the dataset you've just released.
+                  </li>
+                  <li>
+                    So now you can bind your new analysis chain to an application an use it for your custom content analysis operations.
+                  </li>
+                </ol>           
+
+              </div>
+
+            </div>
+
+            <div class="card">
+
+              <h2 class="card-heading simple anchor" id="upload-dataset">How can I upload my dataset?</h2>
+              
+              <div class="card-body">
+                           
+                <p>
+                  You can upload dataset both <a href="https://my.redlink.io/dashboard/datasets">from the my.redlink.io dashboard</a>
+                  or <a href="api#linked-data-endpoints">via the API</a>. 
+                </p>             
+
+              </div>
+
+            </div>
+
+            <div class="card">
+
+              <h2 class="card-heading simple anchor" id="upload-big-dataset">How can I upload big datasets?</h2>
+              
+              <div class="card-body">
+                           
+                <p>
+                  The <a href="api#linked-data-endpoints">API</a> or the <a href="https://my.redlink.io/dashboard/datasets">dashboard</a>
+                  might not be the best way to upload big datasets (>16MB). Soon we will provide a more convenient way for such needs; 
+                  in the meantime, you can <a href="contact">contact us</a> to find alternatives.
+                </p>             
+
+              </div>
+
+            </div>
+
+            <div class="card">
+
+              <h2 class="card-heading simple anchor" id="custom-domain">Could I use my custom URIs for publishing Linked Data?</h2>
+              
+              <div class="card-body">    
+
+                <p>
+                  When you publish a dataset, by default it will become publicly available under the following 
+                  URI's schema:
+                </p>
+                <pre>http://data.redlink.io/{USER}/{DATASET}/...</pre>    
+
+                <p>
+                  If your URIs do not fit with such base URI, you can still access the data by using:
+                </p>
+                <pre>http://data.redlink.io/{USER}/{DATASET}/?uri=http://example.org/thing</pre>       
+
+                <p>
+                  Custom domains will be available under a different cost model. Please, contact us at
+                  <a href="mailto:support@redlink.io">support@redlink.io</a> for setting it up.
+                </p>                        
+
+              </div>
+
+            </div>
+
+            <div class="card">
+
+              <h2 class="card-heading simple anchor" id="public-sparql">Why don't you offer public SPARQL support?</h2>
+              
+              <div class="card-body">    
+
+                <p>
+                  Through our data hub <a href="http://data.redlink.io">data.redlink.io</a> we're pubicly offering raw
+                  Linked Data support. But SPARQL is restricted to the API. 
+                </p>
+                <p>
+                  That's because we are very chary with the quality of our service, and we want to deliver the best 
+                  possible quality to our customers. Thus, taking into account the inherited complexity of SPARQL, 
+                  we are not thinking to provide public SPARQL access to your datasets for now.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="span6">
+            <p>
+              Redlink Developers (<a href="terms">terms of service</a>)
+            </p>
+            <p>
+              <a href="http://redlink.co">Redlink GmbH © 2013-2014</a> <br/>
+            </p>
+          </div>
+          <div class="span6">
+            <span>
+              <a href="http://twitter.com/RedLinkGmbH" title="twitter"><img src="resources/img/twitter.png" alt="twitter" /></a>
+            </span>
+            <span>
+              <a href="http://www.facebook.com/pages/Redlink-Gmbh/369489779832374" title="facebook"><img src="resources/img/facebook.png" alt="facebook" /></a>
+            </span>
+            <span>
+              <a href="http://plus.google.com/109194362221512515603" title="google+"><img src="resources/img/google.png" alt="google+" /></a>
+            </span>
+            <span>
+              <a href="http://www.linkedin.com/company/3011979" title="linkedin"><img src="resources/img/linkedin.png" alt="linkedin" /></a>
+            </span>
+            <span>
+              <a href="https://vimeo.com/redlinkgmbh" title="vimeo"><img src="resources/img/vimeo.png" alt="vimeo" /></a>
+            </span>
+            <span>
+              <a href="http://www.flickr.com/photos/98964289@N03/" title="flickr"><img src="resources/img/flickr.png" alt="flickr" /></a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="resources/js/jquery.js"></script>
+    <script src="resources/js/bootstrap-transition.js"></script>
+    <script src="resources/js/bootstrap-alert.js"></script>
+    <script src="resources/js/bootstrap-modal.js"></script>
+    <script src="resources/js/bootstrap-dropdown.js"></script>
+    <script src="resources/js/bootstrap-scrollspy.js"></script>
+    <script src="resources/js/bootstrap-tab.js"></script>
+    <script src="resources/js/bootstrap-tooltip.js"></script>
+    <script src="resources/js/bootstrap-popover.js"></script>
+    <script src="resources/js/bootstrap-button.js"></script>
+    <script src="resources/js/bootstrap-collapse.js"></script>
+    <script src="resources/js/bootstrap-carousel.js"></script>
+    <script src="resources/js/bootstrap-typeahead.js"></script>
+    <script src="resources/js/prettify.js"></script>
+
+    <script type="text/javascript">
+        (function(jQuery){
+          jQuery( document ).ready( function() {
+
+            //prettify
+            prettyPrint();
+
+            $("body h2").each(function() {
+                $("ul#faq-doc-menu").append("<li><a href=\"#" + $(this).attr("id") + "\">" + $(this).text() + "</a></li>");
+            });
+
+            $("ul#faq-doc-menu li a").click(function() {
+                $("ul#faq-doc-menu li.active").removeClass("active");
+                $(this).parent().addClass("active");
+            });
+
+          });
+        }(jQuery))
+	
+    </script>
+
+    <!-- Piwik -->
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://analytics.redlink.co/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "4"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Piwik Code -->
+
+  </body>
+
+</html>

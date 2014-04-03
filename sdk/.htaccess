@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteBase /sdk/
+
+RewriteRule ^ - [E=LATEST:1.0.0-BETA]
+
+RewriteRule ^java/doc/io/(.*)$ java/doc/%{ENV:LATEST}/?io/$1 [L,R]
+RewriteRule ^java/doc/$ java/doc/%{ENV:LATEST}/ [R]

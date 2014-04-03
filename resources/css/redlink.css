@@ -1,0 +1,415 @@
+
+body {
+  padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+}
+
+a, a:active, a:visited, a:hover {
+  color: #e60909;
+}
+
+h1 {
+  font-size: bold;
+  /* color: #e60909; */
+}
+
+p img.diagram {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.anchor {
+  padding-top: 50px !important; 
+  margin-top: -50px !important;
+}
+
+.navbar-inner {
+  background-color: #000000;
+  background-image: none;
+  background-repeat: no-repeat;
+  filter: none;
+}
+
+@media only screen {
+  .navbar .brand {
+    position: fixed;    
+    overflow: visible;
+    padding-left: 0;    
+    padding-top: 0;
+  }
+}
+
+.navbar .nav-collapse {
+  margin-left: 250px;
+}
+
+.navbar ul.nav > li.active > a  {
+  color: #ffffff;
+  border-color: #e60909;
+}
+
+.navbar .nav > li > a {
+  color: #dddddd;
+}
+
+.navbar ul.nav > li.active > a:hover,
+.navbar ul.nav > li.active > a:focus,
+.navbar ul.nav > li > a:hover,
+.navbar ul.nav > li > a:focus {
+  color: #e60909;
+  border-color: #dddddd;
+}
+
+.sidebar-nav .nav-list {
+  min-width: 200px;
+  max-width: 250px;
+}
+
+.sidebar-nav .nav-list .nav-header {
+  color: #e60909;
+}
+
+.sidebar-nav .nav-list > .active > a, .sidebar-nav .nav-list > li > a:hover {
+  border-color: #e60909;
+}
+
+.btn, .btn:active, .btn:visited {
+  color: #cccccc;
+  background-color: #e60909;
+  background-image: none;
+}
+
+.btn:hover, .btn:focus {
+  color: #333333;
+  background-color: #cccccc;
+  text-decoration: none;
+  transition: background-position 0.1s linear;
+}
+
+.card .card-body {
+  padding-bottom: 2em;
+}
+
+.card.workflow {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.card.sdk .card-body {
+  height: 120px;
+  padding-bottom: auto;
+}
+
+.card.sdk .card-body p {
+  text-align: center;
+}
+
+p.note {
+  background-color: #efefef;
+  padding: 6px 8px 6px 10px;
+  border-left: 6px solid #e60909;
+}
+
+.footer {
+  color: #cccccc;
+  background-color: #333333;
+  margin-top: 5em;
+  padding-top: 2em;
+  min-height: 10em;
+  text-align: right;
+}
+
+.footer p {
+  text-align: left;
+}
+
+.footer div span a, .footer div span a:active, .footer div span a:visited {
+  opacity: 0.4;
+}
+
+.footer div span a:hover {
+  opacity: 1.0;
+}
+
+.workflow span.bubble {
+  display: block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  vertical-align: middle;
+  margin: 0 auto 0.5em auto;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  background-color: #e60909;
+  color: #ffffff;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.workflow span.bubble a, .workflow span.bubble a:active, .workflow span.bubble a:visited, .workflow span.bubble a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.workflow p {
+  text-align: center;
+  margin-bottom: 0.2em;
+}
+
+.workflow p.sub {
+  color: #999999;
+  font-weight: 0.9em;
+  margin-bottom: 1.2em;
+}
+
+table.table thead tr {
+  background-color: #555555;
+  color: #dddddd;
+  font-weight: bold;
+  font-size: 1.1;
+}
+
+td.yes, td.no {
+  position: relative;
+  padding-left: 2em;
+}
+
+td.yes:before {
+  content: "\f00c";
+  color: green;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  font-size: 18px;
+  padding-right: 0.5em;
+  position: absolute;
+  top: 10px;
+  left: 0;
+}
+
+td.no:before {
+  content: "\f00d";
+  color: red;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: strong;
+  text-decoration: inherit;
+  font-size: 18px;
+  padding-right: 0.5em;
+  position: absolute;
+  top: 10px;
+  left: 0;
+}
+
+div.http.resource {
+  float: none;
+  clear: both;
+  overflow: hidden;
+  display: block;
+  margin: 0 0 0.7em 0;
+  padding: 0;
+}
+
+div.http.resource.get {
+  background-color: #e7f0f7;
+}
+
+div.http.resource.post {
+  background-color: #e7f6ec;
+}
+
+div.http.resource.put {
+  background-color: #f9f2e9;
+}
+
+div.http.resource.delete {
+  background-color: #f5e8e8;
+}
+
+div.http.resource.options {
+  background-color: #dddddd;
+}
+
+div.http.resource.patch {
+  background-color: #dddddd;
+}
+
+div.http.resource p.http {
+  margin: 0;
+  padding: 0;
+}
+
+div.http.resource p.http {
+  border: 1px solid #333333;
+}
+
+div.http.resource.get p.http {
+  border-color: #0f6ab4;
+}
+
+div.http.resource.post p.http {
+  border-color: #10a54a;
+}
+
+div.http.resource.put p.http {
+  border-color: #c5862b;
+}
+
+div.http.resource.delete p.http {
+  border-color: #a41e22;
+}
+
+div.http.resource.options p.http {
+  border-color: #333333;
+}
+
+div.http.resource p.http span.http {
+  font-size: 0.9em;
+  line-height: 1.2em;
+}
+
+div.http.resource p.http span.http.method {
+  text-transform: uppercase;
+  text-align: center;
+  width: 45px;
+  display: inline-block;
+  padding: 4px 5px 4px 5px;
+  margin-right: 5px;
+  border-radius: 2px;
+}
+
+div.http.resource p.http span.http.method {
+  color: #ffffff;
+}
+
+div.http.resource.get p.http span.http.method {
+  background-color: #0f6ab4;
+}
+
+div.http.resource.post p.http span.http.method {
+  background-color: #10a54a;
+}
+
+div.http.resource.put p.http span.http.method {
+  background-color: #c5862b;
+}
+
+div.http.resource.delete p.http span.http.method {
+  background-color: #a41e22;
+}
+
+div.http.resource.options p.http span.http.method {
+  background-color: #c5862b;
+}
+
+div.http.resource.pacth p.http span.http.method {
+  background-color: #c5862b;
+}
+
+div.http.resource div.http.resource.description p, div.http.resource div.http.resource.description pre {
+    padding: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+pre.prettyprint {
+    padding: 0.5em;
+}
+
+dt  {
+    clear: left;
+    float: left;
+    line-height: 18px;
+    width: 200px;
+    padding-top: 1em;
+    margin-right: 20px;
+    text-align: right;
+    vertical-align: text-top;
+}
+
+dd {
+    clear:right;
+    font-size:12px;
+    line-height:20px;
+    padding-top: 1em;
+    padding-right:40px;
+}
+
+p.expandcollapse {
+    color: #ffffff;
+    background-color: #333333;
+    margin-bottom: 0;
+    text-align: right;
+    padding-right: 0.7em;
+    font-size: 0.8em;
+}
+
+p.expandcollapse a, p.expandcollapse a:active, p.expandcollapse:visited {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+p.expandcollapse a:hover {
+    color: #e60909;
+}
+
+.card.sdk .card-top {
+  text-align: center;
+}
+
+.card.people .card-top.silver {
+  background-color: #b5b5b5;
+}
+
+.card.people .card-top.gray {
+  background-color: #808080;
+}
+
+.card.people .card-top.light-silver {
+  background-color: #E5E5E5;
+}
+
+.card.people .card-top.yellow-green {
+  background-color: #9ACD32;
+}
+
+.card.people .card-top.red {
+  background-color: #e60909;
+}
+
+p#console_uri_builder {
+  font-size: 1.5em;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+p#console_uri_builder select {
+  width: auto;
+}
+
+textarea#api_request {
+  width: 100%;
+  height: 600px;
+  background-color: #eeeeee;
+}
+
+pre#api_response {
+  width: 100%;
+  height: 587px;
+  background-color: #eeeeee;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.tt {
+  font-family: monospace;
+}
+

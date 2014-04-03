@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Solr Plugin - Redlink GmbH</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Redlink Developers site"/>
+    <meta name="author" content="Redlink GmbH"/>
+
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,700" rel="stylesheet" type="text/css">
+    <link href="../resources/css/bootplus.css" rel="stylesheet"/>
+    <link href="../resources/css/bootplus-responsive.css" rel="stylesheet"/>
+    <link href="../resources/css/font-awesome.css" rel="stylesheet"
+    /s>
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="../resources/css/font-awesome-ie7.min.css"/>
+    <![endif]-->
+    <link href="../resources/css/prettify.css" rel="stylesheet"/>
+    <link href="../resources/css/redlink.css" rel="stylesheet"/>
+    <link href="../resources/css/thickbox.css" rel="stylesheet"/>
+
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../resources/ico/redlink-apple-touch-icon-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../resources/redlink-ico/apple-touch-icon-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../resources/redlink-ico/apple-touch-icon-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../resources/ico/redlink-apple-touch-icon-57.png"/>
+    <link rel="shortcut icon" href="../resources/ico/favicon.png"/>
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="http://dev.redlink.io"><img src="../resources/img/redlink-developers.png"
+                                                               alt="Redlink Developers"/></a>
+
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li><a href="../">Home</a></li>
+                    <li><a href="../api">API</a></li>
+                    <li><a href="../sdk">SDK</a></li>
+                    <li class="active"><a href="./">Plugins</a></li>
+                    <li><a href="../demos">Demos</a></li>
+                    <li><a href="../faq">FAQ</a></li>
+                    <li><a href="../contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+<div class="row">
+
+<div class="span12">
+
+<h2 id="sdk">Redlink Solr Plugin</h2>
+
+<div class="card">
+
+    <h2 class="card-heading simple">Introduction</h2>
+
+    <div class="card-body">
+
+        <p>
+            <a href="#TB_inline?width=870&height=575&inlineId=solrPluginScreencast" class="thickbox">
+                <img src="http://redlink.co/wp-content/uploads/2014/03/play2.jpg"
+                     alt="VIDEO - Introducing the Redlink Apache Solr Plugin"
+                     style="float: right; margin-right: 2em; margin-left: 4em; width: 239px; height:150px;"/>
+            </a>
+            The <strong>Redlink Solr Plugin</strong> allows the enhance your current search
+            build with <a href="http://lucene.apache.org/solr">Apache Solr</a>.
+            The plugins allows enhancement via the <a href="../api">Redlink API</a> of data
+            during Solr updates. The enhancements are stored in configurable fields.
+        </p>
+
+        <p>
+            For a quick introduction, please check the
+            <a href="http://redlink.co/semantic-search-for-apache-solr/">annoucement post</a> or
+            <a href="#TB_inline?width=870&height=575&inlineId=solrPluginScreencast" class="thickbox">watch this
+                screencast</a>
+            where we introduce you the plugin, telling how you can use it to enhance your current Solr search with
+            Redlink:
+        </p>
+
+        <p style="text-align: center;">
+
+        </p>
+
+        <div id="solrPluginScreencast" style="display: none">
+            <iframe src="http://player.vimeo.com/video/90064360" width="845" height="530" frameborder="0"
+                    webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            <p><a href="http://vimeo.com/90064360">Redlink Solr Plugin</a> from <a href="http://vimeo.com/redlinkgmbh">Redlink
+                GmbH</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+        </div>
+
+        <p>
+            If you have any question, please <a href="../contact">contact us</a> to get support.
+        </p>
+
+    </div>
+
+</div>
+
+<div class="card">
+
+    <h2 class="card-heading simple">Installation</h2>
+
+    <div class="card-body">
+
+        <p>
+            The installation of the plugin is quite simple:
+        </p>
+
+        <ol>
+            <li>
+                Create <tt>lib</tt> directory for your core.
+            </li>
+            <li>
+                Enable it by adding <code>&lt;lib dir="./lib" /&gt;</code> to the <tt>solrconfig.xml</tt> file.
+            </li>
+            <li>
+                Copy the plugin into the <tt>lib</tt> directory of the core where you want to use it. You have two
+                branches dependencing on the version
+                of Apache Solr you are using:
+                <ul>
+                    <li>
+                        <a href="http://repo.dev.redlink.io/content/repositories/public-releases/io/redlink/solr-plugin/1.0.1-BETA-4.6.1/solr-plugin-1.0.1-BETA-4.6.1.jar">solr-plugin-1.0.1-BETA-4.6.1.jar</a>
+                        for Solr 4.6.1, and probably newer versions
+                    </li>
+                    <li>
+                        <a href="http://repo.dev.redlink.io/content/repositories/public-releases/io/redlink/solr-plugin/1.0.1-BETA-4.3.1/solr-plugin-1.0.1-BETA-4.3.1.jar">solr-plugin-1.0.1-BETA-4.3.1.jar</a>
+                        for Solr 4.3.1
+                    </li>
+                </ul>
+                The plugin has been tested with Apache Solr <strong>4.6.1</strong> and <strong>4.3.1</strong>,
+                but should be compatible with most of 4.x versions.
+            </li>
+        </ol>
+
+        <p>
+            If you have problems on startup, it may be caused by a wrong logger configuration, at the wiki you have
+            information
+            about <a href="https://wiki.apache.org/solr/SolrLogging">how to solve it</a>.
+        </p>
+
+    </div>
+
+</div>
+
+<div class="card">
+
+    <h2 class="card-heading simple">Enhancer Configuration</h2>
+
+    <div class="card-body">
+
+        <ol>
+            <li>
+                Create input and output fields in your <tt>schema.xml</tt> file.
+            </li>
+            <li>
+                Enable component in <tt>solrconfig.xml</tt> by adding something like this:
+                  <pre class="prettyprint">&lt;updateRequestProcessorChain name="redlinkChain" default="true"&gt;
+    &lt;processor class="redlink.EnhancerProcessorFactory" &gt;
+
+        &lt;!-- prefixes CAN be set; useful ti simplify path descriptions and type constraints --&gt;
+        &lt;lst name="redlink.prefixes"&gt;
+            &lt;str name="skos"&gt;http://www.w3.org/2004/02/skos/core#&lt;/str&gt;
+            &lt;str name="dct"&gt;http://purl.org/dc/terms/&lt;/str&gt;
+        &lt;/lst&gt;
+
+        &lt;!-- redlink.key MUST be defined --&gt;
+        &lt;str name="redlink.key"&gt;YOUR_API_KEY&lt;/str&gt;
+
+        &lt;!-- redlink.analysis MUST be defined --&gt;
+        &lt;str name="redlink.analysis"&gt;test-chain&lt;/str&gt;
+
+        &lt;!-- redlink.input CAN be set, default is 'input_field' --&gt;
+        &lt;str name="redlink.input"&gt;my_input_field&lt;/str&gt;
+
+        &lt;!-- redlink.output CAN be set, default is 'output_field'; can be String or Array --&gt;
+        &lt;!--&lt;str name="redlink.output"&gt;my_output_field&lt;/str&gt;--&gt;
+
+        &lt;!-- redlink.outputs CAN be set; the arr defines more then one output fields --&gt;
+        &lt;arr name="redlink.output"&gt;
+            &lt;!-- name of an output filed, the value is evaluated via LDPath from a specific dataset --&gt;
+            &lt;lst&gt;
+                &lt;!-- MUST be set --&gt;
+                &lt;str name="redlink.field"&gt;my_output_field_de&lt;/str&gt;
+
+                &lt;!-- type CAN be set; enhancement result must than match the type; if not set, all types are accepted; --&gt;
+                &lt;!-- defined prefixes can be used as usual --&gt;
+                &lt;str name="redlink.type"&gt;skos:Concept&lt;/str&gt;
+
+                &lt;!-- path CAN be set; by default it uses first match of rdfs:label, dct:title, skos:prefLabel, foaf:name; --&gt;
+                &lt;!-- defined prefixes can be used as usual --&gt;
+                &lt;str name="redlink.path"&gt;skos:prefLabel[@de]&lt;/str&gt;
+
+                &lt;!-- dataset CAN be defined,; by default, the path is issues against all datasets in the app --&gt;
+                &lt;!--&lt;str name="redlink.dataset"&gt;test-data&lt;/str&gt;--&gt;
+            &lt;/lst&gt;
+            &lt;lst&gt;
+                &lt;str name="redlink.field"&gt;my_output_field_en&lt;/str&gt;
+                &lt;str name="redlink.path"&gt;&lt;http://www.w3.org/2004/02/skos/core#prefLabel&gt;[@en]&lt;/str&gt;
+            &lt;/lst&gt;
+        &lt;/arr&gt;
+
+    &lt;/processor&gt;
+    &lt;processor class="solr.LogUpdateProcessorFactory" /&gt;
+    &lt;processor class="solr.RunUpdateProcessorFactory" /&gt;
+&lt;/updateRequestProcessorChain&gt;
+
+&lt;requestHandler name="/update" class="solr.UpdateRequestHandler"&gt;
+    &lt;lst name="defaults"&gt;
+        &lt;str name="update.chain"&gt;redlinkChain&lt;/str&gt;
+    &lt;/lst&gt;
+&lt;/requestHandler&gt;</pre>
+            </li>
+        </ol>
+
+        <p>
+            Once you have enabled and configured the plugin, you do not need to change how you
+            are indexing your documents with Solr. The plugin will automatically enhance every
+            document updated according the configuration you had specified.
+        </p>
+
+    </div>
+
+</div>
+
+<div class="card">
+
+    <h2 class="card-heading simple">Facet Recommender Configuration</h2>
+
+    <div class="card-body">
+
+        <ol>
+            <li>
+                Create facet fields in schema.xml.
+            </li>
+            <li>
+                Create a copy field with all facet fields (<tt>test</tt> in our example).
+            </li>
+        <li>
+            Use the suggestion component in <tt>solrconfig.xml</tt> like this:
+              <pre class="prettyprint">&lt;requestHandler name=&quot;/recommender&quot; class=&quot;redlink.FacetRecommendationHandler&quot; default=&quot;true&quot;&gt;
+    &lt;!-- default values for query parameters can be specified, these
+         will be overridden by parameters in the request
+      --&gt;
+    &lt;lst name=&quot;defaults&quot;&gt;
+
+        &lt;!-- the field where all the facets has been copied to --&gt;
+        &lt;str name=&quot;df&quot;&gt;text&lt;/str&gt;
+
+        &lt;!-- the fields that should be considered for recommendation --&gt;
+        &lt;str name=&quot;redlink.field&quot;&gt;facet1&lt;/str&gt;
+        &lt;str name=&quot;redlink.field&quot;&gt;facet2&lt;/str&gt;
+
+        &lt;!-- fq is supported (e.g. this is important on query time,
+                if facets already are selected) --&gt;
+        &lt;str name=&quot;fq&quot;&gt;field3:&quot;value&quot;&lt;/str&gt;
+
+        &lt;!-- limit per facet field --&gt;
+        &lt;str name=&quot;redlink.limit&quot;&gt;3&lt;/str&gt;
+
+    &lt;!-- (OPTIONAL) if spellchecking should be used --&gt;
+    &lt;/lst&gt;
+    &lt;arr name=&quot;first-components&quot;&gt;
+        &lt;str&gt;spellcheck&lt;/str&gt;
+    &lt;/arr&gt;
+&lt;/requestHandler&gt;
+
+&lt;!-- of course it makes sense to use the copy field for spellchecking --&gt;
+&lt;searchComponent name=&quot;spellcheck&quot; class=&quot;solr.SpellCheckComponent&quot;&gt;
+    &lt;str name=&quot;queryAnalyzerFieldType&quot;&gt;textSpell&lt;/str&gt;
+    &lt;lst name=&quot;spellchecker&quot;&gt;
+        &lt;str name=&quot;name&quot;&gt;text&lt;/str&gt;
+        &lt;str name=&quot;field&quot;&gt;text&lt;/str&gt;
+        &lt;str name=&quot;spellcheckIndexDir&quot;&gt;spellchecker&lt;/str&gt;
+        &lt;str name=&quot;buildOnCommit&quot;&gt;true&lt;/str&gt;
+    &lt;/lst&gt;
+&lt;/searchComponent&gt;</pre>
+            </li>
+            <li>
+                Issue a query like <tt>/recommender?q=Re&redlink.limit=10</tt>. You can override the definitions of solrconfi.xml at query time.
+            </li>
+            <li>
+                Get response like this:
+                <pre class="prettyprint">&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;response&gt;
+    &lt;lst name=&quot;responseHeader&quot;&gt;
+        &lt;int name=&quot;status&quot;&gt;0&lt;/int&gt;
+        &lt;int name=&quot;QTime&quot;&gt;23&lt;/int&gt;
+    &lt;/lst&gt;
+    &lt;lst name=&quot;recommendation&quot;&gt;
+        &lt;int name=&quot;count&quot;&gt;3&lt;/int&gt;
+        &lt;lst name=&quot;facets&quot;&gt;
+            &lt;lst name=&quot;facet1&quot;&gt;
+                &lt;int name=&quot;Redlink GmbH&quot;&gt;1&lt;/int&gt;
+                &lt;int name=&quot;Salzburg Research&quot;&gt;1&lt;/int&gt;
+            &lt;/lst&gt;
+            &lt;lst name=&quot;facet2&quot;&gt;
+                &lt;int name=&quot;Ile de Ré Tourisme&quot;&gt;1&lt;/int&gt;
+            &lt;/lst&gt;
+        &lt;/lst&gt;
+    &lt;/lst&gt;
+&lt;/response&gt;</pre>
+            </li>
+        </ol>
+
+    </div>
+
+</div>
+
+<div class="card">
+
+    <h2 class="card-heading simple">Support</h2>
+
+    <div class="card-body">
+
+        <p>
+            For whatever other question related with the plugin, please
+            <a href="../contact">contact us</a>.
+        </p>
+
+    </div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="span6">
+                <p>
+                    Redlink Developers (<a href="../terms">terms of service</a>)
+                </p>
+
+                <p>
+                    <a href="http://redlink.co">Redlink GmbH © 2013-2014</a> <br/>
+                </p>
+            </div>
+            <div class="span6">
+            <span>
+              <a href="http://twitter.com/RedLinkGmbH" title="twitter"><img src="../resources/img/twitter.png"
+                                                                            alt="twitter"/></a>
+            </span>
+            <span>
+              <a href="http://www.facebook.com/pages/Redlink-Gmbh/369489779832374" title="facebook"><img
+                      src="../resources/img/facebook.png" alt="facebook"/></a>
+            </span>
+            <span>
+              <a href="http://plus.google.com/109194362221512515603" title="google+"><img
+                      src="../resources/img/google.png" alt="google+"/></a>
+            </span>
+            <span>
+              <a href="http://www.linkedin.com/company/3011979" title="linkedin"><img
+                      src="../resources/img/linkedin.png" alt="linkedin"/></a>
+            </span>
+            <span>
+              <a href="https://vimeo.com/redlinkgmbh" title="vimeo"><img src="../resources/img/vimeo.png" alt="vimeo"/></a>
+            </span>
+            <span>
+              <a href="http://www.flickr.com/photos/98964289@N03/" title="flickr"><img src="../resources/img/flickr.png"
+                                                                                       alt="flickr"/></a>
+            </span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="../resources/js/jquery.js"></script>
+<script src="../resources/js/bootstrap-transition.js"></script>
+<script src="../resources/js/bootstrap-alert.js"></script>
+<script src="../resources/js/bootstrap-modal.js"></script>
+<script src="../resources/js/bootstrap-dropdown.js"></script>
+<script src="../resources/js/bootstrap-scrollspy.js"></script>
+<script src="../resources/js/bootstrap-tab.js"></script>
+<script src="../resources/js/bootstrap-tooltip.js"></script>
+<script src="../resources/js/bootstrap-popover.js"></script>
+<script src="../resources/js/bootstrap-button.js"></script>
+<script src="../resources/js/bootstrap-collapse.js"></script>
+<script src="../resources/js/bootstrap-carousel.js"></script>
+<script src="../resources/js/bootstrap-typeahead.js"></script>
+<script src="../resources/js/prettify.js"></script>
+<script src="../resources/js/thickbox.js"></script>
+
+<script type="text/javascript">
+    (function (jQuery) {
+        jQuery(document).ready(function () {
+
+
+            //random order
+            var grp = $("#plugin-cards").children();
+            var cnt = grp.length;
+
+            var temp, x;
+            for (var i = 0; i < cnt; i++) {
+                temp = grp[i];
+                x = Math.floor(Math.random() * cnt);
+                grp[i] = grp[x];
+                grp[x] = temp;
+            }
+            $(grp).remove();
+            $("#plugin-cards").append($(grp));
+
+            //prettify
+            prettyPrint();
+
+        });
+    }(jQuery))
+
+</script>
+
+<!-- Piwik -->
+<script type="text/javascript">
+    var _paq = _paq || [];
+    _paq.push(["trackPageView"]);
+    _paq.push(["enableLinkTracking"]);
+
+    (function () {
+        var u = (("https:" == document.location.protocol) ? "https" : "http") + "://analytics.redlink.co/";
+        _paq.push(["setTrackerUrl", u + "piwik.php"]);
+        _paq.push(["setSiteId", "4"]);
+        var d = document, g = d.createElement("script"), s = d.getElementsByTagName("script")[0];
+        g.type = "text/javascript";
+        g.defer = true;
+        g.async = true;
+        g.src = u + "piwik.js";
+        s.parentNode.insertBefore(g, s);
+    })();
+</script>
+<!-- End Piwik Code -->
+
+</body>
+
+</html>

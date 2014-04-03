@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteBase /api/
+
+RewriteRule ^$ latest [R]
+RewriteRule ^latest$ 1.0-BETA.html [R]
