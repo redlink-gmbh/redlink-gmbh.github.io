@@ -1,6 +1,5 @@
-   <head>
       <meta charset="utf-8" />
-      <title>{% if page.title == blank %}Redlink Developers - Redlink GmbH{% else %}{{page.title}} - Redlink Developers{% endif %}</title>
+      <title>{% if page.title.length > 0 %}{{page.title}} - Redlink Developers{% else %}Redlink Developers - Redlink GmbH{% endif %}</title>
 
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,5 +23,3 @@
       <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/resources/redlink-ico/apple-touch-icon-72.png" />
       <link rel="apple-touch-icon-precomposed" href="/resources/ico/redlink-apple-touch-icon-57.png" />
       <link rel="shortcut icon" href="/resources/ico/favicon.png" />
-   </head>
-
