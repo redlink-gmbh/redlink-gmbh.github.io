@@ -8,6 +8,10 @@ powered by [jekyll](http://jekyllrb.com/) and
     gem install jekyll
     gem install jekyll-redirect-from
 
-# Usage
+# Development
 
-    jekyll serve
+    jekyll serve  --watch
+
+# Deployment
+
+    git push

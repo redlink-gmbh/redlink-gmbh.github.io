@@ -1,5 +1,6 @@
 ---
 layout: default
+title: API Documetation
 redirect_from: "/api/"
 ---
 
@@ -1315,3 +1316,37 @@ clientBuilder.sslContext(ctx);</pre>
         </div>
 
       </div>
+
+    </div>
+
+    <script src="/resources/js/prettify.js"></script>
+    <script type="text/javascript">
+        (function(jQuery){
+          jQuery( document ).ready( function() {
+
+            //prettify
+            prettyPrint();
+
+            $("pre.prettyprint").each(function() {
+                var self = $(this);
+                var a = $("<a>", {"href":"#", "text":"expand/collapse"}).click(function() {
+                    self.toggle();
+                });
+                $(this).before($("<p>", {"class":"expandcollapse"}).append(a));
+            });
+
+            //rest doc
+            $("div.http.resource.description").hide();
+            $("div.http.resource").click(function() {
+                $("#"+$(this).attr("id")+"-description").toggle();
+            });
+            $("ul#api-doc-menu li a").click(function() {
+                $("ul#api-doc-menu li.active").removeClass("active");
+                $(this).parent().addClass("active");
+            });
+
+          });
+        }(jQuery))
+
+    </script>
+
