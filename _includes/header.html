@@ -7,13 +7,13 @@
           <a class="brand" href="/"><img src="/resources/img/redlink-developers.png" alt="Redlink Developers" /></a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="/">Home</a></li>
-              <li><a href="/api">API</a></li>
-              <li><a href="/sdk">SDK</a></li>
-              <li><a href="/plugins">Plugins</a></li>
-              <li><a href="/demos">Demos</a></li>
-              <li><a href="/faq">FAQ</a></li>
-              <li><a href="/contact">Contact</a></li>
+              <li{% if page.url == '/' %} class="active"{% endif %}><a href="/">Home</a></li>
+              <li{% if page.url contains '/api' %} class="active"{% endif %}><a href="/api">API</a></li>
+              <li{% if page.url contains '/sdk' %} class="active"{% endif %}><a href="/sdk">SDK</a></li>
+              <li{% if page.url contains '/plugins' %} class="active"{% endif %}><a href="/plugins">Plugins</a></li>
+              <li{% if page.url contains '/demos' or page.url contains '/console' %} class="active"{% endif %}><a href="/demos">Demos</a></li>
+              <li{% if page.url contains '/faq' %} class="active"{% endif %}><a href="/faq">FAQ</a></li>
+              <li{% if page.url contains '/contact' %} class="active"{% endif %}><a href="/contact">Contact</a></li>
             </ul>
           </div>
         </div>
