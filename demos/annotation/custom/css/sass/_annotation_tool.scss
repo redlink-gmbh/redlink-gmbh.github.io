@@ -1,0 +1,156 @@
+#rle_container .loader {
+    height:406px;
+    width:800px;
+    position:absolute;
+    top:10px;
+    display:none;
+    text-align:center;
+    background: #e00000 url('../img/ajax-loader.gif');
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+#rle_buttons ul {
+    list-style: none;
+    margin: 10px 0;
+}
+
+#rle_buttons ul li {
+    display: inline-block;
+    vertical-align: top;
+}
+
+div#rle_container {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.4em;
+    color: #555;
+}
+
+.rle_button {
+    background-color:#e00000;
+    text-align:center;color:
+    white;font-weight:bold;
+    padding:10px;
+    margin-top: 10px;
+    width: 100px;
+    cursor: pointer;
+    float: left;
+}
+
+.rle_box {
+    padding: 10px;
+    overflow: auto;
+}
+
+span.rle_annotation {
+    text-decoration:underline;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+span.rle_person {
+    color:#e06500;
+}
+
+span.rle_location {
+    color:#8BD100   ;
+}
+
+span.rle_concept {
+    color: #bc096a;
+}
+
+span.rle_other {
+    color: #008686;
+}
+
+div.rle_annotation {
+    display: none;
+    width: 270px;
+    padding: 10px;
+    color:white;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+div.rle_person {
+    background-color:#e06500
+}
+div.rle_location {
+    background-color:#8BD100;
+}
+div.rle_concept {
+    background-color: #bc096a;
+}
+div.rle_other {
+    background-color: #008686;
+}
+div#rle_right_inner_right {
+    width: 270px;
+    padding: 10px;
+    color:white;
+    margin-left: 10px;
+    overflow-y: scroll;
+}
+div#rle_slider {
+    width: 370px;
+}
+.rle_clear {
+    clear: both;
+}
+
+span.active {
+    color:#e00000;
+}
+
+span.rle_list_title {
+
+}
+
+span.rle_list_confidence {
+    float: right;
+    font-size: 12px;
+}
+
+span.rle_single_url {
+    display:block;
+    font-size:11px;
+}
+
+span.textmarker {
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 2px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+p.rle_single_desc {
+    font-size: 12px;
+}
+
+div.rle_single_desc_outer {
+  overflow-y: scroll;
+  background-color: white;
+  color: #555;
+  height: 335px;
+  margin-top: 5px;
+}
+
+p.rle_single_desc {
+  margin:10px;
+  margin-top:5px;
+  text-align: justify;
+}
+
+#rle_right_inner_right {
+  overflow-y: hidden;
+  cursor: pointer;
+}
+
+.rle_single_desc_img {
+  float: left;
+  margin: 10px;
+  margin-bottom: 1px;
+}
+

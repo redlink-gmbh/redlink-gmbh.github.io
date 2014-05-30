@@ -1,0 +1,1300 @@
+/* line 1, ../sass/_annotation_tool.scss */
+#rle_container .loader {
+  height: 406px;
+  width: 800px;
+  position: absolute;
+  top: 10px;
+  display: none;
+  text-align: center;
+  background: #e00000 url("../../img/ajax-loader.gif");
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+/* line 13, ../sass/_annotation_tool.scss */
+#rle_buttons ul {
+  list-style: none;
+  margin: 10px 0;
+}
+
+/* line 18, ../sass/_annotation_tool.scss */
+#rle_buttons ul li {
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* line 23, ../sass/_annotation_tool.scss */
+div#rle_container {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.4em;
+  color: #555;
+}
+
+/* line 30, ../sass/_annotation_tool.scss */
+.rle_button {
+  background-color: #e00000;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  margin-top: 10px;
+  width: 100px;
+  cursor: pointer;
+  float: left;
+}
+
+/* line 41, ../sass/_annotation_tool.scss */
+.rle_box {
+  padding: 10px;
+  overflow: auto;
+}
+
+/* line 46, ../sass/_annotation_tool.scss */
+span.rle_annotation {
+  text-decoration: underline;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* line 52, ../sass/_annotation_tool.scss */
+span.rle_person {
+  color: #e06500;
+}
+
+/* line 56, ../sass/_annotation_tool.scss */
+span.rle_location {
+  color: #8BD100;
+}
+
+/* line 60, ../sass/_annotation_tool.scss */
+span.rle_concept {
+  color: #bc096a;
+}
+
+/* line 64, ../sass/_annotation_tool.scss */
+span.rle_other {
+  color: #008686;
+}
+
+/* line 68, ../sass/_annotation_tool.scss */
+div.rle_annotation {
+  display: none;
+  width: 270px;
+  padding: 10px;
+  color: white;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+/* line 76, ../sass/_annotation_tool.scss */
+div.rle_person {
+  background-color: #e06500;
+}
+
+/* line 79, ../sass/_annotation_tool.scss */
+div.rle_location {
+  background-color: #8BD100;
+}
+
+/* line 82, ../sass/_annotation_tool.scss */
+div.rle_concept {
+  background-color: #bc096a;
+}
+
+/* line 85, ../sass/_annotation_tool.scss */
+div.rle_other {
+  background-color: #008686;
+}
+
+/* line 88, ../sass/_annotation_tool.scss */
+div#rle_right_inner_right {
+  width: 270px;
+  padding: 10px;
+  color: white;
+  margin-left: 10px;
+  overflow-y: scroll;
+}
+
+/* line 95, ../sass/_annotation_tool.scss */
+div#rle_slider {
+  width: 370px;
+}
+
+/* line 98, ../sass/_annotation_tool.scss */
+.rle_clear {
+  clear: both;
+}
+
+/* line 102, ../sass/_annotation_tool.scss */
+span.active {
+  color: #e00000;
+}
+
+/* line 110, ../sass/_annotation_tool.scss */
+span.rle_list_confidence {
+  float: right;
+  font-size: 12px;
+}
+
+/* line 115, ../sass/_annotation_tool.scss */
+span.rle_single_url {
+  display: block;
+  font-size: 11px;
+}
+
+/* line 120, ../sass/_annotation_tool.scss */
+span.textmarker {
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 2px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 128, ../sass/_annotation_tool.scss */
+p.rle_single_desc {
+  font-size: 12px;
+}
+
+/* line 132, ../sass/_annotation_tool.scss */
+div.rle_single_desc_outer {
+  overflow-y: scroll;
+  background-color: white;
+  color: #555;
+  height: 335px;
+  margin-top: 5px;
+}
+
+/* line 140, ../sass/_annotation_tool.scss */
+p.rle_single_desc {
+  margin: 10px;
+  margin-top: 5px;
+  text-align: justify;
+}
+
+/* line 146, ../sass/_annotation_tool.scss */
+#rle_right_inner_right {
+  overflow-y: hidden;
+  cursor: pointer;
+}
+
+/* line 151, ../sass/_annotation_tool.scss */
+.rle_single_desc_img {
+  float: left;
+  margin: 10px;
+  margin-bottom: 1px;
+}
+
+/* line 3, ../sass/redlink-annotation-tool.scss */
+#rle_container {
+  /* jQuery UI - v1.10.3 - 2013-07-19
+  * http://jqueryui.com
+  * Includes: jquery.ui.core.css, jquery.ui.slider.css
+  * To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Arial%2Csans-serif&fwDefault=bold&fsDefault=1.1em&cornerRadius=6px&bgColorHeader=cc0000&bgTextureHeader=highlight_soft&bgImgOpacityHeader=15&borderColorHeader=e3a1a1&fcHeader=ffffff&iconColorHeader=ffffff&bgColorContent=ffffff&bgTextureContent=flat&bgImgOpacityContent=75&borderColorContent=eeeeee&fcContent=333333&iconColorContent=cc0000&bgColorDefault=eeeeee&bgTextureDefault=highlight_hard&bgImgOpacityDefault=100&borderColorDefault=d8dcdf&fcDefault=004276&iconColorDefault=cc0000&bgColorHover=f6f6f6&bgTextureHover=highlight_hard&bgImgOpacityHover=100&borderColorHover=cdd5da&fcHover=111111&iconColorHover=cc0000&bgColorActive=ffffff&bgTextureActive=flat&bgImgOpacityActive=65&borderColorActive=eeeeee&fcActive=cc0000&iconColorActive=cc0000&bgColorHighlight=fbf8ee&bgTextureHighlight=glass&bgImgOpacityHighlight=55&borderColorHighlight=fcd3a1&fcHighlight=444444&iconColorHighlight=004276&bgColorError=f3d8d8&bgTextureError=diagonals_thick&bgImgOpacityError=75&borderColorError=cc0000&fcError=2e2e2e&iconColorError=cc0000&bgColorOverlay=a6a6a6&bgTextureOverlay=dots_small&bgImgOpacityOverlay=65&opacityOverlay=40&bgColorShadow=333333&bgTextureShadow=flat&bgImgOpacityShadow=0&opacityShadow=10&thicknessShadow=8px&offsetTopShadow=-8px&offsetLeftShadow=-8px&cornerRadiusShadow=8px
+  * Copyright 2013 jQuery Foundation and other contributors Licensed MIT */
+  /* Layout helpers
+  ----------------------------------*/
+  /* Interaction Cues
+  ----------------------------------*/
+  /* Icons
+  ----------------------------------*/
+  /* states and images */
+  /* Misc visuals
+  ----------------------------------*/
+  /* Overlays */
+  /* For IE8 - See #6727 */
+  /* Component containers
+  ----------------------------------*/
+  /* Interaction states
+  ----------------------------------*/
+  /* Interaction Cues
+  ----------------------------------*/
+  /* Icons
+  ----------------------------------*/
+  /* states and images */
+  /* positioning */
+  /* ui-icon-seek-first is deprecated, use ui-icon-seek-start instead */
+  /* Misc visuals
+  ----------------------------------*/
+  /* Corner radius */
+  /* Overlays */
+}
+/* line 12, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-helper-hidden {
+  display: none;
+}
+/* line 15, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-helper-hidden-accessible {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+/* line 25, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-helper-reset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  line-height: 1.3;
+  text-decoration: none;
+  font-size: 100%;
+  list-style: none;
+}
+/* line 36, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-helper-clearfix:before,
+#rle_container .ui-helper-clearfix:after {
+  content: "";
+  display: table;
+  border-collapse: collapse;
+}
+/* line 41, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-helper-clearfix:after {
+  clear: both;
+}
+/* line 44, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-helper-clearfix {
+  min-height: 0;
+  /* support: IE7 */
+}
+/* line 47, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-helper-zfix {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  opacity: 0;
+  filter: Alpha(Opacity=0);
+}
+/* line 57, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-front {
+  z-index: 100;
+}
+/* line 64, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-state-disabled {
+  cursor: default !important;
+}
+/* line 73, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon {
+  display: block;
+  text-indent: -99999px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+}
+/* line 85, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-widget-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* line 92, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-slider {
+  position: relative;
+  text-align: left;
+}
+/* line 96, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-slider .ui-slider-handle {
+  position: absolute;
+  z-index: 2;
+  width: 1.2em;
+  height: 1.2em;
+  cursor: default;
+}
+/* line 103, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-slider .ui-slider-range {
+  position: absolute;
+  z-index: 1;
+  font-size: .7em;
+  display: block;
+  border: 0;
+  background-position: 0 0;
+}
+/* line 114, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-slider.ui-state-disabled .ui-slider-handle,
+#rle_container .ui-slider.ui-state-disabled .ui-slider-range {
+  filter: inherit;
+}
+/* line 118, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-slider-horizontal {
+  height: .8em;
+}
+/* line 121, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-slider-horizontal .ui-slider-handle {
+  top: -0.3em;
+  margin-left: -0.6em;
+}
+/* line 125, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-slider-horizontal .ui-slider-range {
+  top: 0;
+  height: 100%;
+}
+/* line 129, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-slider-horizontal .ui-slider-range-min {
+  left: 0;
+}
+/* line 132, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-slider-horizontal .ui-slider-range-max {
+  right: 0;
+}
+/* line 136, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-slider-vertical {
+  width: .8em;
+  height: 100px;
+}
+/* line 140, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-slider-vertical .ui-slider-handle {
+  left: -0.3em;
+  margin-left: 0;
+  margin-bottom: -0.6em;
+}
+/* line 145, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-slider-vertical .ui-slider-range {
+  left: 0;
+  width: 100%;
+}
+/* line 149, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-slider-vertical .ui-slider-range-min {
+  bottom: 0;
+}
+/* line 152, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-slider-vertical .ui-slider-range-max {
+  top: 0;
+}
+/* line 158, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-widget {
+  font-family: Arial,sans-serif;
+  font-size: 1.1em;
+}
+/* line 162, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-widget .ui-widget {
+  font-size: 1em;
+}
+/* line 168, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-widget input,
+#rle_container .ui-widget select,
+#rle_container .ui-widget textarea,
+#rle_container .ui-widget button {
+  font-family: Arial,sans-serif;
+  font-size: 1em;
+}
+/* line 172, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-widget-content {
+  border: 1px solid #eeeeee;
+  background: white url(../images/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x;
+  color: #333333;
+}
+/* line 177, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-widget-content a {
+  color: #333333;
+}
+/* line 180, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-widget-header {
+  border: 1px solid #e3a1a1;
+  background: #e00000 url(../images/ui-bg_highlight-soft_15_cc0000_1x100.png) 50% 50% repeat-x;
+  color: #ffffff;
+  font-weight: bold;
+}
+/* line 186, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-widget-header a {
+  color: #ffffff;
+}
+/* line 194, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-state-default,
+#rle_container .ui-widget-content .ui-state-default,
+#rle_container .ui-widget-header .ui-state-default {
+  border: 1px solid #d8dcdf;
+  background: #eeeeee url(../images/ui-bg_highlight-hard_100_eeeeee_1x100.png) 50% 50% repeat-x;
+  font-weight: bold;
+  color: #004276;
+}
+/* line 202, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-state-default a,
+#rle_container .ui-state-default a:link,
+#rle_container .ui-state-default a:visited {
+  color: #004276;
+  text-decoration: none;
+}
+/* line 211, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-state-hover,
+#rle_container .ui-widget-content .ui-state-hover,
+#rle_container .ui-widget-header .ui-state-hover,
+#rle_container .ui-state-focus,
+#rle_container .ui-widget-content .ui-state-focus,
+#rle_container .ui-widget-header .ui-state-focus {
+  border: 1px solid #cdd5da;
+  background: #f6f6f6 url(../images/ui-bg_highlight-hard_100_f6f6f6_1x100.png) 50% 50% repeat-x;
+  font-weight: bold;
+  color: #111111;
+}
+/* line 220, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-state-hover a,
+#rle_container .ui-state-hover a:hover,
+#rle_container .ui-state-hover a:link,
+#rle_container .ui-state-hover a:visited {
+  color: #111111;
+  text-decoration: none;
+}
+/* line 226, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-state-active,
+#rle_container .ui-widget-content .ui-state-active,
+#rle_container .ui-widget-header .ui-state-active {
+  border: 1px solid #eeeeee;
+  background: white url(../images/ui-bg_flat_65_ffffff_40x100.png) 50% 50% repeat-x;
+  font-weight: bold;
+  color: #e00000;
+}
+/* line 234, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-state-active a,
+#rle_container .ui-state-active a:link,
+#rle_container .ui-state-active a:visited {
+  color: #e00000;
+  text-decoration: none;
+}
+/* line 243, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-state-highlight,
+#rle_container .ui-widget-content .ui-state-highlight,
+#rle_container .ui-widget-header .ui-state-highlight {
+  border: 1px solid #fcd3a1;
+  background: #fbf8ee url(../images/ui-bg_glass_55_fbf8ee_1x400.png) 50% 50% repeat-x;
+  color: #444444;
+}
+/* line 250, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-state-highlight a,
+#rle_container .ui-widget-content .ui-state-highlight a,
+#rle_container .ui-widget-header .ui-state-highlight a {
+  color: #444444;
+}
+/* line 255, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-state-error,
+#rle_container .ui-widget-content .ui-state-error,
+#rle_container .ui-widget-header .ui-state-error {
+  border: 1px solid #e00000;
+  background: #f3d8d8 url(../images/ui-bg_diagonals-thick_75_f3d8d8_40x40.png) 50% 50% repeat;
+  color: #2e2e2e;
+}
+/* line 262, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-state-error a,
+#rle_container .ui-widget-content .ui-state-error a,
+#rle_container .ui-widget-header .ui-state-error a {
+  color: #2e2e2e;
+}
+/* line 267, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-state-error-text,
+#rle_container .ui-widget-content .ui-state-error-text,
+#rle_container .ui-widget-header .ui-state-error-text {
+  color: #2e2e2e;
+}
+/* line 272, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-priority-primary,
+#rle_container .ui-widget-content .ui-priority-primary,
+#rle_container .ui-widget-header .ui-priority-primary {
+  font-weight: bold;
+}
+/* line 277, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-priority-secondary,
+#rle_container .ui-widget-content .ui-priority-secondary,
+#rle_container .ui-widget-header .ui-priority-secondary {
+  opacity: .7;
+  filter: Alpha(Opacity=70);
+  font-weight: normal;
+}
+/* line 284, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-state-disabled,
+#rle_container .ui-widget-content .ui-state-disabled,
+#rle_container .ui-widget-header .ui-state-disabled {
+  opacity: .35;
+  filter: Alpha(Opacity=35);
+  background-image: none;
+}
+/* line 289, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-state-disabled .ui-icon {
+  filter: Alpha(Opacity=35);
+  /* For IE8 - See #6059 */
+}
+/* line 297, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon {
+  width: 16px;
+  height: 16px;
+}
+/* line 302, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon,
+#rle_container .ui-widget-content .ui-icon {
+  background-image: url(../images/ui-icons_cc0000_256x240.png);
+}
+/* line 305, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-widget-header .ui-icon {
+  background-image: url(../images/ui-icons_ffffff_256x240.png);
+}
+/* line 308, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-state-default .ui-icon {
+  background-image: url(../images/ui-icons_cc0000_256x240.png);
+}
+/* line 312, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-state-hover .ui-icon,
+#rle_container .ui-state-focus .ui-icon {
+  background-image: url(../images/ui-icons_cc0000_256x240.png);
+}
+/* line 315, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-state-active .ui-icon {
+  background-image: url(../images/ui-icons_cc0000_256x240.png);
+}
+/* line 318, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-state-highlight .ui-icon {
+  background-image: url(../images/ui-icons_004276_256x240.png);
+}
+/* line 322, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-state-error .ui-icon,
+#rle_container .ui-state-error-text .ui-icon {
+  background-image: url(../images/ui-icons_cc0000_256x240.png);
+}
+/* line 327, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-blank {
+  background-position: 16px 16px;
+}
+/* line 328, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-carat-1-n {
+  background-position: 0 0;
+}
+/* line 329, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-carat-1-ne {
+  background-position: -16px 0;
+}
+/* line 330, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-carat-1-e {
+  background-position: -32px 0;
+}
+/* line 331, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-carat-1-se {
+  background-position: -48px 0;
+}
+/* line 332, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-carat-1-s {
+  background-position: -64px 0;
+}
+/* line 333, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-carat-1-sw {
+  background-position: -80px 0;
+}
+/* line 334, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-carat-1-w {
+  background-position: -96px 0;
+}
+/* line 335, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-carat-1-nw {
+  background-position: -112px 0;
+}
+/* line 336, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-carat-2-n-s {
+  background-position: -128px 0;
+}
+/* line 337, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-carat-2-e-w {
+  background-position: -144px 0;
+}
+/* line 338, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-triangle-1-n {
+  background-position: 0 -16px;
+}
+/* line 339, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-triangle-1-ne {
+  background-position: -16px -16px;
+}
+/* line 340, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-triangle-1-e {
+  background-position: -32px -16px;
+}
+/* line 341, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-triangle-1-se {
+  background-position: -48px -16px;
+}
+/* line 342, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-triangle-1-s {
+  background-position: -64px -16px;
+}
+/* line 343, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-triangle-1-sw {
+  background-position: -80px -16px;
+}
+/* line 344, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-triangle-1-w {
+  background-position: -96px -16px;
+}
+/* line 345, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-triangle-1-nw {
+  background-position: -112px -16px;
+}
+/* line 346, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-triangle-2-n-s {
+  background-position: -128px -16px;
+}
+/* line 347, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-triangle-2-e-w {
+  background-position: -144px -16px;
+}
+/* line 348, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrow-1-n {
+  background-position: 0 -32px;
+}
+/* line 349, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrow-1-ne {
+  background-position: -16px -32px;
+}
+/* line 350, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrow-1-e {
+  background-position: -32px -32px;
+}
+/* line 351, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrow-1-se {
+  background-position: -48px -32px;
+}
+/* line 352, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrow-1-s {
+  background-position: -64px -32px;
+}
+/* line 353, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrow-1-sw {
+  background-position: -80px -32px;
+}
+/* line 354, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrow-1-w {
+  background-position: -96px -32px;
+}
+/* line 355, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrow-1-nw {
+  background-position: -112px -32px;
+}
+/* line 356, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrow-2-n-s {
+  background-position: -128px -32px;
+}
+/* line 357, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrow-2-ne-sw {
+  background-position: -144px -32px;
+}
+/* line 358, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrow-2-e-w {
+  background-position: -160px -32px;
+}
+/* line 359, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrow-2-se-nw {
+  background-position: -176px -32px;
+}
+/* line 360, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrowstop-1-n {
+  background-position: -192px -32px;
+}
+/* line 361, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrowstop-1-e {
+  background-position: -208px -32px;
+}
+/* line 362, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrowstop-1-s {
+  background-position: -224px -32px;
+}
+/* line 363, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrowstop-1-w {
+  background-position: -240px -32px;
+}
+/* line 364, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrowthick-1-n {
+  background-position: 0 -48px;
+}
+/* line 365, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrowthick-1-ne {
+  background-position: -16px -48px;
+}
+/* line 366, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrowthick-1-e {
+  background-position: -32px -48px;
+}
+/* line 367, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrowthick-1-se {
+  background-position: -48px -48px;
+}
+/* line 368, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrowthick-1-s {
+  background-position: -64px -48px;
+}
+/* line 369, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrowthick-1-sw {
+  background-position: -80px -48px;
+}
+/* line 370, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrowthick-1-w {
+  background-position: -96px -48px;
+}
+/* line 371, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrowthick-1-nw {
+  background-position: -112px -48px;
+}
+/* line 372, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrowthick-2-n-s {
+  background-position: -128px -48px;
+}
+/* line 373, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrowthick-2-ne-sw {
+  background-position: -144px -48px;
+}
+/* line 374, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrowthick-2-e-w {
+  background-position: -160px -48px;
+}
+/* line 375, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrowthick-2-se-nw {
+  background-position: -176px -48px;
+}
+/* line 376, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrowthickstop-1-n {
+  background-position: -192px -48px;
+}
+/* line 377, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrowthickstop-1-e {
+  background-position: -208px -48px;
+}
+/* line 378, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrowthickstop-1-s {
+  background-position: -224px -48px;
+}
+/* line 379, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrowthickstop-1-w {
+  background-position: -240px -48px;
+}
+/* line 380, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrowreturnthick-1-w {
+  background-position: 0 -64px;
+}
+/* line 381, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrowreturnthick-1-n {
+  background-position: -16px -64px;
+}
+/* line 382, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrowreturnthick-1-e {
+  background-position: -32px -64px;
+}
+/* line 383, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrowreturnthick-1-s {
+  background-position: -48px -64px;
+}
+/* line 384, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrowreturn-1-w {
+  background-position: -64px -64px;
+}
+/* line 385, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrowreturn-1-n {
+  background-position: -80px -64px;
+}
+/* line 386, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrowreturn-1-e {
+  background-position: -96px -64px;
+}
+/* line 387, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrowreturn-1-s {
+  background-position: -112px -64px;
+}
+/* line 388, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrowrefresh-1-w {
+  background-position: -128px -64px;
+}
+/* line 389, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrowrefresh-1-n {
+  background-position: -144px -64px;
+}
+/* line 390, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrowrefresh-1-e {
+  background-position: -160px -64px;
+}
+/* line 391, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrowrefresh-1-s {
+  background-position: -176px -64px;
+}
+/* line 392, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrow-4 {
+  background-position: 0 -80px;
+}
+/* line 393, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-arrow-4-diag {
+  background-position: -16px -80px;
+}
+/* line 394, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-extlink {
+  background-position: -32px -80px;
+}
+/* line 395, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-newwin {
+  background-position: -48px -80px;
+}
+/* line 396, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-refresh {
+  background-position: -64px -80px;
+}
+/* line 397, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-shuffle {
+  background-position: -80px -80px;
+}
+/* line 398, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-transfer-e-w {
+  background-position: -96px -80px;
+}
+/* line 399, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-transferthick-e-w {
+  background-position: -112px -80px;
+}
+/* line 400, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-folder-collapsed {
+  background-position: 0 -96px;
+}
+/* line 401, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-folder-open {
+  background-position: -16px -96px;
+}
+/* line 402, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-document {
+  background-position: -32px -96px;
+}
+/* line 403, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-document-b {
+  background-position: -48px -96px;
+}
+/* line 404, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-note {
+  background-position: -64px -96px;
+}
+/* line 405, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-mail-closed {
+  background-position: -80px -96px;
+}
+/* line 406, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-mail-open {
+  background-position: -96px -96px;
+}
+/* line 407, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-suitcase {
+  background-position: -112px -96px;
+}
+/* line 408, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-comment {
+  background-position: -128px -96px;
+}
+/* line 409, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-person {
+  background-position: -144px -96px;
+}
+/* line 410, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-print {
+  background-position: -160px -96px;
+}
+/* line 411, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-trash {
+  background-position: -176px -96px;
+}
+/* line 412, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-locked {
+  background-position: -192px -96px;
+}
+/* line 413, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-unlocked {
+  background-position: -208px -96px;
+}
+/* line 414, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-bookmark {
+  background-position: -224px -96px;
+}
+/* line 415, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-tag {
+  background-position: -240px -96px;
+}
+/* line 416, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-home {
+  background-position: 0 -112px;
+}
+/* line 417, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-flag {
+  background-position: -16px -112px;
+}
+/* line 418, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-calendar {
+  background-position: -32px -112px;
+}
+/* line 419, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-cart {
+  background-position: -48px -112px;
+}
+/* line 420, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-pencil {
+  background-position: -64px -112px;
+}
+/* line 421, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-clock {
+  background-position: -80px -112px;
+}
+/* line 422, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-disk {
+  background-position: -96px -112px;
+}
+/* line 423, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-calculator {
+  background-position: -112px -112px;
+}
+/* line 424, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-zoomin {
+  background-position: -128px -112px;
+}
+/* line 425, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-zoomout {
+  background-position: -144px -112px;
+}
+/* line 426, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-search {
+  background-position: -160px -112px;
+}
+/* line 427, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-wrench {
+  background-position: -176px -112px;
+}
+/* line 428, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-gear {
+  background-position: -192px -112px;
+}
+/* line 429, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-heart {
+  background-position: -208px -112px;
+}
+/* line 430, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-star {
+  background-position: -224px -112px;
+}
+/* line 431, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-link {
+  background-position: -240px -112px;
+}
+/* line 432, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-cancel {
+  background-position: 0 -128px;
+}
+/* line 433, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-plus {
+  background-position: -16px -128px;
+}
+/* line 434, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-plusthick {
+  background-position: -32px -128px;
+}
+/* line 435, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-minus {
+  background-position: -48px -128px;
+}
+/* line 436, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-minusthick {
+  background-position: -64px -128px;
+}
+/* line 437, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-close {
+  background-position: -80px -128px;
+}
+/* line 438, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-closethick {
+  background-position: -96px -128px;
+}
+/* line 439, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-key {
+  background-position: -112px -128px;
+}
+/* line 440, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-lightbulb {
+  background-position: -128px -128px;
+}
+/* line 441, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-scissors {
+  background-position: -144px -128px;
+}
+/* line 442, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-clipboard {
+  background-position: -160px -128px;
+}
+/* line 443, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-copy {
+  background-position: -176px -128px;
+}
+/* line 444, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-contact {
+  background-position: -192px -128px;
+}
+/* line 445, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-image {
+  background-position: -208px -128px;
+}
+/* line 446, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-video {
+  background-position: -224px -128px;
+}
+/* line 447, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-script {
+  background-position: -240px -128px;
+}
+/* line 448, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-alert {
+  background-position: 0 -144px;
+}
+/* line 449, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-info {
+  background-position: -16px -144px;
+}
+/* line 450, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-notice {
+  background-position: -32px -144px;
+}
+/* line 451, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-help {
+  background-position: -48px -144px;
+}
+/* line 452, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-check {
+  background-position: -64px -144px;
+}
+/* line 453, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-bullet {
+  background-position: -80px -144px;
+}
+/* line 454, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-radio-on {
+  background-position: -96px -144px;
+}
+/* line 455, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-radio-off {
+  background-position: -112px -144px;
+}
+/* line 456, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-pin-w {
+  background-position: -128px -144px;
+}
+/* line 457, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-pin-s {
+  background-position: -144px -144px;
+}
+/* line 458, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-play {
+  background-position: 0 -160px;
+}
+/* line 459, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-pause {
+  background-position: -16px -160px;
+}
+/* line 460, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-seek-next {
+  background-position: -32px -160px;
+}
+/* line 461, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-seek-prev {
+  background-position: -48px -160px;
+}
+/* line 462, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-seek-end {
+  background-position: -64px -160px;
+}
+/* line 463, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-seek-start {
+  background-position: -80px -160px;
+}
+/* line 465, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-seek-first {
+  background-position: -80px -160px;
+}
+/* line 466, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-stop {
+  background-position: -96px -160px;
+}
+/* line 467, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-eject {
+  background-position: -112px -160px;
+}
+/* line 468, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-volume-off {
+  background-position: -128px -160px;
+}
+/* line 469, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-volume-on {
+  background-position: -144px -160px;
+}
+/* line 470, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-power {
+  background-position: 0 -176px;
+}
+/* line 471, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-signal-diag {
+  background-position: -16px -176px;
+}
+/* line 472, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-signal {
+  background-position: -32px -176px;
+}
+/* line 473, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-battery-0 {
+  background-position: -48px -176px;
+}
+/* line 474, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-battery-1 {
+  background-position: -64px -176px;
+}
+/* line 475, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-battery-2 {
+  background-position: -80px -176px;
+}
+/* line 476, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-battery-3 {
+  background-position: -96px -176px;
+}
+/* line 477, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-circle-plus {
+  background-position: 0 -192px;
+}
+/* line 478, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-circle-minus {
+  background-position: -16px -192px;
+}
+/* line 479, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-circle-close {
+  background-position: -32px -192px;
+}
+/* line 480, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-circle-triangle-e {
+  background-position: -48px -192px;
+}
+/* line 481, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-circle-triangle-s {
+  background-position: -64px -192px;
+}
+/* line 482, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-circle-triangle-w {
+  background-position: -80px -192px;
+}
+/* line 483, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-circle-triangle-n {
+  background-position: -96px -192px;
+}
+/* line 484, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-circle-arrow-e {
+  background-position: -112px -192px;
+}
+/* line 485, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-circle-arrow-s {
+  background-position: -128px -192px;
+}
+/* line 486, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-circle-arrow-w {
+  background-position: -144px -192px;
+}
+/* line 487, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-circle-arrow-n {
+  background-position: -160px -192px;
+}
+/* line 488, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-circle-zoomin {
+  background-position: -176px -192px;
+}
+/* line 489, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-circle-zoomout {
+  background-position: -192px -192px;
+}
+/* line 490, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-circle-check {
+  background-position: -208px -192px;
+}
+/* line 491, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-circlesmall-plus {
+  background-position: 0 -208px;
+}
+/* line 492, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-circlesmall-minus {
+  background-position: -16px -208px;
+}
+/* line 493, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-circlesmall-close {
+  background-position: -32px -208px;
+}
+/* line 494, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-squaresmall-plus {
+  background-position: -48px -208px;
+}
+/* line 495, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-squaresmall-minus {
+  background-position: -64px -208px;
+}
+/* line 496, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-squaresmall-close {
+  background-position: -80px -208px;
+}
+/* line 497, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-grip-dotted-vertical {
+  background-position: 0 -224px;
+}
+/* line 498, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-grip-dotted-horizontal {
+  background-position: -16px -224px;
+}
+/* line 499, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-grip-solid-vertical {
+  background-position: -32px -224px;
+}
+/* line 500, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-grip-solid-horizontal {
+  background-position: -48px -224px;
+}
+/* line 501, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-gripsmall-diagonal-se {
+  background-position: -64px -224px;
+}
+/* line 502, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-icon-grip-diagonal-se {
+  background-position: -80px -224px;
+}
+/* line 512, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-corner-all,
+#rle_container .ui-corner-top,
+#rle_container .ui-corner-left,
+#rle_container .ui-corner-tl {
+  border-top-left-radius: 6px;
+}
+/* line 518, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-corner-all,
+#rle_container .ui-corner-top,
+#rle_container .ui-corner-right,
+#rle_container .ui-corner-tr {
+  border-top-right-radius: 6px;
+}
+/* line 524, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-corner-all,
+#rle_container .ui-corner-bottom,
+#rle_container .ui-corner-left,
+#rle_container .ui-corner-bl {
+  border-bottom-left-radius: 6px;
+}
+/* line 530, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-corner-all,
+#rle_container .ui-corner-bottom,
+#rle_container .ui-corner-right,
+#rle_container .ui-corner-br {
+  border-bottom-right-radius: 6px;
+}
+/* line 535, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-widget-overlay {
+  background: #a6a6a6 url(../images/ui-bg_dots-small_65_a6a6a6_2x2.png) 50% 50% repeat;
+  opacity: .4;
+  filter: Alpha(Opacity=40);
+}
+/* line 540, ../sass/redlink-annotation-tool.scss */
+#rle_container .ui-widget-shadow {
+  margin: -8px 0 0 -8px;
+  padding: 8px;
+  background: #333333 url(../images/ui-bg_flat_0_333333_40x100.png) 50% 50% repeat-x;
+  opacity: .1;
+  filter: Alpha(Opacity=10);
+  border-radius: 8px;
+}

@@ -1,0 +1,40 @@
+<div id="rle_container" style="background-color:#efefef;padding:10px;width:800px;position:relative;height: 460px;">
+<form class="wpcf7-form" onsubmit="return false;">
+    <div contenteditable="true" class="rle_box" style="background-color:white;height:386px;width:780px;" id="rle_text">
+    </div>
+    <div class="rle_box" style="background-color:white;height:386px;width:480px;display:none" id="rle_annotation">
+    </div>
+    <div class="loader" id="rle_loader">
+    </div>
+    <div id="rle_buttons">
+        <ul>
+            <li>
+                <input type="submit" value="Annotate" id="rle_button_annotate" class="wpcf7-form-control wpcf7-submit" />
+                <input type="submit" value="Edit Text" id="rle_button_edit" class="wpcf7-form-control wpcf7-submit" style="display:none" />
+            </li>
+            <li id="conf_box" style="display: none;">
+                <div style="float:left;margin-left: 10px;font-size: 14px;margin-top: 5px;">
+                    <label style="margin-left: 130px;display: inline;" for="rle_quality">Confidence:</label>
+                    <span type="text" id="rle_quality" style="border: 0; color: #e00000;"></span>
+                    <div id="rle_slider"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div id="rle_right" style="position: absolute;top: 10px;right: 10px;width: 290px;overflow: hidden">
+        <div id="rle_right_inner" style="position: relative;width:590px;">
+            <div id="rle_right_inner_left" style="width: 290px;overflow-x: hidden;overflow-y:scroll;float:left;height: 406px;">
+                <div id="rle_right_inner_left_inner" style="width: 290px;">
+                </div>
+            </div>
+            <div id="rle_right_inner_right" title="click to go back to list view" style="width: 270px;height: 386px;min-height:1px;overflow-x: hidden;float:left">
+            </div>
+            <div class="rle_clear"></div>
+        </div>
+    </div>
+
+    <div id="rle_language" style="position:absolute;right:10px;bottom:10px;width:290px;height:44px;text-align:center;top:438px;font-size:14px">
+    </div>
+</form>
+</div>
