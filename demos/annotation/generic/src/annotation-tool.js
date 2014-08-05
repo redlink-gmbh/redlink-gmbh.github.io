@@ -3,8 +3,6 @@ function Annotator(options) {
     var _options = {
         url:"https://api.redlink.io",
         version: "1.0-BETA",
-        analysis: "demo",
-        key: "4yS6IbNzDTGROHR0RyGMODHT6P1AP6eU8144eb96",
         container:"#annotator",
         template:"template/template.html",
         confidence:80,
@@ -438,7 +436,7 @@ function Annotator(options) {
 
         jQuery.ajax({
             type:"POST",
-            url:_options.url+"/"+_options.version+"/analysis/"+_options.analysis+"/enhance?key="+_options.key+"&out=json",
+            url:_options.url+"/"+_options.version+"/playground/enhance?out=json",
             data:jQuery("#rle_text").text().trim(),
             contentType:"text/plain",
             processData: false
