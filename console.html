@@ -3,6 +3,10 @@ layout: default
 title: API Console
 ---
 
+      <script type="text/javascript">
+        var BASE = 'https://api.redlink.io/';
+      </script>
+
       <div class="row">
 
         <div class="span12">
@@ -33,6 +37,8 @@ title: API Console
                 https://api.redlink.io/<select id="api_version"><option value="1.0-BETA">1.0-BETA</option></select>/<select id="api_service"><option value="analysis">analysis</option><option value="data">data</option></select>/<select id="api_instance"></select><select id="api_endpoint"></select>
                 <a class="btn btn-block" id="api_submit" href="#" style="width: 200px; display: inline-block; margin: auto auto 0.5em 3em;">send</a>
               </p>
+              <p>This is the request URI: <a id="console_uri" href="#"></a></p>
+              <pre id="console_curl" style="display: none;"></pre>
 
               <div class="row">
 
@@ -86,7 +92,7 @@ title: API Console
             if (TO) clearTimeout(TO);
             $.ajax({
                 dataType: "json",
-                url: "https://api.redlink.io/"+version+"?key="+key,
+                url: BASE+version+"?key="+key,
                 success: function(data) {
                     if (data.accessible) {
                         var msg = "Key VALID, " + data.requests + " of " + data.limit + " requests used.";
@@ -117,15 +123,39 @@ title: API Console
             });
         }
 
+        function getRequestURI() {
+            var api_version = $("select#api_version").find(":selected").val();
+            var api_service = $("select#api_service").find(":selected").val();
+            var api_instance = $("select#api_instance").find(":selected").val() || "";
+            if (api_instance.length > 0) api_instance = "/" + api_instance;
+            var api_endpoint = $("select#api_endpoint").find(":selected").val() || "";
+            return BASE + api_version + "/" + api_service + api_instance + api_endpoint;
+        }
+
+        function updateConsoleUri() {
+            var uri = getRequestURI();
+            if(!$("input#hide_key").is(':checked')) {
+                uri += "?key=" + $("input#api_key").val();
+            }
+            $("#console_uri").text(uri).attr("href", uri);
+            var api_method = $("select#api_method").find(":selected").val();
+
+            $("#console_curl").text("curl -iX " + api_method + " " + uri);
+        }
+
         (function(jQuery){
           jQuery( document ).ready( function() {
 
+            $("#api_base_url").text(BASE);
+            $("#console_uri").click(function(e) {e.preventDefault();e.stopPropagation(); return false;});
+            updateConsoleUri();
             $("input#hide_key").click(function() {
                 if($(this).is(':checked')) {
                     $("input#api_key").attr("type", "password");
                 } else {
                     $("input#api_key").attr("type", "text");
                 }
+                updateConsoleUri();
             });
 
             $("input#api_key").keyup(function() {
@@ -142,6 +172,7 @@ title: API Console
                 var service = $(this).find(":selected").val();
                 populateSelect($("select#api_instance"), (service == "analysis" ? analyses : datasets));
                 populateSelect($("select#api_endpoint"), endpoints[service]);
+                updateConsoleUri();
             });
 
             $("select#api_instance").change(function() {
@@ -152,18 +183,17 @@ title: API Console
               } else {
                 populateSelect($("select#api_endpoint"), endpoints[service]);
               }
+                updateConsoleUri();
             });
 
+            $("select#api_version").change(updateConsoleUri);
+            $("select#api_endpoint").change(updateConsoleUri);
             $("a#api_submit").mousedown(function () {
               var api_key = $("input#api_key").val();
               if (api_key.length == 40) {
                 var api_method = $("select#api_method").find(":selected").val();
-                var api_version = $("select#api_version").find(":selected").val();
-                var api_service = $("select#api_service").find(":selected").val();
-                var api_instance = $("select#api_instance").find(":selected").val() || "";
-                if (api_instance.length > 0) api_instance = "/" + api_instance;
-                var api_endpoint = $("select#api_endpoint").find(":selected").val();
-                var api_call = "https://api.redlink.io/" + api_version + "/" + api_service + api_instance + api_endpoint + "?key=" + api_key + "&out=json";
+                var api_uri = getRequestURI();
+                var api_call = api_uri + "?key=" + api_key + "&out=json";
                 console.info("submit to " + api_call);
                 var text = $("textarea#api_request").val().trim();
                 //console.log("text: " + text);
