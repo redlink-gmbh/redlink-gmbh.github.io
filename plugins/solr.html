@@ -30,8 +30,7 @@ title: Solr Plugin
         <p>
             For a quick introduction, please check the
             <a href="http://redlink.co/semantic-search-for-apache-solr/">annoucement post</a> or
-            <a href="#TB_inline?width=870&height=575&inlineId=solrPluginScreencast" class="thickbox">watch this
-                screencast</a>
+            <a href="#TB_inline?width=870&height=575&inlineId=solrPluginScreencast" class="thickbox">watch this screencast</a>
             where we introduce you the plugin, telling how you can use it to enhance your current Solr search with
             Redlink:
         </p>
@@ -62,7 +61,7 @@ title: Solr Plugin
     <div class="card-body">
 
         <p>
-            The installation of the plugin is quite simple:
+            The <a href="https://wiki.apache.org/solr/SolrPlugins">installation of the plugin</a> is quite simple:
         </p>
 
         <ol>
@@ -73,28 +72,17 @@ title: Solr Plugin
                 Enable it by adding <code>&lt;lib dir="./lib" /&gt;</code> to the <tt>solrconfig.xml</tt> file.
             </li>
             <li>
-                Copy the plugin into the <tt>lib</tt> directory of the core where you want to use it. You have two
-                branches dependencing on the version
-                of Apache Solr you are using:
-                <ul>
-                    <li>
-                        <a href="http://repo.dev.redlink.io/content/repositories/public-releases/io/redlink/solr-plugin/1.0.1-BETA-4.6.1/solr-plugin-1.0.1-BETA-4.6.1.jar">solr-plugin-1.0.1-BETA-4.6.1.jar</a>
-                        for Solr 4.6.1, and probably newer versions
-                    </li>
-                    <li>
-                        <a href="http://repo.dev.redlink.io/content/repositories/public-releases/io/redlink/solr-plugin/1.0.1-BETA-4.3.1/solr-plugin-1.0.1-BETA-4.3.1.jar">solr-plugin-1.0.1-BETA-4.3.1.jar</a>
-                        for Solr 4.3.1
-                    </li>
-                </ul>
-                The plugin has been tested with Apache Solr <strong>4.6.1</strong> and <strong>4.3.1</strong>,
-                but should be compatible with most of 4.x versions.
+                Copy the plugin 
+                (<a href="http://repo.dev.redlink.io/content/repositories/public-releases/io/redlink/solr-plugin/1.0.2-BETA/solr-plugin-1.0.2-BETA.jar">solr-plugin-1.0.2-BETA.jar</a>)
+                into the <tt>lib</tt> directory of the core where you want to use it. 
+                The plugin has been tested with Apache Solr <strong>4.6.1</strong> and 
+                <strong>4.3.1</strong>, but it should be compatible with versions <tt>>=4.3.0</tt>.
             </li>
         </ol>
 
         <p>
             If you have problems on startup, it may be caused by a wrong logger configuration, at the wiki you have
-            information
-            about <a href="https://wiki.apache.org/solr/SolrLogging">how to solve it</a>.
+            information about <a href="https://wiki.apache.org/solr/SolrLogging">how to solve it</a>.
         </p>
 
     </div>
