@@ -395,6 +395,10 @@ p#console_uri_builder select {
   width: auto;
 }
 
+div#devtools pre#console_curl {
+  margin-right: 1em;
+}
+
 textarea#api_request {
   width: 100%;
   height: 600px;

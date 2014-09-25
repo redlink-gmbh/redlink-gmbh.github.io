@@ -37,8 +37,11 @@ title: API Console
                 https://api.redlink.io/<select id="api_version"><option value="1.0-BETA">1.0-BETA</option></select>/<select id="api_service"><option value="analysis">analysis</option><option value="data">data</option></select>/<select id="api_instance"></select><select id="api_endpoint"></select>
                 <a class="btn btn-block" id="api_submit" href="#" style="width: 200px; display: inline-block; margin: auto auto 0.5em 3em;">send</a>
               </p>
-              <p>This is the request URI: <a id="console_uri" href="#"></a></p>
-              <pre id="console_curl" style="display: none;"></pre>
+
+              <div id="devtools" style="display: none;">
+                <p>This is the request URI: <a id="console_uri" href="#"></a></p>
+                <pre id="console_curl"><code></code></pre>
+              </div>
 
               <div class="row">
 
@@ -75,6 +78,30 @@ title: API Console
                           "data-with-dataset": ["", "/resource", "/sparql/select", "/sparql/update", "/ldpath"]
                         };
 
+        function getRequestURI() {
+            var api_version = $("select#api_version").find(":selected").val();
+            var api_service = $("select#api_service").find(":selected").val();
+            var api_instance = $("select#api_instance").find(":selected").val() || "";
+            if (api_instance.length > 0) api_instance = "/" + api_instance;
+            var api_endpoint = $("select#api_endpoint").find(":selected").val() || "";
+            return BASE + api_version + "/" + api_service + api_instance + api_endpoint;
+        }
+
+        function updateDevTools() {
+            var uri = getRequestURI();
+            if(!$("input#hide_key").is(':checked')) {
+                uri += "?key=" + $("input#api_key").val();
+            } else {
+                uri += "?key=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+            }
+            uri += "&out=json";
+            $("#console_uri").text(uri).attr("href", uri);
+            var api_method = $("select#api_method").find(":selected").val();
+
+            $("pre#console_curl code").text("curl -ikX " + api_method + " '" + uri + 
+                "' -H 'Content-Type: text/plain' --data '" + $("textarea#api_request").val().trim() + "'");
+        }
+
         function populateSelect(target, values) {
             target.empty();
             values.forEach(function(value) {
@@ -98,6 +125,9 @@ title: API Console
                         var msg = "Key VALID, " + data.requests + " of " + data.limit + " requests used.";
                         display.text(msg).addClass("alert-success")
                             .fadeIn(function() { TO=setTimeout(function() {display.fadeOut();}, 7500); });
+
+                        updateDevTools();
+                        $("#devtools").fadeIn(function() { TO=setTimeout(function() {display.fadeOut();}, 7500); });
 
                         analyses = data.analyses;
                         datasets = data.datasets;
@@ -123,40 +153,22 @@ title: API Console
             });
         }
 
-        function getRequestURI() {
-            var api_version = $("select#api_version").find(":selected").val();
-            var api_service = $("select#api_service").find(":selected").val();
-            var api_instance = $("select#api_instance").find(":selected").val() || "";
-            if (api_instance.length > 0) api_instance = "/" + api_instance;
-            var api_endpoint = $("select#api_endpoint").find(":selected").val() || "";
-            return BASE + api_version + "/" + api_service + api_instance + api_endpoint;
-        }
-
-        function updateConsoleUri() {
-            var uri = getRequestURI();
-            if(!$("input#hide_key").is(':checked')) {
-                uri += "?key=" + $("input#api_key").val();
-            }
-            $("#console_uri").text(uri).attr("href", uri);
-            var api_method = $("select#api_method").find(":selected").val();
-
-            $("#console_curl").text("curl -iX " + api_method + " " + uri);
-        }
-
         (function(jQuery){
           jQuery( document ).ready( function() {
 
             $("#api_base_url").text(BASE);
             $("#console_uri").click(function(e) {e.preventDefault();e.stopPropagation(); return false;});
-            updateConsoleUri();
+            
             $("input#hide_key").click(function() {
                 if($(this).is(':checked')) {
                     $("input#api_key").attr("type", "password");
                 } else {
                     $("input#api_key").attr("type", "text");
                 }
-                updateConsoleUri();
+                updateDevTools();
             });
+
+            $("textarea#api_request").keyup(updateDevTools);
 
             $("input#api_key").keyup(function() {
                 var new_key = $(this).val();
@@ -172,7 +184,7 @@ title: API Console
                 var service = $(this).find(":selected").val();
                 populateSelect($("select#api_instance"), (service == "analysis" ? analyses : datasets));
                 populateSelect($("select#api_endpoint"), endpoints[service]);
-                updateConsoleUri();
+                updateDevTools();
             });
 
             $("select#api_instance").change(function() {
@@ -183,11 +195,11 @@ title: API Console
               } else {
                 populateSelect($("select#api_endpoint"), endpoints[service]);
               }
-                updateConsoleUri();
+              updateDevTools();
             });
 
-            $("select#api_version").change(updateConsoleUri);
-            $("select#api_endpoint").change(updateConsoleUri);
+            $("select#api_version").change(updateDevTools);
+            $("select#api_endpoint").change(updateDevTools);
             $("a#api_submit").mousedown(function () {
               var api_key = $("input#api_key").val();
               if (api_key.length == 40) {
