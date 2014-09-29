@@ -99,7 +99,7 @@ title: API Console
             var api_method = $("select#api_method").find(":selected").val();
 
             $("pre#console_curl code").text("curl -ikX " + api_method + " '" + uri + 
-                "' -H 'Content-Type: text/plain' --data '" + $("textarea#api_request").val().trim() + "'");
+                "' -H 'Content-Type: text/plain' --data '" + $("textarea#api_request").val().trim().replace(/\n/g, " ").replace(/\s+/g, " ") + "'");
         }
 
         function populateSelect(target, values) {
