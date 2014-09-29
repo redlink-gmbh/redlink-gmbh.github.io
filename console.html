@@ -98,7 +98,7 @@ title: API Console
             $("#console_uri").text(uri).attr("href", uri);
             var api_method = $("select#api_method").find(":selected").val();
 
-            $("pre#console_curl code").text("curl -ikX " + api_method + " '" + uri + 
+            $("pre#console_curl code").text("curl -iX " + api_method + " '" + uri + 
                 "' -H 'Content-Type: text/plain' --data '" + $("textarea#api_request").val().trim().replace(/\n/g, " ").replace(/\s+/g, " ") + "'");
         }
 
