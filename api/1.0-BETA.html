@@ -156,7 +156,7 @@ redirect_from: "/api/"
   "seconds": 42         //total processing time
   "owner": "007",       //user-id the key belongs to
   "analyses": [         //analysis services enabled for this key
-    "product-analysis"
+    "my-analysis"
   ],
   "datasets": [         //datasets enabled for this key
     "my-dataset1",
@@ -330,53 +330,146 @@ clientBuilder.sslContext(ctx);</pre>
 
                     <pre class="prettyprint">
 {
-  'language' : [... , ...],
-  
-  'sentiment' : { (summarized sentiment value in case the sentiment engine is present)
-    positive: ...,
-    negative: ....
-  },
 
-  'annotations' : [
-    {
-      'label': (preferred label of entity if available, or one of the labels occurring in the text otherwise)
-		{
-			language:....,
-			text:....,
-		}
-      'types':  [... , ...], (labels of the type if available; otherwise skip)
-      'reference': '...', (URI of the linked entity if available; otherwise skip)
-      'thumbnails': [... , ...], (URIs of thumbnails that can be used to depict the entity, if available)
-      'summaries': (summary text of the referenced entity if requested)
-		[
-			{
-				language:....,
-				text:....,   
-			},
-			{
-				language:....,
-				text:....,
-			}
-		]
-      'positions' : [   (occurrences of this reference/label in the text)
+    "languages": [ // Detected languages
+        "en"
+    ],
+
+    "entities": [ // if no entity-extraction was done (e.g. because not activated in the analysis) 
+                  // this property is completely omitted.
         {
-          start: ...,
-          end: ...,
-          confidence: ...,
-          text: ...  (the label as it is occurring in the text)
-	  context: ... (mention context) 
+            "dataset": "dbpedia", // The configured dataset (id/name/...) this entity comes from
+            "reference": "http://dbpedia.org/resource/Saturday_Night_Live", // this is the URI of the entity
+            "confidence": 1.0, // the maximum confidence of all mentions
+
+            "properties": { // (1) basic properties, for every entity, always present
+                "name": "name",
+                "summary": "short summary",
+
+                "type": [ // list of types, used to know which specific props are available (see below)
+                    "creative work",
+                    "event",
+                    "organisation",
+                    "person",
+                    "place",
+                    "product",
+                    "other"
+                ],
+                "sameAs": [ // sameAs links of the "reference"
+                    "http://rdf.freebase.com/ns/m.xxxxx",
+                    "http://yago-knowledge.org/resource/xxxx"
+                ],
+
+                // 
+                "image": [ (2) optional basic properties, might come with every entity
+                ],
+
+                "homepage": "http://example.org/", // optional
+
+                // (3) type specific properties
+
+                // (3.1) creative work
+                "creator": "...",
+                "genre": "...", //
+                "publisher": "...",
+                "datePublished": "2015-01-01",
+
+                // (3.2) event
+                "startDate": "2014-08-26T10:00:00Z",
+                "endDate": "2014-08-26T12:30:00Z", // optional
+
+
+                // (3.3) organisation
+                /* nothing extra here */
+
+                // (3.4) person
+                "gender": "male",
+                "birth": "1974-04-01",
+                "death": "2013-11-09", // optional ;-)
+                "nationality": "de",
+
+                // (3.5) place
+                /* nothing extra here */
+
+                // (3.6) product
+                "brand": "Apple",
+                "manufacturer": "Foxconn",
+
+                // (3.7) other
+                /* nothing extra here */
+
+                // (3.8) Shared
+                // (3.8.1) place || event || organisation (headquarter)
+                "location": {
+                    "lat": 43.3333,
+                    "lon": 13.3333
+                }
+
+            }, /* END properties */
+            "mentions": [
+                {
+                    "prefix": "c died on ", // 10 chars before the text
+                    "text": "Saturday",     // aka anchor
+                    "suffix": " at the ag", // 10 chars after the text
+                    "context": " the context where the entity was recognized ",
+                    "confidence": 0.9,
+                    "start": 104,
+                    "end": 112
+                },
+                { /* more mentions ... */ }
+            ] /* END mentions */
+        }, /* END entity */
+        { /* more entities ... */ }
+    ], /* END entities */
+
+    "facts": [ // if no fact-extraction was done (e.g. because not activated in the analysis) 
+               // this property is completely omitted.
+        {
+            "name": "Product Weight", // preferred label of the fact-def. in the lang of the text
+            "reference": "http://example.com/foo/ProductWeight", // URI of the fact-definition
+            "type": "numeric", // enum, entity, numeric, range, dimension, date, duration, event
+            "value": [
+                "foo", "bar"
+            ],
+            "mentions": [
+                { 
+                    "prefix": "x50x15 mm ",
+                    "text": "Weight: 0.3 kg",
+                    "suffix": " Shipping ",
+                    "context": "...",
+                    "start": 15,
+                    "end": 26
+                },
+                { /* more mentions ... */}
+            ]
         },
-        ...
-      ]
-    }  
-  ],
-  'categories' : [
-    {
-      'label': '...', (preferred label of the category)
-      'reference': '...', (URI of the category if available)
-      'summary' : ..., (if summary query parameter is given)
-      'confidence': ...
-  ]
+        { /* more facts */ }
+    ], /* END facts */
+
+    "categories": [ // if no classification was done (e.g. because not activated in the analysis)  
+                    // this property is completely omitted.
+        {
+            "dataset": "dbpedia",
+            "component": "machine-linking",
+            "reference": "http://dbpedia.org/resource/xxxx",
+            "confidence": 0.1234563,
+            "properties": {
+                "name": "...",
+                "summary": "...",
+                "image": [
+                    "http://..."
+                ]
+            }
+        },
+        { /* more categories */ }
+    ], /* END categories */
+
+    "sentiments": { // if no sentiment analysis was done (e.g. because not activated in the analysis) 
+                    //  this property is completely omitted.
+        "positive": 0.6213,
+        "negative": 0.2112
+    } /* END sentiments */
+
 }</pre>
                   </div>
                 </div>
