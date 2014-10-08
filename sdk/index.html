@@ -91,7 +91,7 @@ title: SDK
                 <h3 id="issues" class="anchor">Issues</h3>
                 <p>
                   Bug reports or features requests should go directly into the issue
-                  tracket of each implementation in <a href="http://code.redlink.co">bitbucket</a>.
+                  tracket of each implementation in <a href="https://github.com/redlink-gmbh">GitHub</a>.
                   <a href="../contact">contact us</a>.
                 </p>
 
@@ -107,34 +107,28 @@ title: SDK
               
                 <h3 id="java-installation" class="anchor">Installation</h3>
                 <p>
-                  The Java SDK uses <a href="http://maven.apache.org">Maven</a> as build system. So
-                  if you also use it, you would just need to add this dependency to your project and
-                  the tools will automatically retrive it from <a href="http://repo.dev.redlink.io">our repository</a>:
+                  The Java SDK uses <a href="http://maven.apache.org">Maven</a> as build system, and it's 
+                  <a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22io.redlink%22">available from Maven Central</a>. 
+                  So if you want to use it, you would just need to add this dependency to your project and
+                  it will automatically retrieved:
                 </p>
                 <pre class="prettyprint">&lt;project&gt;
-  ...
-  &lt;repositories&gt;
-    &lt;repository&gt;
-      &lt;id&gt;redlink&lt;/id&gt;
-      &lt;url&gt;http://repo.dev.redlink.io/content/repositories/public-releases&lt;/url&gt;
-    &lt;/repository&gt;
-  &lt;/repositories&gt;
   ...
   &lt;dependencies&gt;
     &lt;dependency&gt;
       &lt;groupId>io.redlink&lt;/groupId&gt;
       &lt;artifactId>redlink-sdk-java&lt;/artifactId&gt;
-      &lt;version>1.0.0-BETA&lt;/version&gt;
+      &lt;version>1.0.2-BETA&lt;/version&gt;
     &lt;/dependency&gt;
   &lt;/dependencies&gt;
   ...
 &lt;/project&gt;</pre>
 
-                <!--
+
                 <p>
                   You can take a look to the <a href="java/doc">javadoc</a>. Or, if you want to know some more 
                   implementations detail, the source code is available
-                  <a href="http://bitbucket.org/redlinkgmbh/sdk-java">at bitbucket</a>:
+                  <a href="https://github.com/redlink-gmbh/redlink-java-sdk">at github</a>:
                 </p>
                 <pre class="prettyprint">git clone http://bitbucket.org/redlinkgmbh/sdk-java redlink-sdk-java</pre>
                 -->
