@@ -227,7 +227,7 @@ textarea {
 
 body {
   margin: 0;
-  font-family: Roboto, arial, sans-serif;
+  font-family: 'Open Sans', arial, sans-serif;
   font-size: 13px;
   line-height: 20px;
   color: #444444;
@@ -1069,7 +1069,7 @@ input,
 button,
 select,
 textarea {
-  font-family: Roboto, arial, sans-serif;
+  font-family: arial, sans-serif;
 }
 
 label {
@@ -3994,7 +3994,6 @@ input[type="submit"].btn.btn-mini {
 .navbar-search .search-query {
   padding: 4px 14px;
   margin-bottom: 0;
-  font-family: Roboto, arial, sans-serif;
   font-size: 13px;
   font-weight: normal;
   line-height: 1;
