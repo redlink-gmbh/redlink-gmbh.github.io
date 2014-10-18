@@ -59,7 +59,7 @@ rdfdotApp.controller("ConfigurationCtrl", function($scope,$http) {
         $scope.alerts = [];
         $scope.loader = true;
 
-        $http.post("http://rdfdot.dev.redlink.io/rdfdot/render",$scope.data,{ 'params': $scope.configuration }).
+        $http.post("http://demo4.newmedialab.at/rdfdot/render",$scope.data,{ 'params': $scope.configuration }).
             success(function(img) {
                 $scope.loader = false;
                 $scope.image = img;
