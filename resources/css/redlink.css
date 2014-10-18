@@ -75,9 +75,6 @@ li {
 #menu.sf-menu > li a strong {
     padding: 0px 5px;
 }
-#menu li a:hover {
-    text-decoration: none;
-}
 #menu li span,
 #menu li .nav-active span {
     border-radius: 3px;
@@ -102,6 +99,9 @@ li {
     font-size: 35px;
     color: #fff;
     line-height: 45px;
+}
+.menu-logo li a:hover {
+    text-decoration: none;
 }
 .menu-logo.is-sticky {
     width: 100%;
