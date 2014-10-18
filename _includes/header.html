@@ -1,21 +1,62 @@
 
   <body>
 
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="brand" href="/"><img src="/resources/img/redlink-developers.png" alt="Redlink Developers" /></a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li{% if page.url == '/' %} class="active"{% endif %}><a href="/">Home</a></li>
-              <li{% if page.url contains '/api' %} class="active"{% endif %}><a href="/api">API</a></li>
-              <li{% if page.url contains '/sdk' %} class="active"{% endif %}><a href="/sdk">SDK</a></li>
-              <li{% if page.url contains '/plugins' %} class="active"{% endif %}><a href="/plugins">Plugins</a></li>
-              <li{% if page.url contains '/demos' or page.url contains '/console' %} class="active"{% endif %}><a href="/demos">Demos</a></li>
-              <li{% if page.url contains '/faq' %} class="active"{% endif %}><a href="/faq">FAQ</a></li>
-              <li{% if page.url contains '/contact' %} class="active"{% endif %}><a href="/contact">Contact</a></li>
+    <div id="undefined-sticky-wrapper" class="sticky-wrapper" style="height: 121px;">
+      <section class="menu-logo withmetamenu">
+        <div id="metamenu">
+          <div class="menu-meta-menu-container">
+            <ul id="meta-nav" class="menu">
+              <li id="menu-item-113" class="meta-developer menu-item menu-item-type-custom menu-item-object-custom menu-item-113">
+                <a target="_blank" href="http://dev.redlink.io/"><i class="fa fa-file-code-o"></i>Developers</a>
+              </li>
+              <li id="menu-item-115" class="meta-dashboard menu-item menu-item-type-custom menu-item-object-custom menu-item-115">
+                <a target="_blank" href="http://my.redlink.io"><i class="fa fa-bar-chart"></i>Dashboard</a>
+              </li>
+              <li id="menu-item-114" class="meta-home menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home">
+                <a href="http://pool.roider.at/redlinknew/"><i class="fa fa-home"></i>Website</a>
+              </li>
             </ul>
           </div>
         </div>
-      </div>
+        <div class="container" style="height: 87px;">
+          <div class="row">
+            <div class="col-md-2" style="float: left;">
+              <h1><a href="/" rel="home"><div class="navbar-logo">dev.redlink.io</div></a></h1>
+            </div>
+            <div class="col-md-10 right" style="text-align: right;">
+              <ul id="menu" class="sf-menu2 sf-menu  l_tinynav1 sf-js-enabled sf-arrows">
+                <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                  <a href="/"{% if page.url == '/' %} class="nav-active"{% endif %}><strong>Home</strong><span></span></a>
+                </li>
+                <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                  <a href="/api"{% if page.url contains '/api' %} class="nav-active"{% endif %}><strong>API</strong><span></span></a>
+                </li>
+                <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                  <a href="/console"{% if page.url contains '/console' %} class="nav-active"{% endif %}><strong>Console</strong><span></span></a>
+                </li>
+                <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                  <a href="/sdk"{% if page.url contains '/sdk' %} class="nav-active"{% endif %}><strong>SDK</strong><span></span></a>
+                </li>
+                <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                  <a href="/plugins"{% if page.url contains '/plugins' %} class="nav-active"{% endif %}><strong>Plugins</strong><span></span></a>
+                </li>
+                <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                  <a href="/demos"{% if page.url contains '/demos' %} class="nav-active"{% endif %}><strong>Demos</strong><span></span></a>
+                </li>
+                <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                  <a href="/faq"{% if page.url contains '/faq' %} class="nav-active"{% endif %}><strong>FAQ</strong><span></span></a>
+                </li>
+                <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                  <a href="/contact"{% if page.url contains '/contact' %} class="nav-active"{% endif %}><strong>Contact Us</strong><span></span></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
+
+    <div style="clear: both;"></div>
+
+
+
