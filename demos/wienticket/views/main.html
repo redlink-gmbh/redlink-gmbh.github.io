@@ -1,0 +1,1 @@
+<div ng-repeat="(date, categories) in events track by date" class="events"> <h1 ng-bind="date"></h1> <div ng-repeat="(category, arr) in categories track by category" class="category"> <h2 ng-bind="category"></h2> <event ng-model="event" ng-repeat="event in arr track by event.uri.value"></event> </div> </div>
