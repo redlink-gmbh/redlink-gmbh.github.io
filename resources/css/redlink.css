@@ -212,6 +212,23 @@ li {
     padding: 1px 0px 0px 0;
     border-bottom: 1px solid #434242;
 }
+@media (max-width: 900px) {
+    #metamenu ul#meta-nav {
+        display: inline-block;
+        float: none;
+        list-style-type: none;
+        padding-right: 10px;
+        text-align: left;
+    }
+    #metamenu ul#meta-nav li {
+        font-size: 12px;
+        float: right;
+        padding: 3px 0 3px 6px;
+    }
+    #metamenu ul#meta-nav li a {
+        font-size: 12px;
+    }
+}
 #metamenu {
     background-color: #4e4b4b;
     display: block;
