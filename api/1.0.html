@@ -1,6 +1,7 @@
 ---
 layout: default
 title: API Documetation
+redirect_from: "/api/"
 ---
 
       <div class="row">
@@ -38,10 +39,10 @@ title: API Documetation
                 The Redlink API provides a set of RESTful web services, grouped according
                 their purpose: content analysis, semantic search and linked data publishing.
               </p>
-              <p style="background-color: #e60909">
+              <p>
                 This documentation prodives the official documentation for the
-                <a href="1.0-BETA.html"><strong>version 1.0-BETA</strong></a> of the API;
-                please, check the <a href="1.0.html">latest version</a>.
+                <a href="1.0.html"><strong>version 1.0</strong></a> of the API;
+                please, check the <a href="latest">latest version</a>.
               </p>
             </div>
 
@@ -65,8 +66,7 @@ title: API Documetation
                   the necessary functionality.
                 </p>
                 <p>
-                  We are currently in <strong>public beta</strong>, so you can register at 
-                  <a href="https://my.redlink.io">my.redlink.io</a>
+                  You can register at <a href="https://my.redlink.io">my.redlink.io</a>
                   for getting free access to the platform for a trial period of 42 days 
                   (<a href="http://redlink.co/semantic-platform/#pricing">pricing details</a>).
                 </p>
@@ -125,12 +125,11 @@ title: API Documetation
                 <p>
                   All endpoints are available under the following schema:
                 </p>
-                <pre style="font-size:1.3em;">https://api.redlink.io/1.0-BETA/{ENDPOINT}?key={KEY}&amp;...</pre>
+                <pre style="font-size:1.3em;">https://api.redlink.io/1.0/{ENDPOINT}?key={KEY}&amp;...</pre>
                 <p>
                   where:
                 </p>
                 <dl>
-                  <!--<dt><span class="tt">{VERSION}</span></dt><dd>is the API version (in this case <span class="tt">1.0-BETA</span>)</dd>-->
                   <dt><span class="tt">{ENDPOINT}</span></dt><dd>is the concrete REST endpoint to call</dd>
                   <dt><span class="tt">{KEY}</span></dt><dd>is your key for using the API</dd>
                 </dl>
@@ -145,7 +144,7 @@ title: API Documetation
                 <p>
                   The API provides a special endpoint at the root:
                 </p>
-                <pre>https://api.redlink.io/1.0-BETA?key={KEY}</pre>
+                <pre>https://api.redlink.io/1.0?key={KEY}</pre>
                 <p>
                   which returns some information about the usage of a concrete key.
                 </p>
