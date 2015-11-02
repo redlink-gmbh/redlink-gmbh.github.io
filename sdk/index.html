@@ -291,8 +291,10 @@ print "%s enities extracted: \n - %s" % (len(enhancements["entities"]), "\n - ".
                   Or importing and querying data:
                 </p>
 
-                <pre class="prettyprint">data.import_dataset(open("example.ttl"), "text/turtle", "example")
-results = data.sparql_tuple_query("select * where { ?s ?p ?o }", "example")
+                <pre class="prettyprint">data.import_dataset(open("example.ttl"), "text/turtle", "example")</pre>
+
+                <pre class="prettyprint">results = data.sparql_tuple_query("select * where { ?s ?p ?o }", "example")
+
 for result in results["results"]["bindings"]:
     print(" - (%s, %s, %s)" % (result["s"]["value"], result["p"]["value"], result["o"]["value"]))
 </pre>
