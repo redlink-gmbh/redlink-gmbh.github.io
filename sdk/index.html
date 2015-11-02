@@ -18,12 +18,12 @@ title: SDK
               <li class="nav-header">PHP</li>
               <li><a href="#php">Installation</a></li>
               <li><a href="#php-usage">Usage</a></li>
-              <li class="nav-header">Javascript</li>
-              <li><a href="#js">Installation</a></li>
-              <li><a href="#js-usage">Usage</a></li>
               <li class="nav-header">Python</li>
               <li><a href="#python">Installation</a></li>
               <li><a href="#python-usage">Usage</a></li>
+              <li class="nav-header">Javascript</li>
+              <li><a href="#js">Installation</a></li>
+              <!--<li><a href="#js-usage">Usage</a></li>-->
             </ul>
           </div>
         </div>
@@ -132,7 +132,7 @@ title: SDK
                 </p>
                 <pre class="prettyprint">git clone git@github.com:redlink-gmbh/redlink-java-sdk.git</pre>
 
-                <h3 id="java-usages" class="anchor">Usage</h3>
+                <h3 id="java-usage" class="anchor">Usage</h3>
 
                 <p>
                   The main entry point is provided by an abstract factory 
@@ -208,7 +208,7 @@ for (Map&lt;String, RDFNode&gt; result: results) {
               
               <div class="card-body">
 
-                <h3 id="java-installation" class="anchor">Installation</h3>
+                <h3 id="php-installation" class="anchor">Installation</h3>
                 <p>
                   The PHP SDK uses <a href="http://getcomposer.org">Composer</a> as management system. But these 
                   initial versions are not being yet deployed in public repositories. So you would need to manually
@@ -232,7 +232,7 @@ for (Map&lt;String, RDFNode&gt; result: results) {
                 </p>
                 <pre class="prettyprint">git clone git@github.com:redlink-gmbh/redlink-php-sdk.git</pre>
 
-                <h3 id="java-usages" class="anchor">Usage</h3>
+                <h3 id="php-usage" class="anchor">Usage</h3>
 
                 <p>
                   The PHP SDK provide a Factory (<span class="tt">\RedLink\RedLinkFactory</span>) that provides
@@ -246,14 +246,63 @@ $enhancements = $analysisClient->enhance($request);</pre>
 
 
                 <p>
-                  Its usage is actually quite similar than the Java SDK. In the following days we will
-                  provide more technical details and usage examples.
+                  Its usage is actually quite similar than the Java SDK, so feel free to inspect the methods.
                 </p>
 
 
               </div>
 
             </div>
+
+            <div class="card">
+
+              <h2 class="card-heading simple" id="python" class="anchor">Python SDK</h2>
+              
+              <div class="card-body">
+              
+                <p>
+                  The Python SDK has not been releaset yet, but you have a functional development snapshot
+                  available <a href="https://github.com/redlink-gmbh/redlink-php-sdk">at github</a>:
+                </p>
+
+                <pre class="prettyprint">git clone git@github.com:redlink-gmbh/redlink-python-sdk.git</pre>
+
+                <h3 id="python-usage" class="anchor">Usage</h3>
+
+                <p>
+                  As for other languages, the Python SDK provides a factory to create the different clients 
+                  for each part of the <a href="../api">API</a>:
+                </p>
+
+                <pre class="prettyprint">api_key = "..."
+analysis = redlink.create_analysis_client(api_key)
+data = redlink.create_data_client(api_key)</pre>
+
+
+                <p>
+                  Then its usage is actually quite similar than other languages, for instance enhancing a a text:
+                </p>
+
+                <pre class="prettyprint">enhancements = analysis.enhance("Lorem Ipsum is simply dummy text of the printing and typesetting industry.")
+print "%s enities extracted: \n - %s" % (len(enhancements["entities"]), "\n - ".join(["%s (%s)" % (e["reference"], e["confidence"]) for e in enhancements["entities"]]))</pre>
+
+
+                <p>
+                  Or importing and querying data:
+                </p>
+
+                <pre class="prettyprint">data.import_dataset(open("example.ttl"), "text/turtle, "example")
+results = data.sparql_tuple_query("select * where { ?s ?p ?o }", "example")
+for result in results["results"]["bindings"]:
+    print(" - (%s, %s, %s)" % (result["s"]["value"], result["p"]["value"], result["0"]["value"]))
+</pre>
+
+
+              </div>
+
+            </div>
+
+          </div>
 
             <div class="card">
 
@@ -268,22 +317,6 @@ $enhancements = $analysisClient->enhance($request);</pre>
               </div>
 
             </div>
-
-            <div class="card">
-
-              <h2 class="card-heading simple" id="python" class="anchor">Python SDK</h2>
-              
-              <div class="card-body">
-              
-                <p>
-                  Comming soon...
-                </p>
-
-              </div>
-
-            </div>
-
-          </div>
 
         </div>
 
