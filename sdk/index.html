@@ -284,7 +284,8 @@ data = redlink.create_data_client(api_key)</pre>
                 </p>
 
                 <pre class="prettyprint">enhancements = analysis.enhance("Lorem Ipsum is simply dummy text of the printing and typesetting industry.")
-print "%s enities extracted: \n - %s" % (len(enhancements["entities"]), "\n - ".join(["%s (%s)" % (e["reference"], e["confidence"]) for e in enhancements["entities"]]))</pre>
+print("extracted %s enities:" % len(enhancements["entities"])
+print("\n - %s" % "\n - ".join(["%s (%s)" % (e["reference"], e["confidence"]) for e in enhancements["entities"]]))</pre>
 
 
                 <p>
