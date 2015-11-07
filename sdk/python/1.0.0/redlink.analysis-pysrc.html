@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>redlink.analysis</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="redlink-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://dev.redlink.sdh#python">Redlink Python SDK</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="redlink-module.html">Package&nbsp;redlink</a> ::
+        Module&nbsp;analysis
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="redlink.analysis-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="redlink.analysis-module.html">Module redlink.analysis</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment"># -*- coding: utf8 -*-</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-comment"># Licensed under the Apache License, Version 2.0 (the "License");</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment"># you may not use this file except in compliance with the License.</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment"># You may obtain a copy of the License at</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-comment">#     http://www.apache.org/licenses/LICENSE-2.0</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-comment"># Unless required by applicable law or agreed to in writing, software</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-comment"># distributed under the License is distributed on an "AS IS" BASIS,</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-comment"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-comment"># See the License for the specific language governing permissions and</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-comment"># limitations under the License.</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">logging</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">json</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">xml</tt><tt class="py-op">.</tt><tt class="py-name">dom</tt> <tt class="py-keyword">import</tt> <tt class="py-name">minidom</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">rdflib</tt><tt class="py-op">.</tt><tt class="py-name">graph</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Graph</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Module redlink.client=redlink.client-module.html"><a title="redlink.client" class="py-name" href="#" onclick="return doclink('link-0', 'client', 'link-0');">client</a></tt> <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Class redlink.client.RedlinkClient=redlink.client.RedlinkClient-class.html"><a title="redlink.client.RedlinkClient" class="py-name" href="#" onclick="return doclink('link-1', 'RedlinkClient', 'link-1');">RedlinkClient</a></tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Module redlink.format=redlink.format-module.html"><a title="redlink.format" class="py-name" href="#" onclick="return doclink('link-2', 'format', 'link-2');">format</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Function redlink.format.from_mimetype()=redlink.format-module.html#from_mimetype"><a title="redlink.format.from_mimetype" class="py-name" href="#" onclick="return doclink('link-3', 'from_mimetype', 'link-3');">from_mimetype</a></tt><tt class="py-op">,</tt> <tt id="link-4" class="py-name" targets="Class redlink.format.Format=redlink.format.Format-class.html"><a title="redlink.format.Format" class="py-name" href="#" onclick="return doclink('link-4', 'Format', 'link-4');">Format</a></tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"> </tt>
+<a name="RedlinkAnalysis"></a><div id="RedlinkAnalysis-def"><a name="L24"></a><tt class="py-lineno">24</tt> <a class="py-toggle" href="#" id="RedlinkAnalysis-toggle" onclick="return toggle('RedlinkAnalysis');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="redlink.analysis.RedlinkAnalysis-class.html">RedlinkAnalysis</a><tt class="py-op">(</tt><tt class="py-base-class">RedlinkClient</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RedlinkAnalysis-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="RedlinkAnalysis-expanded"><a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt class="py-docstring">    Redlink Analysis Client</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">    <tt id="link-5" class="py-name" targets="Variable redlink.analysis.RedlinkAnalysis.path=redlink.analysis.RedlinkAnalysis-class.html#path,Variable redlink.data.RedlinkData.path=redlink.data.RedlinkData-class.html#path"><a title="redlink.analysis.RedlinkAnalysis.path
+redlink.data.RedlinkData.path" class="py-name" href="#" onclick="return doclink('link-5', 'path', 'link-5');">path</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"analysis"</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">    <tt id="link-6" class="py-name" targets="Variable redlink.analysis.RedlinkAnalysis.enhance_path=redlink.analysis.RedlinkAnalysis-class.html#enhance_path"><a title="redlink.analysis.RedlinkAnalysis.enhance_path" class="py-name" href="#" onclick="return doclink('link-6', 'enhance_path', 'link-6');">enhance_path</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"enhance"</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"> </tt>
+<a name="RedlinkAnalysis.__init__"></a><div id="RedlinkAnalysis.__init__-def"><a name="L32"></a><tt class="py-lineno">32</tt> <a class="py-toggle" href="#" id="RedlinkAnalysis.__init__-toggle" onclick="return toggle('RedlinkAnalysis.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="redlink.analysis.RedlinkAnalysis-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">key</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RedlinkAnalysis.__init__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="RedlinkAnalysis.__init__-expanded"><a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"><tt class="py-docstring">        @type key: str</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"><tt class="py-docstring">        @param key: api key</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">        <tt class="py-name">super</tt><tt class="py-op">(</tt><tt id="link-7" class="py-name" targets="Class redlink.analysis.RedlinkAnalysis=redlink.analysis.RedlinkAnalysis-class.html"><a title="redlink.analysis.RedlinkAnalysis" class="py-name" href="#" onclick="return doclink('link-7', 'RedlinkAnalysis', 'link-7');">RedlinkAnalysis</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Method redlink.analysis.RedlinkAnalysis.__init__()=redlink.analysis.RedlinkAnalysis-class.html#__init__,Method redlink.client.RedlinkClient.__init__()=redlink.client.RedlinkClient-class.html#__init__,Method redlink.data.RedlinkData.__init__()=redlink.data.RedlinkData-class.html#__init__,Method redlink.format.FormatDef.__init__()=redlink.format.FormatDef-class.html#__init__"><a title="redlink.analysis.RedlinkAnalysis.__init__
+redlink.client.RedlinkClient.__init__
+redlink.data.RedlinkData.__init__
+redlink.format.FormatDef.__init__" class="py-name" href="#" onclick="return doclink('link-8', '__init__', 'link-8');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">key</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line"> </tt>
+<a name="RedlinkAnalysis.enhance"></a><div id="RedlinkAnalysis.enhance-def"><a name="L39"></a><tt class="py-lineno">39</tt> <a class="py-toggle" href="#" id="RedlinkAnalysis.enhance-toggle" onclick="return toggle('RedlinkAnalysis.enhance');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="redlink.analysis.RedlinkAnalysis-class.html#enhance">enhance</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">content</tt><tt class="py-op">,</tt> <tt class="py-param">input</tt><tt class="py-op">=</tt><tt id="link-9" class="py-name"><a title="redlink.format.Format" class="py-name" href="#" onclick="return doclink('link-9', 'Format', 'link-4');">Format</a></tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Variable redlink.format.Format.TEXT=redlink.format.Format-class.html#TEXT"><a title="redlink.format.Format.TEXT" class="py-name" href="#" onclick="return doclink('link-10', 'TEXT', 'link-10');">TEXT</a></tt><tt class="py-op">,</tt> <tt class="py-param">output</tt><tt class="py-op">=</tt><tt id="link-11" class="py-name"><a title="redlink.format.Format" class="py-name" href="#" onclick="return doclink('link-11', 'Format', 'link-4');">Format</a></tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Variable redlink.format.Format.JSON=redlink.format.Format-class.html#JSON"><a title="redlink.format.Format.JSON" class="py-name" href="#" onclick="return doclink('link-12', 'JSON', 'link-12');">JSON</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RedlinkAnalysis.enhance-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="RedlinkAnalysis.enhance-expanded"><a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"><tt class="py-docstring">        Enhance the content</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line"><tt class="py-docstring">        @type content: str</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line"><tt class="py-docstring">        @param content: target content</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line"><tt class="py-docstring">        @type input: C{FormatDef}</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line"><tt class="py-docstring">        @param input: input type</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line"><tt class="py-docstring">        @type output: C{FormatDef}</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line"><tt class="py-docstring">        @param output: output type</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line"><tt class="py-docstring">        @return: enhancements</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">        <tt id="link-13" class="py-name" targets="Module redlink.analysis=redlink.analysis-module.html"><a title="redlink.analysis" class="py-name" href="#" onclick="return doclink('link-13', 'analysis', 'link-13');">analysis</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">status</tt><tt class="py-op">[</tt><tt class="py-string">"analyses"</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">        <tt class="py-name">params</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Variable redlink.client.RedlinkClient.param_in=redlink.client.RedlinkClient-class.html#param_in"><a title="redlink.client.RedlinkClient.param_in" class="py-name" href="#" onclick="return doclink('link-14', 'param_in', 'link-14');">param_in</a></tt><tt class="py-op">:</tt> <tt class="py-name">input</tt><tt class="py-op">.</tt><tt class="py-name">name</tt><tt class="py-op">,</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Variable redlink.client.RedlinkClient.param_out=redlink.client.RedlinkClient-class.html#param_out"><a title="redlink.client.RedlinkClient.param_out" class="py-name" href="#" onclick="return doclink('link-15', 'param_out', 'link-15');">param_out</a></tt><tt class="py-op">:</tt> <tt class="py-name">output</tt><tt class="py-op">.</tt><tt class="py-name">name</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">        <tt class="py-op">}</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">        <tt class="py-name">resource</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_build_url</tt><tt class="py-op">(</tt><tt class="py-string">"/%s/%s/%s"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name"><a title="redlink.analysis.RedlinkAnalysis.path
+redlink.data.RedlinkData.path" class="py-name" href="#" onclick="return doclink('link-16', 'path', 'link-5');">path</a></tt><tt class="py-op">,</tt> <tt id="link-17" class="py-name"><a title="redlink.analysis" class="py-name" href="#" onclick="return doclink('link-17', 'analysis', 'link-13');">analysis</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="redlink.analysis.RedlinkAnalysis.enhance_path" class="py-name" href="#" onclick="return doclink('link-18', 'enhance_path', 'link-6');">enhance_path</a></tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">params</tt><tt class="py-op">)</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">(</tt><tt class="py-string">"Making request to %s"</tt> <tt class="py-op">%</tt> <tt class="py-name">resource</tt><tt class="py-op">)</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line"> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">        <tt class="py-name">response</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_post</tt><tt class="py-op">(</tt><tt class="py-name">resource</tt><tt class="py-op">,</tt> <tt class="py-name">content</tt><tt class="py-op">,</tt> <tt class="py-name">input</tt><tt class="py-op">.</tt><tt class="py-name">mimetype</tt><tt class="py-op">,</tt> <tt class="py-name">output</tt><tt class="py-op">.</tt><tt class="py-name">mimetype</tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line"> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">response</tt><tt class="py-op">.</tt><tt class="py-name">status_code</tt> <tt class="py-op">!=</tt> <tt class="py-number">200</tt><tt class="py-op">:</tt> </tt>
+<a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line">            <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">error</tt><tt class="py-op">(</tt><tt class="py-string">"Enhance request returned %d: %s"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">response</tt><tt class="py-op">.</tt><tt class="py-name">status_code</tt><tt class="py-op">,</tt> <tt class="py-name">response</tt><tt class="py-op">.</tt><tt class="py-name">reason</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">response</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line">            <tt class="py-name">content_type</tt> <tt class="py-op">=</tt> <tt id="link-19" class="py-name"><a title="redlink.format.from_mimetype" class="py-name" href="#" onclick="return doclink('link-19', 'from_mimetype', 'link-3');">from_mimetype</a></tt><tt class="py-op">(</tt><tt class="py-name">response</tt><tt class="py-op">.</tt><tt class="py-name">headers</tt><tt class="py-op">[</tt><tt class="py-string">"Content-Type"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">content_type</tt> <tt class="py-op">==</tt> <tt id="link-20" class="py-name"><a title="redlink.format.Format" class="py-name" href="#" onclick="return doclink('link-20', 'Format', 'link-4');">Format</a></tt><tt class="py-op">.</tt><tt id="link-21" class="py-name"><a title="redlink.format.Format.JSON" class="py-name" href="#" onclick="return doclink('link-21', 'JSON', 'link-12');">JSON</a></tt> <tt class="py-keyword">or</tt> <tt class="py-name">content_type</tt> <tt class="py-op">==</tt> <tt id="link-22" class="py-name"><a title="redlink.format.Format" class="py-name" href="#" onclick="return doclink('link-22', 'Format', 'link-4');">Format</a></tt><tt class="py-op">.</tt><tt id="link-23" class="py-name" targets="Variable redlink.format.Format.REDLINKJSON=redlink.format.Format-class.html#REDLINKJSON"><a title="redlink.format.Format.REDLINKJSON" class="py-name" href="#" onclick="return doclink('link-23', 'REDLINKJSON', 'link-23');">REDLINKJSON</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">json</tt><tt class="py-op">.</tt><tt class="py-name">loads</tt><tt class="py-op">(</tt><tt class="py-name">response</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">)</tt> </tt>
+<a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt> <tt class="py-name">content_type</tt> <tt class="py-op">==</tt> <tt id="link-24" class="py-name"><a title="redlink.format.Format" class="py-name" href="#" onclick="return doclink('link-24', 'Format', 'link-4');">Format</a></tt><tt class="py-op">.</tt><tt id="link-25" class="py-name" targets="Variable redlink.format.Format.XML=redlink.format.Format-class.html#XML"><a title="redlink.format.Format.XML" class="py-name" href="#" onclick="return doclink('link-25', 'XML', 'link-25');">XML</a></tt> <tt class="py-keyword">or</tt> <tt class="py-name">content_type</tt> <tt class="py-op">==</tt> <tt id="link-26" class="py-name"><a title="redlink.format.Format" class="py-name" href="#" onclick="return doclink('link-26', 'Format', 'link-4');">Format</a></tt><tt class="py-op">.</tt><tt id="link-27" class="py-name" targets="Variable redlink.format.Format.REDLINKXML=redlink.format.Format-class.html#REDLINKXML"><a title="redlink.format.Format.REDLINKXML" class="py-name" href="#" onclick="return doclink('link-27', 'REDLINKXML', 'link-27');">REDLINKXML</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">minidom</tt><tt class="py-op">.</tt><tt class="py-name">parse</tt><tt class="py-op">(</tt><tt class="py-name">response</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">)</tt> </tt>
+<a name="L73"></a><tt class="py-lineno">73</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt> <tt class="py-name">content_type</tt><tt class="py-op">.</tt><tt class="py-name">rdflibMapping</tt><tt class="py-op">:</tt> </tt>
+<a name="L74"></a><tt class="py-lineno">74</tt>  <tt class="py-line">                <tt class="py-name">g</tt> <tt class="py-op">=</tt> <tt class="py-name">Graph</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L75"></a><tt class="py-lineno">75</tt>  <tt class="py-line">                <tt class="py-name">g</tt><tt class="py-op">.</tt><tt class="py-name">parse</tt><tt class="py-op">(</tt><tt id="link-28" class="py-name" targets="Module redlink.data=redlink.data-module.html"><a title="redlink.data" class="py-name" href="#" onclick="return doclink('link-28', 'data', 'link-28');">data</a></tt><tt class="py-op">=</tt><tt class="py-name">response</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">,</tt> <tt id="link-29" class="py-name"><a title="redlink.format" class="py-name" href="#" onclick="return doclink('link-29', 'format', 'link-2');">format</a></tt><tt class="py-op">=</tt><tt class="py-name">content_type</tt><tt class="py-op">.</tt><tt class="py-name">rdflibMapping</tt><tt class="py-op">)</tt> </tt>
+<a name="L76"></a><tt class="py-lineno">76</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">g</tt> </tt>
+<a name="L77"></a><tt class="py-lineno">77</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L78"></a><tt class="py-lineno">78</tt>  <tt class="py-line">                <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">warn</tt><tt class="py-op">(</tt><tt class="py-string">"Handler not found for %s, so returning raw text response..."</tt> <tt class="py-op">%</tt> <tt class="py-name">content_type</tt><tt class="py-op">.</tt><tt class="py-name">mimetype</tt><tt class="py-op">)</tt> </tt>
+<a name="L79"></a><tt class="py-lineno">79</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">response</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> </tt>
+</div></div><a name="L80"></a><tt class="py-lineno">80</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="redlink-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://dev.redlink.sdh#python">Redlink Python SDK</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Sat Nov  7 12:46:13 2015
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
