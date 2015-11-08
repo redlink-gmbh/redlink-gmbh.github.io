@@ -261,7 +261,14 @@ $enhancements = $analysisClient->enhance($request);</pre>
               <div class="card-body">
               
                 <p>
-                  The Python SDK has not been releaset yet, but you have a functional development snapshot
+                  The Python SDK is available <a href="https://pypi.python.org/pypi/redlink">from PyPI</a>,
+                  so it can be easily installed:
+                </p>
+
+                <pre class="prettyprint">sudo pip install redlink</pre>
+
+                <p>
+                  The source code is
                   <a href="https://github.com/redlink-gmbh/redlink-python-sdk">available from github</a>:
                 </p>
 
@@ -299,6 +306,11 @@ print("\n - %s" % "\n - ".join(["%s (%s)" % (e["reference"], e["confidence"]) fo
 for result in results["results"]["bindings"]:
     print(" - (%s, %s, %s)" % (result["s"]["value"], result["p"]["value"], result["o"]["value"]))
 </pre>
+
+                <p>
+                  Further details about the methods supported in the
+                  <a href="python/1.0.0/">api docs</a>.
+                </p>
 
 
               </div>
