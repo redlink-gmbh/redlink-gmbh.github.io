@@ -461,6 +461,18 @@ clientBuilder.sslContext(ctx);</pre>
         "positive": 0.6213,
         "negative": 0.2112
     } /* END sentiments */
+    
+    "keywords": [ // if no keyword extraction was done (e.g. because not activated in the analysis)  
+                  // this property is completely omitted.
+        {
+            "count": 2, //how often the keyword appears in the processed text. For n-grams this also
+                        //includes counts of sub-mentions.
+            "keyword": "Hagia Sophia", //the extracted keyword
+            "metric": 0.8167006795638168 // measure of the importance of the keyword 
+                                         // relative to the parsed text
+        },
+        { /* more keywords */ }
+    ] /* END categories */
 
 }</pre>
                   </div>
