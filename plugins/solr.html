@@ -108,12 +108,6 @@ title: Solr Plugin
 
     &lt;processor class="redlink.EnhancerProcessorFactory" &gt;
 
-        &lt;!-- prefixes CAN be set; useful ti simplify path descriptions and type constraints --&gt;
-        &lt;lst name="redlink.prefixes"&gt;
-            &lt;str name="skos"&gt;http://www.w3.org/2004/02/skos/core#&lt;/str&gt;
-            &lt;str name="dct"&gt;http://purl.org/dc/terms/&lt;/str&gt;
-        &lt;/lst&gt;
-
         &lt;!-- redlink.key MUST be defined --&gt;
         &lt;str name="redlink.key"&gt;YOUR_API_KEY&lt;/str&gt;
 
@@ -147,6 +141,13 @@ title: Solr Plugin
     &lt;processor class="redlink.EnhancerProcessorFactory" &gt;
 
         (...)
+
+        &lt;!-- prefixes CAN be set; useful ti simplify path descriptions and type constraints --&gt;
+        &lt;lst name="redlink.prefixes"&gt;
+            &lt;str name="skos"&gt;http://www.w3.org/2004/02/skos/core#&lt;/str&gt;
+            &lt;str name="dct"&gt;http://purl.org/dc/terms/&lt;/str&gt;
+        &lt;/lst&gt;
+
 
         &lt;!-- redlink.outputs CAN be set; the arr defines more then one output fields --&gt;
         &lt;arr name="redlink.output"&gt;
