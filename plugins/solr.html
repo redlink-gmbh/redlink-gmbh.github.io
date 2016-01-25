@@ -123,7 +123,26 @@ title: Solr Plugin
         &lt;str name="redlink.input"&gt;my_input_field&lt;/str&gt;
 
         &lt;!-- redlink.output CAN be set, default is 'output_field'; can be String or Array --&gt;
-        &lt;!--&lt;str name="redlink.output"&gt;my_output_field&lt;/str&gt;--&gt;
+        &lt;str name="redlink.output"&gt;my_output_field&lt;/str&gt;
+
+    &lt;/processor&gt;
+    &lt;processor class="solr.LogUpdateProcessorFactory" /&gt;
+    &lt;processor class="solr.RunUpdateProcessorFactory" /&gt;
+&lt;/updateRequestProcessorChain&gt;
+
+&lt;requestHandler name="/update" class="solr.UpdateRequestHandler"&gt;
+    &lt;lst name="defaults"&gt;
+        &lt;str name="update.chain"&gt;redlinkChain&lt;/str&gt;
+    &lt;/lst&gt;
+&lt;/requestHandler&gt;</pre>
+            </li>
+            <li>
+                In case you need a more custom enhancements handling, you can configure the <tt>redlink.output</tt> 
+                field with more detail by replacing the simple configuration shown above:
+                  <pre class="prettyprint">&lt;updateRequestProcessorChain name="redlinkChain" default="true"&gt;
+    &lt;processor class="redlink.EnhancerProcessorFactory" &gt;
+
+        (...)
 
         &lt;!-- redlink.outputs CAN be set; the arr defines more then one output fields --&gt;
         &lt;arr name="redlink.output"&gt;
@@ -149,16 +168,7 @@ title: Solr Plugin
             &lt;/lst&gt;
         &lt;/arr&gt;
 
-    &lt;/processor&gt;
-    &lt;processor class="solr.LogUpdateProcessorFactory" /&gt;
-    &lt;processor class="solr.RunUpdateProcessorFactory" /&gt;
-&lt;/updateRequestProcessorChain&gt;
-
-&lt;requestHandler name="/update" class="solr.UpdateRequestHandler"&gt;
-    &lt;lst name="defaults"&gt;
-        &lt;str name="update.chain"&gt;redlinkChain&lt;/str&gt;
-    &lt;/lst&gt;
-&lt;/requestHandler&gt;</pre>
+    &lt;/processor&gt;</pre>
             </li>
         </ol>
 
