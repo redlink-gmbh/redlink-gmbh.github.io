@@ -105,6 +105,7 @@ title: Solr Plugin
             <li>
                 Enable component in <tt>solrconfig.xml</tt> by adding something like this:
                   <pre class="prettyprint">&lt;updateRequestProcessorChain name="redlinkChain" default="true"&gt;
+
     &lt;processor class="redlink.EnhancerProcessorFactory" &gt;
 
         &lt;!-- prefixes CAN be set; useful ti simplify path descriptions and type constraints --&gt;
@@ -126,8 +127,10 @@ title: Solr Plugin
         &lt;str name="redlink.output"&gt;my_output_field&lt;/str&gt;
 
     &lt;/processor&gt;
+
     &lt;processor class="solr.LogUpdateProcessorFactory" /&gt;
     &lt;processor class="solr.RunUpdateProcessorFactory" /&gt;
+
 &lt;/updateRequestProcessorChain&gt;
 
 &lt;requestHandler name="/update" class="solr.UpdateRequestHandler"&gt;
@@ -140,6 +143,7 @@ title: Solr Plugin
                 In case you need a more custom enhancements handling, you can configure the <tt>redlink.output</tt> 
                 field with more detail by replacing the simple configuration shown above:
                   <pre class="prettyprint">&lt;updateRequestProcessorChain name="redlinkChain" default="true"&gt;
+
     &lt;processor class="redlink.EnhancerProcessorFactory" &gt;
 
         (...)
