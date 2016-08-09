@@ -5,7 +5,7 @@
  * Licensed under the MIT License: http://www.opensource.org/licenses/mit-license.php
 */
 		  
-var tb_pathToImage = "../resources/img/loadingAnimation.gif";
+var tb_pathToImage = "https://redlink-cdn-2fc0b.firebaseapp.com/img/loadingAnimation.gif";
 
 jQuery.browser = {};
 (function () {
